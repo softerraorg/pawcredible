@@ -1,0 +1,162 @@
+{% schema %}
+{
+  "name": "Custom Footer",
+  "tag": "footer",
+  "class": "custom-footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Logo"
+    },
+    {
+      "type": "url",
+      "id": "footer_logo_link",
+      "label": "Logo Link"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Column 2 Menu"
+    },
+    {
+      "type": "text",
+      "id": "menu_1_heading",
+      "label": "Column 2 Heading",
+      "default": "Quick Links"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Column 3 Menu"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_heading",
+      "label": "Column 3 Heading",
+      "default": "Information"
+    },
+    {
+      "type": "text",
+      "id": "column4_heading",
+      "label": "Column 4 Heading",
+      "default": "Stay Connected"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_description",
+      "label": "Description",
+      "default": "Subscribe to our newsletter and follow us on social media."
+    },
+    {
+      "type": "text",
+      "id": "footer_email",
+      "label": "Email Address",
+      "default": "info@example.com"
+    },
+    {
+      "type": "text",
+      "id": "social_heading",
+      "label": "Social Heading",
+      "default": "Follow Us"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "social_icon",
+      "name": "Social Icon",
+      "settings": [
+        {
+          "type": "url",
+          "id": "icon_url",
+          "label": "Icon URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "social_icon_img",
+          "label": "Social Icon"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer",
+      "category": "Footer"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="custom-footer-section">
+  <div class="page-width">
+    <div class="footer-container">
+      <!-- Column 1: Logo -->
+      <div class="footer-col">
+        {% if section.settings.footer_logo %}
+          <a href="{{ section.settings.footer_logo_link }}" class="footer-logo">
+            <img src="{{ section.settings.footer_logo | image_url }}" alt="Footer Logo">
+          </a>
+        {% endif %}
+      </div>
+  
+      <!-- Column 2: Menu 1 -->
+      <div class="footer-col">
+        <div class="footer-menu-wrap">
+          <div class="footer-menu-card">
+            <h4>{{ section.settings.menu_1_heading }}</h4>
+            <div class="footer-menu">
+              {% if section.settings.menu_1 != blank %}
+                {% for link in linklists[section.settings.menu_1].links %}
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                {% endfor %}
+              {% else %}
+                <p>No menu selected.</p>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="footer-menu-card">
+            <h4>{{ section.settings.menu_2_heading }}</h4>
+            <div class="footer-menu">
+              {% if section.settings.menu_2 != blank %}
+                {% for link in linklists[section.settings.menu_2].links %}
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                {% endfor %}
+              {% else %}
+                <p>No menu selected.</p>
+              {% endif %}
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+  
+      <!-- Column 4: Contact & Social -->
+      <div class="footer-col footer-contact">
+        <h3>{{ section.settings.column4_heading }}</h3>
+        <p>{{ section.settings.footer_description }}</p>
+        <div class="footer-mail">
+          <a href="mailto:{{ section.settings.footer_email }}">
+            <span class="footer-mail-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+            <span>{{ section.settings.footer_email }}</span>
+          </a>
+        </div>
+        <h4>{{ section.settings.social_heading }}</h4>
+        <div class="social-icons">
+          {% for block in section.blocks %}
+            {% if block.type == 'social_icon' %}
+              <a href="{{ block.settings.icon_url }}" target="_blank">
+                <img src="{{ block.settings.social_icon_img | image_url }}" alt="Footer Logo">
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+</div>

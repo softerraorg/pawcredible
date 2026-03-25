@@ -1,0 +1,225 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "text_Btkp3K": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "rating_nrmczF": {
+          "type": "rating",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "custom_liquid_KbhfRM": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<h4 style=\"text-align:center; color: #4B882E;\"> All products are currently available for pre-order. Orders will be shipped after April 10th. </h4>"
+          }
+        },
+        "quantity_selector_TGkcUN": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "square"
+          }
+        },
+        "essential_free_shipping_app_block_aXERdr": {
+          "type": "shopify://apps/essential-free-shipping/blocks/app-block/4125375e-37c8-4137-949d-c4e1a3aac572",
+          "disabled": true,
+          "settings": {
+            "id": "cmioowp9f003bjmr5ptzbdf8w"
+          }
+        },
+        "seal_subscriptions_subscription_widget_XrFVYH": {
+          "type": "shopify://apps/seal-subscriptions/blocks/subscription-widget/13b25004-a140-4ab7-b5fe-29918f759699",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "custom_liquid_M6n743": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"freeshippingbar\"></div>"
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_Btkp3K",
+        "title",
+        "rating_nrmczF",
+        "price",
+        "description",
+        "custom_liquid_KbhfRM",
+        "quantity_selector_TGkcUN",
+        "variant_picker",
+        "essential_free_shipping_app_block_aXERdr",
+        "seal_subscriptions_subscription_widget_XrFVYH",
+        "buy_buttons",
+        "custom_liquid_M6n743",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "single-product-tabs": {
+      "type": "single-product-tabs",
+      "blocks": {
+        "benefit_card_Jejdee": {
+          "type": "benefit_card",
+          "settings": {
+            "icon": "shopify://shop_images/1.png",
+            "card_title": "{{ product.metafields.custom.benefit_one_heading.value }}",
+            "card_text": "{{ product.metafields.custom.benefit_one_desc_updated.value }}"
+          }
+        },
+        "benefit_card_y9X6pe": {
+          "type": "benefit_card",
+          "settings": {
+            "icon": "shopify://shop_images/2.png",
+            "card_title": "{{ product.metafields.custom.benefit_two_heading.value }}",
+            "card_text": "{{ product.metafields.custom.beneifit_two_desc.value }}"
+          }
+        },
+        "benefit_card_yFDjKT": {
+          "type": "benefit_card",
+          "settings": {
+            "icon": "shopify://shop_images/3.png",
+            "card_title": "{{ product.metafields.custom.benefit_three_heading.value }}",
+            "card_text": "{{ product.metafields.custom.beneifit_three_desc.value }}"
+          }
+        },
+        "benefit_card_qwJVrW": {
+          "type": "benefit_card",
+          "settings": {
+            "icon": "shopify://shop_images/4.png",
+            "card_title": "{{ product.metafields.custom.benefit_four_heading.value }}",
+            "card_text": "{{ product.metafields.custom.beneifit_four_desc.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_card_Jejdee",
+        "benefit_card_y9X6pe",
+        "benefit_card_yFDjKT",
+        "benefit_card_qwJVrW"
+      ],
+      "settings": {}
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "signup_section_wUTqGG": {
+      "type": "signup-section",
+      "blocks": {
+        "forms_inline_PbkNGP": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "787962",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_PbkNGP"
+      ],
+      "name": "Sign Up Section",
+      "settings": {
+        "sub_heading": "Join The Pawcredible Pack",
+        "heading": "Get 10% Off & Unleash Exclusive Perks!",
+        "paragraph": "Be First To Fetch Fresh Deals, Limited Edition Treats, Surprise Drops, & Dog-Parent Tips Straight To Your Inbox. Every Email = Treats For You (And Your Furry Friend)!",
+        "success_message": "Thank you for subscribing!",
+        "button_label": "Subscribe"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "single-product-tabs",
+    "related-products",
+    "signup_section_wUTqGG"
+  ]
+}

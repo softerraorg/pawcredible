@@ -1,0 +1,179 @@
+{% schema %}
+{
+  "name": "Signup Popup",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join our newsletter"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Popup Image"
+    },
+    {
+      "type": "number",
+      "id": "delay",
+      "label": "Popup Delay (ms)",
+      "default": 3000
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Signup Popup",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+
+<div class="signup-popup" id="signupPopup">
+  <div class="signup-popup-overlay"></div>
+  <div class="signup-popup-container">
+    <button class="popup-close" id="popupClose">&times;</button>
+    <div class="signup-popup-content">
+      <div class="popup-left">
+        {% if section.settings.heading != blank %}
+          <h2>{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        
+ {% for block in section.blocks %}
+    {% render block %}
+  {% endfor %}      </div>
+
+      <div class="popup-right">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url }}" alt="popup image">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const popup = document.getElementById("signupPopup");
+  const form = document.getElementById("popup-signup-form");
+  const submitBtn = document.getElementById("submitBtn");
+  const successEl = document.getElementById("popupSuccess");
+  const errorEl = document.getElementById("popupError");
+  const closeBtn = document.getElementById("popupClose");
+  const overlay = document.querySelector(".signup-popup-overlay");
+  
+  // Check if user has already subscribed
+  const hasSubscribed = localStorage.getItem('newsletter_subscribed');
+  const popupShownToday = localStorage.getItem('popup_shown_' + new Date().toDateString());
+  
+  // Show popup only if not subscribed and not shown today
+  if (!hasSubscribed && !popupShownToday) {
+    setTimeout(function(){
+      popup.style.display = "flex";
+      localStorage.setItem('popup_shown_' + new Date().toDateString(), 'true');
+    }, {{ section.settings.delay | default: 3000 }});
+  }
+
+  // Close popup function
+  function closePopup() {
+    popup.style.display = "none";
+  }
+
+  // Close handlers
+  overlay.addEventListener("click", closePopup);
+  closeBtn.addEventListener("click", closePopup);
+
+  // Handle form submission
+  form.addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    // Reset messages and show loader
+    successEl.style.display = "none";
+    errorEl.style.display = "none";
+    
+    // Show loader
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
+    
+    submitBtn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'flex';
+
+    try {
+      const formData = new FormData(form);
+      
+      // Add a minimum delay to show loader properly
+      const [response] = await Promise.all([
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json, text/javascript, */*; q=0.01',
+            'X-Requested-With': 'XMLHttpRequest'
+          }
+        }),
+        new Promise(resolve => setTimeout(resolve, 1000)) // Minimum 1 second loader
+      ]);
+
+      // Hide loader
+      btnText.style.display = 'inline';
+      btnLoader.style.display = 'none';
+      submitBtn.disabled = false;
+
+      // Check for success
+      if (response.ok || response.status === 200 || response.redirected) {
+        // Show success alert
+        alert("{{ section.settings.success_message }}");
+        
+        // Mark as subscribed in localStorage
+        localStorage.setItem('newsletter_subscribed', 'true');
+        
+        // Close popup after alert
+        setTimeout(function(){
+          closePopup();
+        }, 500);
+        
+      } else {
+        // Check response for error details
+        const responseText = await response.text();
+        
+        // Check if email already exists
+        if (responseText.toLowerCase().includes('already') || responseText.toLowerCase().includes('exists')) {
+          alert("You're already subscribed! Thank you.");
+          localStorage.setItem('newsletter_subscribed', 'true');
+          
+          setTimeout(function(){
+            closePopup();
+          }, 500);
+        } else {
+          alert("{{ section.settings.error_message }}");
+        }
+      }
+    } catch (error) {
+      console.error('Subscription error:', error);
+      
+      // Hide loader
+      btnText.style.display = 'inline';
+      btnLoader.style.display = 'none';
+      submitBtn.disabled = false;
+      
+      alert("{{ section.settings.error_message }}");
+    }
+  });
+
+  // Close popup with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && popup.style.display === 'flex') {
+      closePopup();
+    }
+  });
+});
+</script>

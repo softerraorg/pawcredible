@@ -1,0 +1,76 @@
+{% schema %}
+{
+  "name": "Custom Header Menu",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "search_icon",
+      "label": "Upload Custom Search Icon (optional)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu block",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Select a menu"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 1,
+  "presets": [
+    {
+      "name": "Custom Header Menu"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="custom-menu-search">
+  <div class="page-width">
+    <div class="custom-header-wrap">
+      <ul>
+        {% for block in section.blocks %}
+          {% assign menu = block.settings.menu %}
+          {% if linklists[menu] and linklists[menu].links.size > 0 %}
+            {% for link in linklists[menu].links %}
+              <li>
+                <a href="{{ link.url }}" class="text-gray-800 hover:text-blue-500">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+              <a href="#open-subscriber" data-popup="subscriber">Subscribe & Save</a>
+            {% if localization.country.iso_code == "US" %}
+              <li>
+                <a href="/pages/shipping-delivery-usa">Shipping US</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="/pages/shipping-delivery-uk">Shipping UK</a>
+              </li>
+            {% endif %}
+          {% else %}
+            <li>No menu selected or menu is empty.</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+
+      <form action="/search" method="get">
+        <input
+          type="text"
+          name="q"
+          placeholder="Search"
+        />
+        <button type="submit" class="search-button">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.0833 17.4167C14.1334 17.4167 17.4167 14.1334 17.4167 10.0833C17.4167 6.03325 14.1334 2.75 10.0833 2.75C6.03325 2.75 2.75 6.03325 2.75 10.0833C2.75 14.1334 6.03325 17.4167 10.0833 17.4167Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19.25 19.25L15.2625 15.2625" stroke="white" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

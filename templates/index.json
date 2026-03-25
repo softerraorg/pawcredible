@@ -1,0 +1,554 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse our latest products",
+            "heading_size": "h0"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "disabled": true,
+      "settings": {
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "banner_section_ynk4XY": {
+      "type": "banner-section",
+      "name": "Custom Banner",
+      "settings": {
+        "heading": "Real Food. Real Results. Real Tail Wags.",
+        "subtext": "No fillers, no junk – just premium, bioavailable nutrition for dogs of all ages and breeds.",
+        "button_text": "Shop Now",
+        "button_link": "shopify://collections/all",
+        "banner_image": "shopify://shop_images/Group_301.png"
+      }
+    },
+    "home_about_section_VcUBXT": {
+      "type": "home-about-section",
+      "name": "Home About",
+      "settings": {
+        "about_image": "shopify://shop_images/Group_306_774cd721-a6f3-4089-b5b1-216d9de4793a.png",
+        "subheading": "About Us",
+        "heading": "Welcome to Pawcredible",
+        "content": "<h4>where with every bite, your dog gets a little closer to his or her healthiest, happiest self.</h4><p>At Pawcredible, we believe dogs deserve more than just food, they deserve real nourishment. That's why we created a unique freeze dried blend from nature and perfected by science. Our recipe contains no preservatives, no fillers, No Grains, and not a single man-made vitamin or mineral-because only the very best bioavailable ingredients belong in your dog's bowl.</p><p>We care about nourishing your dog's health from nose to tail. Each ingredient is carefully chosen for what it gives your dog, not just what’s left out..</p><p>The payoff? Products that promote more than 10 vital health benefits, including:</p><ul><li>A Calmer, Happier Personality: Less anxiety and stress, more tail wags</li><li>Shinier Coats & Joint Support: For dogs that enjoy running and playing</li><li>Stronger Immune System: Superfoods defend against allergies and daily challenges</li><li>Easy Digestion: Bioavailable ingredients mean more regular, comfortable poops</li><li>Sharper Brain & Focus: Healthy fats like EPA & DHA fuel learning and attentiveness</li><li>Improved Gut Health: Prebiotics help your dog's beneficial gut bacteria grow strong</li><li>Healthy Energy Levels: Antioxidant polyphenols maintain your dog's energy throughout the day</li><li>Longer, Happier Life: Our blend of raw ingredients, veggies, and fruits delivers maximum nutrition in every meal</li><li>Oral Health: Healthier teeth and gums, for fresh doggy smiles</li><li>Happy Hormones: Serotonin support helps your dog be more in the moment and engaged with you</li><li>Food should nourish, not pass through. That’s why we make every bowl count.</li></ul><p>Join us in our mission to help dogs thrive naturally, happily, and incredibly.</p><p>Because your dog isn’t just a pet, they’re family. And every family member deserves the best.</p>"
+      }
+    },
+    "home_content1_xWbU7p": {
+      "type": "home-content1",
+      "name": "Home Content1",
+      "settings": {
+        "content1_heading": "Pure Chicken. Superfood Powered. Freeze-Dried to Perfection.",
+        "main_image": "shopify://shop_images/Group_299_1.png",
+        "col1_heading": "Why It Matters?",
+        "col1_text": "Made with 75% real chicken and freeze-dried to preserve raw nutrition, our treats pack clean protein with functional superfoods like pumpkin, cranberries, turmeric, and seaweed. Every piece supports vitality, digestion, and immune health, all in a form dogs love.",
+        "col2_heading": "What Makes It Different?",
+        "col2_text": "Unlike standard freeze-dried treats that are just meat, our Raw Fusion treats go further. We fuse the highest quality chicken with a spectrum of scientifically chosen superfoods and prebiotics, delivering a unique balance of taste and targeted wellness. It’s not just a snack; it’s nutrition with purpose.",
+        "col3_heading": "How It Fits Into Your Dog’s Life?",
+        "col3_text": "Whether you’re training, rewarding, or topping up meals, the Raw Fusion Treat Pouch is designed for everyday flexibility. Lightweight and mess-free, it’s perfect for walks, hikes, or travel. One pouch brings convenience, health, and joy into every moment you share with your dog."
+      }
+    },
+    "feeding_calculator_paw": {
+      "type": "feeding-calculator",
+      "name": "Feeding calculator",
+      "settings": {
+        "heading": "Build Your Dog's Personal Feeding Plan",
+        "heading_size": "h2",
+        "subheading": "Tell us about your dog — we’ll tailor bags, toppers, treats, and daily grams.",
+        "layout": "inline",
+        "open_button_label": "Start feeding calculator",
+        "loading_text": "Loading calculator…",
+        "error_text": "Could not load calculator config. Please refresh the page.",
+        "label_weight": "Weight (kg)",
+        "hint_weight": "Approximate weight is fine.",
+        "label_activity": "Activity level",
+        "hint_activity": "Relaxed uses the lower end of the guideline range; Very Active uses the upper end.",
+        "label_continue": "Continue",
+        "label_see": "See my plan",
+        "label_back": "Back",
+        "label_daily_grams": "Daily serving",
+        "label_monthly": "Monthly requirement",
+        "label_purchase": "Choose how you want to buy",
+        "label_subscribe": "Subscribe & Save",
+        "label_onetime": "One-time purchase",
+        "label_off": "off",
+        "label_daily_sub": "Daily cost (Subscribe & Save)",
+        "label_daily_once": "Daily cost",
+        "label_day": "day",
+        "label_one_time_compare": "One-time equivalent:",
+        "label_sub_compare": "Subscribe & Save:",
+        "label_recalc": "Recalculate",
+        "label_close": "Close",
+        "msg_extra_bag": "You're within 1kg of filling the next bag — an extra bag this month is optional.",
+        "msg_bumped": "Recommended coverage uses __BAGS__ × __KG__ kg bags to match monthly need.",
+        "cart_mode": "bundle",
+        "msg_bundle_incomplete": "Connect Mini, Adventurer, and Alpha pack products in this section to enable Add to cart.",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "home_benefits_section_ETHt8T": {
+      "type": "home-benefits-section",
+      "name": "Raw Life Benefits",
+      "settings": {
+        "section_heading": "Smarter Feeding, Made Simple",
+        "center_image": "shopify://shop_images/cvsasadf_1.png",
+        "button_label": "Shop Now",
+        "button_link": "shopify://collections/all",
+        "top_left_title": "Never Run Out",
+        "top_left_text": "Get Your Bestie's Favorites Right At Your Doorstep",
+        "top_right_title": "Save On Every Order",
+        "top_right_text": "Save 10-15% Off All Recurring Orders",
+        "bottom_left_title": "Easy To Customize",
+        "bottom_left_text": "Swap Products In Your Subscription With Just A Few Clicks",
+        "bottom_right_title": "Complete Control",
+        "bottom_right_text": "Pause, Cancel, Or Change Autoship Frequency Anytime"
+      }
+    },
+    "custom_review_9BgeqY": {
+      "type": "custom-review",
+      "blocks": {
+        "review_gk3mqY": {
+          "type": "review",
+          "settings": {
+            "client_title": "Owners of a 5-year old Vizsla named Finn",
+            "name": "Daniel & Brooke Mercer",
+            "designation": "",
+            "review": "We hike with Finn a few times a week, and finding food that keeps his energy up without upsetting his stomach has always been tricky. We were lucky enough to get early access to Pawcredible a couple of months ago and honestly, the difference has been noticeable. He’s got more stamina, his paws don’t get dry like they used to, and he genuinely perks up when we open the bag. We take the treat pouch on every long hike now."
+          }
+        },
+        "review_bwC6jH": {
+          "type": "review",
+          "settings": {
+            "client_title": "Owner of an athletic Border Collie named Jasper",
+            "name": "Marcus Boyd",
+            "designation": "",
+            "review": "I’m pretty careful about what I eat, so it made sense to start paying the same attention to Jasper’s food too. What stood out with Pawcredible was the balance, good quality protein without a load of unnecessary filler. He’s holding his muscle better, seems to recover faster after agility training, and his coat has a healthy shine to it now. The freeze-dried pieces feel like a proper boost for him. I’d happily recommend it to anyone with an active dog."
+          }
+        },
+        "review_qkfpYX": {
+          "type": "review",
+          "settings": {
+            "client_title": "Owner of a 1-year-old Frenchie named Luna",
+            "name": "Sophie Whitman",
+            "designation": "",
+            "review": "As a first-time dog mum I definitely over-research everything, so feeling confident about Luna’s food really mattered to me. Pawcredible won me over because I could actually recognise the ingredients, nothing weird or overcomplicated. She used to pick at her meals, but now she gets genuinely excited when she sees me reach for the bag. Even her tear stains have eased a lot, which her groomer pointed out before I even noticed."
+          }
+        },
+        "review_HExwHx": {
+          "type": "review",
+          "settings": {
+            "client_title": "Owner of a 12-year-old Golden Retriever named Daisy",
+            "name": "Helen Foster",
+            "designation": "",
+            "review": "Daisy’s in her senior years now, so we’re much more careful about what she eats. A lot of kibble has been too harsh on her stomach or just difficult for her to chew. Getting early access to Pawcredible honestly felt like a bit of luck. It’s gentle on her digestion, she eats it without fuss, and the topper really helps her finish her meals without any encouragement. She seems more comfortable getting up in the mornings and is moving a little easier again. It’s been really nice to see that spark come back."
+          }
+        },
+        "review_Xi7WCQ": {
+          "type": "review",
+          "settings": {
+            "client_title": "Owner of a 3-year-old Cavapoo named Milo",
+            "name": "Emily Hartwell",
+            "designation": "",
+            "review": "Milo’s stomach has always been a bit on the dramatic side. We’ve tried so many foods over the years that it felt like nothing was ever quite right. Pawcredible is the first one that didn’t lead to restless nights or an unsettled stomach. He finishes his bowl without thinking twice now, his coat looks healthier, and his energy stays steady through the day instead of coming in peaks and crashes. Honestly, it’s been such a relief to finally find something that works for him"
+          }
+        },
+        "review_NYejLd": {
+          "type": "review",
+          "settings": {
+            "client_title": "Owner of four mixed-breed rescues",
+            "name": "Karen Delgado",
+            "designation": "",
+            "review": "Our house is basically run by four dogs with very strong opinions. Getting them all to agree on the same food felt impossible until Pawcredible. Even the oldest one, who’s known for turning his nose up at anything that isn’t roast chicken eats it without any fuss. I also like that it’s clean and not greasy, and it actually smells like real food. Feeding time is a lot less stressful now."
+          }
+        }
+      },
+      "block_order": [
+        "review_gk3mqY",
+        "review_bwC6jH",
+        "review_qkfpYX",
+        "review_HExwHx",
+        "review_Xi7WCQ",
+        "review_NYejLd"
+      ],
+      "name": "Custom Reviews",
+      "settings": {
+        "title": "Trusted by Tails, Loved by Paws",
+        "sub-title": "Why Dog Parents Choose Pawcredible"
+      }
+    },
+    "product_tabs_slider_99EkCM": {
+      "type": "product-tabs-slider",
+      "blocks": {
+        "product_block_gLKgk9": {
+          "type": "product_block",
+          "settings": {
+            "product": "raw-fusion-topper-50g",
+            "tab_name": "Raw Fusion Chicken Topper"
+          }
+        },
+        "product_block_QT3EwN": {
+          "type": "product_block",
+          "settings": {
+            "product": "treat-pouch",
+            "tab_name": "Raw Fusion Chicken Treats"
+          }
+        },
+        "product_block_QTryrM": {
+          "type": "product_block",
+          "settings": {
+            "product": "biobowl-fusion-6kg",
+            "tab_name": "BioBowl Chicken Fusion"
+          }
+        }
+      },
+      "block_order": [
+        "product_block_gLKgk9",
+        "product_block_QT3EwN",
+        "product_block_QTryrM"
+      ],
+      "name": "Product Tabs Slider",
+      "settings": {}
+    },
+    "three_column_section_LJL6kx": {
+      "type": "three-column-section",
+      "blocks": {
+        "column_K3BNJh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/1_bb3d82de-8739-4870-b109-50b9d9693471.png",
+            "heading": "Freeze-Dried For Maximum Nutrition",
+            "text": "Our gentle freeze-drying process locks in all the natural vitamins, minerals, and taste your dog craves. No artificial preservatives, just pure, concentrated nutrition that supports your dog's health from nose to tail."
+          }
+        },
+        "column_QFgDnH": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/2_fc2b37b5-251e-418b-9a69-5fb80741d6fc.png",
+            "heading": "10+ Vital Health Benefits",
+            "text": "From shinier coats and stronger immunity to better brain function and happier moods . Our science-backed recipes deliver real results your dog will feel."
+          }
+        },
+        "column_zrUVDN": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/3_8e1a965e-2cbf-4977-b383-9a1735b99a70.png",
+            "heading": "More Than Just Food It's Real Nourishment",
+            "text": "When food isn't bioavailable, it's just passing through. Our recipes are crafted so every bowl counts - delivering the nutrition your dog's body craves and can actually use. Because your dog isn't just a pet, they're family."
+          }
+        }
+      },
+      "block_order": [
+        "column_K3BNJh",
+        "column_QFgDnH",
+        "column_zrUVDN"
+      ],
+      "name": "Three Column Content",
+      "settings": {
+        "main_heading": "Your Dog Deserves The Best"
+      }
+    },
+    "client_review_MPUJVA": {
+      "type": "client-review",
+      "blocks": {
+        "testimonial_rK7xYC": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Game Changer for Our Mealtime Routine",
+            "review": "Never thought I’d write a review about dog food, but here we are. Our Goldendoodle, Maple, used to nibble at her kibble like it was a chore. Since switching to Pawcredible, she finishes her bowl in minutes. Her digestion is smoother, her coat looks shinier, and she genuinely seems happier at mealtimes. This kibble has been a total win for us.",
+            "author": "Rachel S",
+            "rating": 5,
+            "product": "Pawcredible BioBowl Chicken Kibble"
+          }
+        },
+        "testimonial_PJ7Ya3": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Finally Something My Picky Eater Loves",
+            "review": "Our senior Shih Tzu, Boomer, turns down almost everything… except this topper. He’s gained healthy weight back and even waits by his bowl now. Absolutely worth it.",
+            "author": "Kevin R",
+            "rating": 5,
+            "product": "Freeze-Dried Raw Chicken Topper"
+          }
+        },
+        "testimonial_D6G9Db": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Finally a Kibble My Dog Is Excited About",
+            "review": "Our miniature schnauzer, Penny, has never run to her bowl… until we found this kibble. She genuinely looks thrilled every time we pour it out. Her digestion has been smoother and her coat feels softer. This stuff is staying on our shelf permanently.",
+            "author": "Danielle H",
+            "rating": 5,
+            "product": "BioBowl Fusion"
+          }
+        },
+        "testimonial_DamqxT": {
+          "type": "testimonial",
+          "settings": {
+            "title": "High-Value Treats That Actually Work",
+            "review": "We’ve tried so many treats for training, but nothing grabs our Beagle’s attention like these freeze-dried bites. They don’t feel or look plasticky, they smell like real food, and our dog will literally teleport across the room for them. Makes training way easier.",
+            "author": "Mark E",
+            "rating": 5,
+            "product": "Freeze-Dried Treats"
+          }
+        },
+        "testimonial_Kh8BLY": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Perfect Combo for Everyday Feeding",
+            "review": "We use the BioBowl Fusion for our daily meals and the freeze-dried treats as rewards throughout the day. The quality is consistent across both, clean ingredients, great smell, and our Aussie Shepherd goes crazy for them.",
+            "author": "Tom & Lila B",
+            "rating": 5,
+            "product": "BioBowl Fusion + Freeze-Dried Treats"
+          }
+        },
+        "testimonial_XxpPRN": {
+          "type": "testimonial",
+          "settings": {
+            "title": "The Secret Ingredient for an Empty Bowl",
+            "review": "Our Lab, Hazel, has phases where she’ll randomly stop eating her kibble. A friend recommended Pawcredible’s topper and it changed everything. One sprinkle and Hazel thinks her bowl is filled with a gourmet meal. She hasn’t skipped a meal since. Total game changer.",
+            "author": "Priya R",
+            "rating": 5,
+            "product": "Freeze-Dried Topper"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_rK7xYC",
+        "testimonial_PJ7Ya3",
+        "testimonial_D6G9Db",
+        "testimonial_DamqxT",
+        "testimonial_Kh8BLY",
+        "testimonial_XxpPRN"
+      ],
+      "name": "Testimonials Slider",
+      "settings": {
+        "sub_heading": "Don't just take our word for it",
+        "heading": "Read reviews from our customers"
+      }
+    },
+    "custom_liquid_MqBmAk": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div id=\"subs-link\"> </div>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "signup_section_ihUeyJ": {
+      "type": "signup-section",
+      "blocks": {
+        "forms_inline_GccpNj": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "787962",
+            "text_color": "#ffffff",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_GccpNj"
+      ],
+      "name": "Sign Up Section",
+      "settings": {
+        "sub_heading": "Join The Pawcredible Pack",
+        "heading": "Get 10% Off & Unleash Exclusive Perks!",
+        "paragraph": "Be First To Fetch Fresh Deals, Limited Edition Treats, Surprise Drops, & Dog-Parent Tips Straight To Your Inbox. Every Email = Treats For You (And Your Furry Friend)!",
+        "success_message": "Thanks for subscribing, your coupon is on the way to your mailbox",
+        "button_label": "Subscribe"
+      }
+    },
+    "product_slider_JUgp83": {
+      "type": "product-slider",
+      "blocks": {
+        "product_block_ntLnXC": {
+          "type": "product_block",
+          "settings": {
+            "product": "raw-fusion-topper-50g"
+          }
+        },
+        "product_block_ihjUaT": {
+          "type": "product_block",
+          "settings": {
+            "product": "raw-fusion-treats-30g"
+          }
+        },
+        "product_block_icT4Xk": {
+          "type": "product_block",
+          "disabled": true,
+          "settings": {
+            "product": "medium-roast-coffee-1"
+          }
+        }
+      },
+      "block_order": [
+        "product_block_ntLnXC",
+        "product_block_ihjUaT",
+        "product_block_icT4Xk"
+      ],
+      "disabled": true,
+      "name": "Product Slider",
+      "settings": {}
+    },
+    "faqs_section_Eywinh": {
+      "type": "faqs-section",
+      "blocks": {
+        "faq_item_LDpGVJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "1. What makes Pawcredible different?",
+            "answer": "<p>For our Paws in the UK and EU, all Pawcredible products are proudly made in the United Kingdom, meeting strict quality and safety standards.</p><p>For our Paws in North America, Pawcredible products are produced right in the US, ensuring freshness and compliance with local regulations.</p><p>Wherever your dog calls home, you can trust that every Pawcredible product is made with care, premium ingredients, and your dog’s health in mind!</p>"
+          }
+        },
+        "faq_item_bYDXFi": {
+          "type": "faq_item",
+          "settings": {
+            "question": "2. What is BioBowl Fusion?",
+            "answer": "<p>BioBowl Fusion is our complete premium meal, blending our high-quality kibble with our freeze-dried raw coating. It delivers the taste and nutrition of raw feeding with the<br/>convenience of dry food, no freezer, no mess, just open, pour, and serve.</p>"
+          }
+        },
+        "faq_item_PrC6Bx": {
+          "type": "faq_item",
+          "settings": {
+            "question": "3. What is Raw Fusion?",
+            "answer": "<p>Raw Fusion is our freeze-dried raw topper and treat range; also, our premium kibble is<br/>coated with our Raw Fusion topper. Packed with protein and nutrients from 100%<br/>natural ingredients, adding a burst of flavour and nourishment to every meal.</p>"
+          }
+        },
+        "faq_item_gPYRkc": {
+          "type": "faq_item",
+          "settings": {
+            "question": "4. What is Bioavailability?",
+            "answer": "<p>Bioavailability is how well your dog’s body can absorb and use the nutrients in their<br/>food. It’s not just about what’s in the bowl - it’s about what actually gets digested and<br/>turned into energy, strength, and health.<br/></p><p>At Pawcredible, every ingredient is chosen for maximum bioavailability - from fresh<br/>meats and superfoods to natural oils and vitamins, so your dog gets real nutritional<br/>benefits from every bite, not wasted fillers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_LDpGVJ",
+        "faq_item_bYDXFi",
+        "faq_item_PrC6Bx",
+        "faq_item_gPYRkc"
+      ],
+      "name": "FAQs Section",
+      "settings": {
+        "section_heading": "Frequently Asked Questions"
+      }
+    },
+    "popup_signup_3VyrcW": {
+      "type": "popup-signup",
+      "blocks": {
+        "forms_inline_BF68QC": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "787962",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_BF68QC"
+      ],
+      "custom_css": [
+        "._formFieldContainer_1mxsl_5 ._inputFilled_1mxsl_74 {transform: translate(-1px, -15px) !important;}"
+      ],
+      "name": "Signup Popup",
+      "settings": {
+        "heading": "Welcome to the Pack! Claim 10% Off Your First Order",
+        "image": "shopify://shop_images/popup-img.jpg",
+        "delay": 5000
+      }
+    },
+    "176081831029050042": {
+      "type": "apps",
+      "blocks": {
+        "instagram_feed_shoppable_video_orichi_instagram_block_AqPhrx": {
+          "type": "shopify://apps/instagram-feed-shoppable-video/blocks/orichi-instagram-block/b06431bf-3e42-4917-87e9-01944d0361e1",
+          "settings": {
+            "instagram_feed_id": "2f49c758-bdc5-467a-951b-efc1cdd39a5c"
+          }
+        }
+      },
+      "block_order": [
+        "instagram_feed_shoppable_video_orichi_instagram_block_AqPhrx"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "banner_section_ynk4XY",
+    "home_about_section_VcUBXT",
+    "home_content1_xWbU7p",
+    "feeding_calculator_paw",
+    "home_benefits_section_ETHt8T",
+    "custom_review_9BgeqY",
+    "product_tabs_slider_99EkCM",
+    "three_column_section_LJL6kx",
+    "client_review_MPUJVA",
+    "custom_liquid_MqBmAk",
+    "signup_section_ihUeyJ",
+    "product_slider_JUgp83",
+    "faqs_section_Eywinh",
+    "popup_signup_3VyrcW",
+    "176081831029050042"
+  ]
+}

@@ -1,0 +1,184 @@
+<section class="blog-main-section">
+  <div class="page-width">
+    <div class="blog-main-grid">
+      <!-- Blog Posts -->
+      <div class="blog-main-wrap">
+        <div class="blog-header">
+          <h2>{{ section.settings.heading }}</h2>
+          <div class="view-toggle">
+            <button class="grid-btn active" onclick="setGridView()">
+              <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="4.34783" height="4.52381" fill="#D9D9D9"/>
+              <rect y="7.23816" width="4.34783" height="4.52381" fill="#D9D9D9"/>
+              <rect y="14.4762" width="4.34783" height="4.52381" fill="#D9D9D9"/>
+              <rect x="7.82617" width="4.34783" height="4.52381" fill="#D9D9D9"/>
+              <rect x="7.82617" y="7.23816" width="4.34783" height="4.52381" fill="#D9D9D9"/>
+              <rect x="7.82617" y="14.4762" width="4.34783" height="4.52381" fill="#D9D9D9"/>
+              <rect x="15.6523" width="4.34783" height="4.52381" fill="#D9D9D9"/>
+              <rect x="15.6523" y="7.23816" width="4.34783" height="4.52381" fill="#D9D9D9"/>
+              <rect x="15.6523" y="14.4762" width="4.34783" height="4.52381" fill="#D9D9D9"/>
+              </svg>
+            </button>
+            <button class="list-btn" onclick="setListView()">
+            <svg width="28" height="19" viewBox="0 0 28 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="2.89653" height="3.3" fill="#1E1E1E"/>
+            <rect y="7.70007" width="2.89653" height="3.3" fill="#1E1E1E"/>
+            <rect y="15.4" width="2.89653" height="3.3" fill="#1E1E1E"/>
+            <rect x="6.75879" width="21.2412" height="3.3" fill="#1E1E1E"/>
+            <rect x="6.75879" y="7.70007" width="21.2412" height="3.3" fill="#1E1E1E"/>
+            <rect x="6.75879" y="15.4" width="21.2412" height="3.3" fill="#1E1E1E"/>
+            </svg>
+
+            </button>
+          </div>
+        </div>
+        <div class="blog-posts" id="blogList">
+          {% if blog %}
+            {% assign selected_blog = blog %}
+            {% for article in selected_blog.articles %}
+              <div class="blog-item">
+                <div class="blog-posts-img">
+                  <a href="{{ article.url }}">
+                    <img src="{{ article.image | image_url: width: 800 }}" alt="{{ article.title }}">
+                  </a>
+                  <a href="{{ selected_blog.url }}" class="blog-category">
+                    {{ selected_blog.title }}
+                  </a>
+                </div>
+                <div class="blog-posts-content">
+                  <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+                  <p class="excerpt">
+                    {{ article.excerpt | default: article.content | strip_html | truncatewords: 20 }}
+                  </p>
+                  <div class="blog-posts-btn">
+                    <p class="post-date">{{ article.published_at | date: "%B %d, %Y" }}</p>
+                    <a href="{{ article.url }}" class="read-more">Read More</a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <aside class="blog-sidebar">
+        <!-- Search -->
+        <div class="sidebar-box">
+          <form action="/search" method="get">
+            <input type="hidden" name="type" value="article">
+            <input type="text" name="q" placeholder="Search blog...">
+            <button type="submit">
+            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.5417 18.2083C14.7759 18.2083 18.2083 14.7759 18.2083 10.5417C18.2083 6.30748 14.7759 2.875 10.5417 2.875C6.30748 2.875 2.875 6.30748 2.875 10.5417C2.875 14.7759 6.30748 18.2083 10.5417 18.2083Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20.1248 20.125L15.9561 15.9562" stroke="white" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+            </svg>
+            </button>
+          </form>
+        </div>
+  
+        <!-- Popular Topics -->
+        <div class="sidebar-box sidebar-box1">
+          <h4>{{ section.settings.popular_heading }}</h4>
+          <p>{{ section.settings.popular_text }}</p>
+          <ul class="blog-categories">
+            {% for block in section.blocks %}
+              {% if block.type == 'popular_blog' %}
+                {% assign blog = blogs[block.settings.blog_link] %}
+                <li><a href="{{ blog.url }}">{{ blog.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+  
+        <!-- Signup -->
+        <div class="sidebar-box sidebar-box1 sidebar-box-signup">
+          <h4>{{ section.settings.signup_heading }}</h4>
+          <p>{{ section.settings.signup_text }}</p>
+          <div id="ANHFpSFZNWkk4NWZiS__forms_inline_trdY9N" data-form-root="true" data-forms-id="forms-root-787962" data-forms-text-color="#202020" data-forms-button-background-color="#202020" data-forms-button-label-color="#FFFFFF" data-forms-links-color="#1878B9" data-forms-errors-color="#E02229" data-forms-text-alignment="center" data-forms-alignment="center" data-forms-padding-top="0" data-forms-padding-right="0" data-forms-padding-bottom="24" data-forms-padding-left="0" style="--inline-container-min-height: 125px"><shopify-forms-embed id="app-embed" style="display: block;"></shopify-forms-embed></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  
+</section>
+
+<script>
+  function setGridView() {
+    document.getElementById('blogList').classList.remove('list-view');
+    document.querySelector('.grid-btn').classList.add('active');
+    document.querySelector('.list-btn').classList.remove('active');
+  }
+
+  function setListView() {
+    document.getElementById('blogList').classList.add('list-view');
+    document.querySelector('.list-btn').classList.add('active');
+    document.querySelector('.grid-btn').classList.remove('active');
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Blog Main Section",
+  "settings": [
+  {
+    "type": "text",
+    "id": "heading",
+    "label": "Main Heading",
+    "default": "Latest Articles"
+  },
+  {
+    "type": "text",
+    "id": "popular_heading",
+    "label": "Popular Topics Heading",
+    "default": "Popular Topics"
+  },
+  {
+    "type": "textarea",
+    "id": "popular_text",
+    "label": "Popular Topics Description",
+    "default": "Lorem ipsum dolor sit amet, consectetur"
+  },
+  {
+    "type": "text",
+    "id": "signup_heading",
+    "label": "Signup Form Heading",
+    "default": "Nemo enim ipsam voluptatem quia voluptas sit"
+  },
+  {
+    "type": "textarea",
+    "id": "signup_text",
+    "label": "Signup Form Description",
+    "default": "Get the latest blog posts directly in your inbox."
+  }
+],
+"blocks": [
+  {
+  "type": "blog_block",
+  "name": "Blog Source",
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog_handle",
+      "label": "Select Blog"
+    }
+  ]
+},
+  {
+    "type": "popular_blog",
+    "name": "Popular Blog",
+    "settings": [
+      {
+        "type": "blog",
+        "id": "blog_link",
+        "label": "Select Blog"
+      }
+    ]
+  }
+],
+  "presets": [
+    {
+      "name": "Blog Main Section"
+    }
+  ]
+}
+{% endschema %}

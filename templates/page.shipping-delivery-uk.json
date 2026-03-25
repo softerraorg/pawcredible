@@ -1,0 +1,115 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "shipping_delivery_YhH3eg": {
+      "type": "shipping-delivery",
+      "blocks": {
+        "third_column_enrxpi": {
+          "type": "third_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon1.png",
+            "title": "Wholesome Goodness in Every Pack",
+            "content": "Premium pet nutrition crafted with care — always natural, always delicious."
+          }
+        },
+        "third_column_AehMrH": {
+          "type": "third_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon2.png",
+            "title": "Fully Flexible Subscriptions",
+            "content": "Easily customize, skip, pause, or cancel your orders anytime. You’re in control."
+          }
+        },
+        "third_column_m6UEKe": {
+          "type": "third_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon3.png",
+            "title": "Free U.S. Shipping & Easy Returns",
+            "content": "Enjoy free standard shipping on U.S. orders over $50 & hassle-free returns."
+          }
+        },
+        "third_column_iwHKw9": {
+          "type": "third_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon4.png",
+            "title": "Ethical, Eco-Conscious Values",
+            "content": "We support sustainable farming, animal welfare, & eco-friendly practices."
+          }
+        },
+        "fourth_column_6FaGLw": {
+          "type": "fourth_column",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "richtext": ""
+          }
+        },
+        "fourth_column_ftwjWL": {
+          "type": "fourth_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon6.png",
+            "title": "Need to Cancel?",
+            "richtext": "<p>Changed your mind before we ship? No problem!</p><p>Email us at<br/><a href=\"mailto:support@pawcredible.co.uk\" title=\"support@pawcredible.co.uk\"><strong>support@pawcredible.co.uk</strong></a> to cancel before your order goes out.</p>"
+          }
+        },
+        "fourth_column_7LjJXM": {
+          "type": "fourth_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon7.png",
+            "title": "Already Shipped?",
+            "richtext": "<p>If your order is already on its way, just reach out.</p><p>We'll provide the return address and simple instructions for sending it back.</p>"
+          }
+        },
+        "fourth_column_wD7Hrm": {
+          "type": "fourth_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon8.png",
+            "title": "Package Damaged?",
+            "richtext": "<p>If Your Product Arrives Damaged Or You're Not Satisfied With The Quality, We'll Make It Right. </p><p>Contact Us Within 7 Days & We'll Work With You To Find A Solution That Works For Both You & Your Dog.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "third_column_enrxpi",
+        "third_column_AehMrH",
+        "third_column_m6UEKe",
+        "third_column_iwHKw9",
+        "fourth_column_6FaGLw",
+        "fourth_column_ftwjWL",
+        "fourth_column_7LjJXM",
+        "fourth_column_wD7Hrm"
+      ],
+      "name": "Shipping & Delivery Page",
+      "settings": {
+        "heading": "Shipping & Delivery",
+        "paragraph": "We know your furry friends can’t wait for their treats—so we do our best to get them to you as quickly as possible!",
+        "second_richtext": "<h2>UK & Europe Shipping</h2><p>We’re excited to bring Pawcredible nutrition to dogs across the UK and Europe, here’s how our shipping works.</p><p><strong>Order Processing</strong></p><ul><li>Orders are packed and dispatched within 1-3 business days (Monday–Friday, excluding public holidays).<br/></li></ul><p><strong>Shipping Options</strong></p><p><strong>UK Mainland (DPD Next Day)</strong></p><ul><li>£5.40 per parcel (Unless order is over £70)<br/></li><li>Delivery time: 1 working day once dispatched<br/></li><li>Tracked delivery with DPD Predict (1-hour delivery window)<br/></li><li>Available for all UK mainland postcodes.<br/></li></ul><p><strong>Europe Shipping (DPD Classic)</strong><br/><br/>Delivery times vary by destination. Rates below are per parcel:</p><p><strong>Belgium, France, Germany, Luxembourg, Netherlands</strong></p><ul><li>£17.39 per parcel<br/></li><li>Delivery: typically 3–5 business days<br/></li></ul><p><strong>Austria, Denmark, Switzerland</strong></p><ul><li>£16.93 per parcel<br/></li><li>Delivery: typically 3–6 business days<br/></li></ul><p><strong>Czech Republic, Italy, Slovakia, Spain</strong></p><ul><li>£16.09 per parcel<br/></li><li>Delivery: typically 4–7 business days<br/></li></ul><p><strong>Croatia, Estonia, Finland, Hungary, Poland, Portugal, Slovenia, Sweden</strong></p><ul><li>£27.33 per parcel<br/></li><li>Delivery: typically 4–8 business days<br/></li></ul><p><strong>Bulgaria, Greece, Latvia, Lithuania, Norway, Romania</strong></p><ul><li>£30.69 per parcel<br/></li><li>Delivery: typically 5–10 business days<br/></li></ul><p><strong>Ireland Shipping</strong></p><p><strong>Republic of Ireland (DPD Two-Day Service)</strong></p><ul><li>£10.06 per parcel<br/></li><li>Delivery: 2 working days<br/></li></ul><p><strong>Offshore UK Shipping</strong></p><ul><li>Channel Islands (Two day) — £15.96 per parcel<br/></li><li>Northern Ireland (Next day) — £20.19 per parcel<br/></li><li>Northern Ireland (Two-day) — £9.69 per parcel<br/></li><li>Scottish Islands (Two-day) — £11.15 per parcel<br/></li><li>Scottish Highlands (Two-day) — £11.15 per parcel<br/></li><li>Isle of Man (Two-day) — £11.73 per parcel<br/></li></ul><p><strong>Free Shipping Threshold</strong></p><ul><li>Free standard shipping on UK orders over £70 (Available for all UK mainland postcodes only.)<br/></li><li>(Express shipping rates still apply if you choose faster delivery.)<br/></li></ul><p><strong>Customs & Import Duties (EU Orders)</strong></p><ul><li>Customers are responsible for any import VAT, duties, or customs fees applied by their country.<br/></li><li>We provide estimates at checkout, but final charges depend on local regulations and may be collected at delivery.</li></ul>",
+        "third_heading": "Shipping Perks with Pawcredible",
+        "fourth_heading": "Shipping & Returns",
+        "fourth_paragraph": "We want both you and your furry companions to be completely satisfied. If you're not happy with your order, here’s how we make things right:",
+        "third__bottom_heading": "",
+        "third__bottom_paragraph": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "shipping_delivery_YhH3eg"
+  ]
+}

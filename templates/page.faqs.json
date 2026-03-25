@@ -1,0 +1,151 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "faqs_page_7NnTRf": {
+      "type": "faqs-page",
+      "blocks": {
+        "faq_left_cpEigw": {
+          "type": "faq_left",
+          "settings": {
+            "question": "1. What makes Pawcredible different?",
+            "answer": "Pawcredible combines science and nature to create real, bioavailable nutrition your dog\ncan actually absorb. Our meals, treats, and toppers are made in the UK with premium\nsourced ingredients, no fillers, no artificial nasties, and no frozen storage required."
+          }
+        },
+        "faq_left_CFnaJt": {
+          "type": "faq_left",
+          "settings": {
+            "question": "2. What is BioBowl Fusion?",
+            "answer": "BioBowl Fusion is our complete premium meal, blending our high-quality kibble with our freeze-dried raw coating. It delivers the taste and nutrition of raw feeding with the\nconvenience of dry food, no freezer, no mess, just open, pour, and serve."
+          }
+        },
+        "faq_left_UEQwhJ": {
+          "type": "faq_left",
+          "settings": {
+            "question": "3. What is Raw Fusion?",
+            "answer": "Raw Fusion is our freeze-dried raw topper and treat range; also, our premium kibble is\ncoated with our Raw Fusion topper. Packed with protein and nutrients from 100%\nnatural ingredients, adding a burst of flavour and nourishment to every meal."
+          }
+        },
+        "faq_left_XgitNc": {
+          "type": "faq_left",
+          "settings": {
+            "question": "4. What is Bioavailability?",
+            "answer": "Bioavailability is how well your dog’s body can absorb and use the nutrients in their\nfood. It’s not just about what’s in the bowl - it’s about what actually gets digested and\nturned into energy, strength, and health.\n\nAt Pawcredible, every ingredient is chosen for maximum bioavailability - from fresh\nmeats and superfoods to natural oils and vitamins, so your dog gets real nutritional\nbenefits from every bite, not wasted fillers."
+          }
+        },
+        "faq_left_63xwQ7": {
+          "type": "faq_left",
+          "settings": {
+            "question": "5. How do I serve Pawcredible products?",
+            "answer": "Simply pour BioBowl Fusion straight into your dog’s bowl - just like a normal kibble\nmeal.\nFor our Raw Fusion toppers, sprinkle the suggested spoonful over your dog’s meal for\nadded taste and nutrition. Treats can be given anytime as a healthy reward, but can\nalso be mixed into your dog's kibble meals for extra nutrition."
+          }
+        },
+        "faq_left_3kjRdt": {
+          "type": "faq_left",
+          "settings": {
+            "question": "6. Where are your products made?",
+            "answer": "All Pawcredible products are made in the UK, using responsibly sourced meats and\ningredients from trusted suppliers that meet our strict quality and welfare standards."
+          }
+        },
+        "faq_right_qArqBe": {
+          "type": "faq_right",
+          "settings": {
+            "question": "7. Are your products suitable for all breeds and sizes?",
+            "answer": "Yes! Pawcredible recipes are formulated for all breeds and life stages. We focus on\ncomplete, balanced nutrition that supports digestion, muscle health, skin, coat, and\noverall vitality for dogs big and small."
+          }
+        },
+        "faq_right_tr3Q6r": {
+          "type": "faq_right",
+          "settings": {
+            "question": "8. Do your products contain grains?",
+            "answer": "Our BioBowl Fusion recipes are grain-free, using sweet potato, pumpkin, and other\nwholesome carbohydrates for sustained energy."
+          }
+        },
+        "faq_right_xXmq67": {
+          "type": "faq_right",
+          "settings": {
+            "question": "9. Do you offer subscriptions?",
+            "answer": "Yes! You can subscribe and save on your dog’s favourite meals and treats - with flexible delivery schedules you can pause, skip, or cancel anytime through your account."
+          }
+        },
+        "faq_right_Kf7wXN": {
+          "type": "faq_right",
+          "settings": {
+            "question": "10. What’s your return policy?",
+            "answer": "If something’s not right, please contact us within 14 days of receiving your order. We’ll\nhelp make it right - whether that’s a replacement, refund, or store credit. We’re only happy when your dog’s tail is wagging."
+          }
+        },
+        "faq_right_7XT6UL": {
+          "type": "faq_right",
+          "settings": {
+            "question": "11. How can I contact Pawcredible?",
+            "answer": "You can reach our team anytime at support@pawcredible.co.uk, or DM us on Instagram @pawcredibleco - we love hearing from our waggy friends!"
+          }
+        },
+        "info_column_AtmLTw": {
+          "type": "info_column",
+          "settings": {
+            "sub_heading": "Contact us",
+            "content": "<p>Still have questions? Feel free to reach out via email, & our dedicated support team will be delighted to assist you!</p><p><a href=\"mailto:support@pawcredible.co.uk\" title=\"mailto:support@pawcredible.co.uk\">support@pawcredible.co.uk</a></p>"
+          }
+        },
+        "info_column_dAzzK6": {
+          "type": "info_column",
+          "disabled": true,
+          "settings": {
+            "sub_heading": "Chat with us",
+            "content": "<p>For swift assistance, chat with us right here. We're available round the clock, 24 hours a day.</p><ul><li>Monday</li><li>02:00 am - 11:59 pm edt</li><li>Tuesday</li><li>12:00 am - 04:00 am edt</li><li>Tuesday</li><li>06:00 am - 11:59 pm edt</li><li>Wednesday</li><li>12:00 am - 04:00 am edt</li><li>Wednesday</li><li>06:00 am - 11:59 pm edt</li><li>Thursday</li><li>12:00 am - 11:59 pm edt</li><li>Friday</li><li>12:00 am - 10:00 pm edt</li><li>Saturday</li><li>02:00 am - 11:59 pm edt</li><li>Sunday</li><li>02:00 am - 11:59 pm edt</li></ul>"
+          }
+        },
+        "info_column_fRh46J": {
+          "type": "info_column",
+          "disabled": true,
+          "settings": {
+            "sub_heading": "Call us",
+            "content": "<p>We're here to assist you from Monday to Friday, between 9 am and 5 pm EST. If we're unable to pick up your call, kindly leave a voicemail, and we'll promptly get back to you</p><p><strong>Customer support:</strong> <a href=\"tel:18004791596\" title=\"tel:18004791596\"><strong>+1 800 479 1596</strong></a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_left_cpEigw",
+        "faq_left_CFnaJt",
+        "faq_left_UEQwhJ",
+        "faq_left_XgitNc",
+        "faq_left_63xwQ7",
+        "faq_left_3kjRdt",
+        "faq_right_qArqBe",
+        "faq_right_tr3Q6r",
+        "faq_right_xXmq67",
+        "faq_right_Kf7wXN",
+        "faq_right_7XT6UL",
+        "info_column_AtmLTw",
+        "info_column_dAzzK6",
+        "info_column_fRh46J"
+      ],
+      "name": "FAQ Page",
+      "settings": {
+        "main_heading": "Frequently Asked Questions",
+        "middle_heading": "Get support"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faqs_page_7NnTRf"
+  ]
+}

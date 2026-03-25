@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "shipping_delivery_YhH3eg": {
+      "type": "shipping-delivery",
+      "blocks": {
+        "third_column_enrxpi": {
+          "type": "third_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon1.png",
+            "title": "Wholesome Goodness in Every Pack",
+            "content": "Premium pet nutrition crafted with care — always natural, always delicious."
+          }
+        },
+        "third_column_AehMrH": {
+          "type": "third_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon2.png",
+            "title": "Fully Flexible Subscriptions",
+            "content": "Easily customize, skip, pause, or cancel your orders anytime. You’re in control."
+          }
+        },
+        "third_column_m6UEKe": {
+          "type": "third_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon3.png",
+            "title": "Free U.S. Shipping & Easy Returns",
+            "content": "Enjoy free standard shipping on U.S. orders over $50 & hassle-free returns."
+          }
+        },
+        "third_column_iwHKw9": {
+          "type": "third_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon4.png",
+            "title": "Ethical, Eco-Conscious Values",
+            "content": "We support sustainable farming, animal welfare, & eco-friendly practices."
+          }
+        },
+        "fourth_column_6FaGLw": {
+          "type": "fourth_column",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "richtext": ""
+          }
+        },
+        "fourth_column_ftwjWL": {
+          "type": "fourth_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon6.png",
+            "title": "Need to Cancel?",
+            "richtext": "<p>Changed your mind before we ship? No problem!</p><p>Email us at<br/><a href=\"mailto:support@pawcredible.co.uk\" title=\"support@pawcredible.co.uk\"><strong>support@pawcredible.co.uk</strong></a> to cancel before your order goes out.</p>"
+          }
+        },
+        "fourth_column_7LjJXM": {
+          "type": "fourth_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon7.png",
+            "title": "Already Shipped?",
+            "richtext": "<p>If your order is already on its way, just reach out.</p><p>We'll provide the return address and simple instructions for sending it back.</p>"
+          }
+        },
+        "fourth_column_wD7Hrm": {
+          "type": "fourth_column",
+          "settings": {
+            "image": "shopify://shop_images/delivery-icon8.png",
+            "title": "Package Damaged?",
+            "richtext": "<p>If Your Product Arrives Damaged Or You're Not Satisfied With The Quality, We'll Make It Right. </p><p>Contact Us Within 7 Days & We'll Work With You To Find A Solution That Works For Both You & Your Dog.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "third_column_enrxpi",
+        "third_column_AehMrH",
+        "third_column_m6UEKe",
+        "third_column_iwHKw9",
+        "fourth_column_6FaGLw",
+        "fourth_column_ftwjWL",
+        "fourth_column_7LjJXM",
+        "fourth_column_wD7Hrm"
+      ],
+      "name": "Shipping & Delivery Page",
+      "settings": {
+        "heading": "Shipping & Delivery",
+        "paragraph": "We know your furry friends can’t wait for their treats—so we do our best to get them to you as quickly as possible!",
+        "second_image": "shopify://shop_images/delivery-img1.jpg",
+        "second_richtext": "<h2>Shipping Information</h2><p>We know you're excited to try Pawcredible - here's how our shipping works across the U.S :</p><h4>Order Processing</h4><p>Orders are packed and dispatched within 1–3 business days<br/>(Monday – Friday, excluding holidays).</p><h4>Shipping Options</h4><ul><li><strong>US Standard / Ground Shipping :</strong> 2–5 business days within the contiguous U.S.</li><li><strong>US Expedited / 2-Day / Priority Shipping : </strong> 1–3 business days</li><li><strong>Alaska / Hawaii / Remote Areas :</strong> Add 2–4 business days to standard/expedited transit</li></ul><p>*Business days exclude weekends and U.S. federal holidays. <br/>**Based on typical small parcel weights (under 2 lbs), modest dimensions, and contiguous U.S. shipping zones.</p><h4>Free Shipping Threshold</h4><p>Enjoy <strong>free standard shipping</strong> on U.S. orders over <strong>$60</strong> (contiguous U.S.). Expedited shipping rates still apply when choosing faster delivery.</p><h4>International & Customs</h4><p>For orders outside the U.S., customers are responsible for any import fees, duties, or taxes. We provide estimates, but final charges depend on your destination country's regulations.</p>",
+        "third_heading": "Shipping Perks with Pawcredible",
+        "fourth_heading": "Shipping & Returns",
+        "fourth_paragraph": "We want both you and your furry companions to be completely satisfied. If you're not happy with your order, here’s how we make things right:",
+        "third__bottom_heading": "",
+        "third__bottom_paragraph": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "shipping_delivery_YhH3eg"
+  ]
+}

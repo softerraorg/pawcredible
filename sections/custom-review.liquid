@@ -1,0 +1,112 @@
+<section class="custom-reviews">
+  <div class="page-width text-center">
+    <div class="custom-reviews-heading">
+      {% if section.settings.sub-title != blank %}
+        <p>{{ section.settings.sub-title }}</p>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2>{{ section.settings.title }}</h2>
+      {% endif %}
+    </div>
+
+    <div class="custom-review-wrap">
+      {% assign counter = 0 %}
+      {% for block in section.blocks %}
+        {% if counter == 0 %}
+          <div class="custom-review-container">
+        {% endif %}
+
+        <div class="custom-review-content">
+          <h2>{{ block.settings.client_title }}</h2>
+          <p>{{ block.settings.review }}</p>
+          <div class="custom-review-img">
+            {% if block.settings.image != blank %}
+              <img src="{{ block.settings.image | img_url: '48x48' }}" alt="{{ block.settings.name | escape }}">
+            {% endif %}
+            <div class="custom-review-name">
+              <h4>{{ block.settings.name }}</h4>
+              {% if block.settings.designation != blank %}
+                <p>{{ block.settings.designation }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        {% assign counter = counter | plus: 1 %}
+
+        {% if counter == 2 %}
+          </div> <!-- end .custom-review-container -->
+          {% assign counter = 0 %}
+        {% endif %}
+      {% endfor %}
+
+      {% if counter != 0 %}
+        </div> <!-- close unclosed container if odd number -->
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Custom Reviews Grouped",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "What Our Clients Say"
+    },
+    {
+      "type": "text",
+      "id": "sub-title",
+      "label": "Section Sub Title",
+      "default": "Real Experts. Real Results."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Client Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "client_title",
+          "label": "Client Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Client Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Client Name",
+          "default": "John Doe"
+        },
+        {
+          "type": "text",
+          "id": "designation",
+          "label": "Client Designation",
+          "default": "Health Practitioner"
+        },
+        {
+          "type": "textarea",
+          "id": "review",
+          "label": "Client Review",
+          "default": "Great product! Very smooth coffee and easy on the stomach."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Custom Reviews Grouped",
+      "category": "Testimonials"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,29 @@
+{% assign rating = product.metafields.reviews.rating.value | default: 4.85 %}
+{% assign full_stars = rating | floor %}
+
+{% assign has_half = false %}
+{% if rating > full_stars %}
+  {% assign has_half = true %}
+{% endif %}
+
+{% assign half_index = full_stars | plus: 1 %}
+
+<div class="star-rating">
+  {% for i in (1..5) %}
+    {% if i <= full_stars %}
+      <span>
+        <svg width="20" height="20" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.00001 0.333496L9.06001 4.50683L13.6667 5.18016L10.3333 8.42683L11.12 13.0135L7.00001 10.8468L2.88001 13.0135L3.66668 8.42683L0.333344 5.18016L4.94001 4.50683L7.00001 0.333496Z" fill="#FDBE2E"/>
+        </svg>
+      </span>
+    {% elsif has_half and i == half_index %}
+      <span>
+        <svg width="20" height="20" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.00001 0.333496L9.06001 4.50683L13.6667 5.18016L10.3333 8.42683L11.12 13.0135L7.00001 10.8468L2.88001 13.0135L3.66668 8.42683L0.333344 5.18016L4.94001 4.50683L7.00001 0.333496Z" fill="#FDBE2E"/>
+        </svg>
+      </span>
+    {% else %}
+      <span>☆</span>
+    {% endif %}
+  {% endfor %}
+</div>

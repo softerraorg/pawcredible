@@ -1,0 +1,33 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "privacy_policy_G3bdKe": {
+      "type": "privacy-policy",
+      "name": "Privacy Policy",
+      "settings": {
+        "heading": "Returns And Refunds",
+        "content": "<p><strong>At Pawcredible, we want you and your dog to feel completely confident in every bowl, bite, and sprinkle. If something isn’t right, we’ll always do our best to make it right.</strong></p><p><strong>Changed Your Mind?</strong><br/><br/>If your order hasn’t shipped yet, you can request a cancellation for a full refund. Just email us at <a href=\"mailto:support@pawcredible.co.uk\" title=\"mailto:support@pawcredible.co.uk\"><strong>support@pawcredible.co.uk</strong></a>, and we’ll take care of it.</p><p><strong>Arrived but Not Quite Right?</strong><br/><br/>If your item has arrived and you’re unhappy with it for any reason, you’re welcome to return it in unused, unopened condition within <strong>7 days of delivery</strong>.<br/><br/>Once we receive the returned item, we’ll process your refund within <strong>5–7 working days</strong>.</p><p><strong>Damaged or Incorrect Items</strong><br/><br/>If your order arrives damaged, faulty, or not what you expected, please contact us within <strong>7 days of delivery</strong>.<br/><br/>We’ll arrange a replacement or refund, whichever works best for you.</p><p><strong>How to Start a Return</strong><br/><br/>Simply email <a href=\"mailto:support@pawcredible.co.uk\" title=\"mailto:support@pawcredible.co.uk\"><strong>support@pawcredible.co.uk</strong></a> with:<br/><br/>• Your order number<br/><br/>• A brief description of the issue<br/><br/>• Photos (if the product is damaged or incorrect)<br/><br/>Our team will reply with the return address and next steps.</p><p><strong>Important Notes</strong><br/><br/>• Returned items must be in their original, unopened packaging unless the item arrived damaged.<br/><br/>• Subscription orders follow the same policy – you can cancel or pause at any time before your next renewal is charged. (All Subscribe & Save plans have a minimum commitment of three months.)<br/><br/>• Refunds are always issued to the original payment method.</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "privacy_policy_G3bdKe"
+  ]
+}

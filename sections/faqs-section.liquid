@@ -1,0 +1,85 @@
+{% schema %}
+{
+  "name": "FAQs Section",
+  "tag": "section",
+  "class": "faqs-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is your return policy?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>We accept returns within 30 days of purchase.</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "FAQs Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="faqs-wrapper">
+  <div class="page-width">
+    {% if section.settings.section_heading != blank %}
+    <h2 class="text-center">{{ section.settings.section_heading }}</h2>
+    {% endif %}
+  
+    {% for block in section.blocks %}
+      <div class="faq-item" data-faq>
+        <div class="faq-question">
+          {{ block.settings.question }}
+        </div>
+        <div class="faq-answer">
+          {{ block.settings.answer }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+{% javascript %}
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('[data-faq]').forEach(function (item) {
+    item.addEventListener('click', function () {
+      const answer = this.querySelector('.faq-answer');
+
+      if (this.classList.contains('active')) {
+        $(answer).slideUp(300);
+        this.classList.remove('active');
+      } else {
+        document.querySelectorAll('[data-faq].active .faq-answer').forEach(function (openAns) {
+          $(openAns).slideUp(300);
+          openAns.closest('.faq-item').classList.remove('active');
+        });
+        $(answer).slideDown(300);
+        this.classList.add('active');
+      }
+    });
+  });
+});
+{% endjavascript %}

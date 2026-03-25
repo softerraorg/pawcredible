@@ -1,0 +1,160 @@
+{% schema %}
+{
+  "name": "FAQ Page",
+  "tag": "section",
+  "class": "faq-page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading (H1)",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "middle_heading",
+      "label": "Middle Section Heading (H2)",
+      "default": "Additional Information"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_left",
+      "name": "Left Column FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    },
+    {
+      "type": "faq_right",
+      "name": "Right Column FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    },
+    {
+      "type": "info_column",
+      "name": "Info Column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "sub_heading",
+          "label": "Sub Heading (H4)"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "FAQ Page",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+
+<section class="faq-main-heading">
+  <div class="page-width">
+    <h1>{{ section.settings.main_heading }}</h1>
+  </div>
+</section>
+
+<!-- Section 2 -->
+<section class="faq-according">
+  <div class="page-width">
+    <div class="faq-columns">
+      <div class="faq-column">
+        {% for block in section.blocks %}
+          {% if block.type == 'faq_left' %}
+            <div class="faq-item">
+              <div class="faq-question">{{ block.settings.question }}</div>
+              <div class="faq-answer">{{ block.settings.answer }}</div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="faq-column">
+        {% for block in section.blocks %}
+          {% if block.type == 'faq_right' %}
+            <div class="faq-item">
+              <div class="faq-question">{{ block.settings.question }}</div>
+              <div class="faq-answer">{{ block.settings.answer }}</div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3 -->
+<section class="faq-extra-info">
+  <div class="page-width">
+    <h2>{{ section.settings.middle_heading }}</h2>
+    <div class="info-columns">
+      {% assign count = 0 %}
+      {% for block in section.blocks %}
+        {% if block.type == 'info_column' and count < 3 %}
+          <div class="info-column">
+            <h4>{{ block.settings.sub_heading }}</h4>
+            <p>{{ block.settings.content }}</p>
+          </div>
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.faq-question').on('click', function () {
+      var $item = $(this).closest('.faq-item');
+      var $answer = $item.find('.faq-answer');
+
+      if ($item.hasClass('open')) {
+        $answer.slideUp(300);
+        $item.removeClass('open');
+      } else {
+        // Close all open ones
+        $('.faq-item.open .faq-answer').slideUp(300);
+        $('.faq-item.open').removeClass('open');
+
+        // Open the clicked one
+        $answer.slideDown(300);
+        $item.addClass('open');
+      }
+    });
+  });
+</script>
+
+
+<style>
+
+</style>

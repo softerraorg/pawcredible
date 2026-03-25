@@ -1,0 +1,28 @@
+<section class="join-reward-video">
+  <div class="page-width video-wrap">
+    <h3>{{ section.settings.heading }}</h3>
+    <div class="video-container">
+      <video poster="{{ section.settings.poster | img_url: 'master' }}">
+        <source src="{{ section.settings.video_url }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Join Reward - Video",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "url", "id": "video_url", "label": "Video URL" },
+    { "type": "image_picker", "id": "poster", "label": "Poster Image" }
+  ],
+  "presets": [
+    { 
+      "name": "Join Reward Video",
+      "category": "Join Reward"
+    }
+  ]
+}
+{% endschema %}

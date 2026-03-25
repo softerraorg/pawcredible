@@ -1,0 +1,96 @@
+{% schema %}
+{
+  "name": "Home Content Section1",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "content1_heading",
+      "label": "Content1 Heading",
+      "default": "Content1 Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Left Side Image"
+    },
+
+    {
+      "type": "text",
+      "id": "col1_heading",
+      "label": "Column 1 Heading",
+      "default": "Feature One"
+    },
+    {
+      "type": "textarea",
+      "id": "col1_text",
+      "label": "Column 1 Text",
+      "default": "Short description for feature one."
+    },
+
+    {
+      "type": "text",
+      "id": "col2_heading",
+      "label": "Column 2 Heading",
+      "default": "Feature Two"
+    },
+    {
+      "type": "textarea",
+      "id": "col2_text",
+      "label": "Column 2 Text",
+      "default": "Short description for feature two."
+    },
+
+    {
+      "type": "text",
+      "id": "col3_heading",
+      "label": "Column 3 Heading",
+      "default": "Feature Three"
+    },
+    {
+      "type": "textarea",
+      "id": "col3_text",
+      "label": "Column 3 Text",
+      "default": "Short description for feature three."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Content1",
+      "category": "Home Custom Sections"
+    }
+  ]
+}
+{% endschema %}
+
+
+<div class="home-content-section1">
+  <div class="page-width">
+    <h2>{{ section.settings.content1_heading }}</h2>
+    <div class="home-content1-wrap">
+      <div class="home-content1-image">
+        {% if section.settings.main_image %}
+          <img src="{{ section.settings.main_image | img_url: '800x' }}" alt="Section Image" />
+        {% endif %}
+      </div>
+    
+      <div class="home-content1-row">
+        <div class="content1-column">
+          <span></span>
+          <h4>{{ section.settings.col1_heading }}</h4>
+          <p>{{ section.settings.col1_text }}</p>
+        </div>
+        <div class="content1-column">
+          <h4>{{ section.settings.col2_heading }}</h4>
+          <p>{{ section.settings.col2_text }}</p>
+          <span></span>
+        </div>
+        <div class="content1-column">
+          <span></span>
+          <h4>{{ section.settings.col3_heading }}</h4>
+          <p>{{ section.settings.col3_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "page.privacy-policy.json",
+  "context": {
+    "market": "gb"
+  },
+  "sections": {
+    "privacy_policy_GNXhRY": {
+      "settings": {
+        "content": "<p>“At Pawcredible, we take your privacy seriously. As outlined in our full Privacy Policy, we collect limited personal information through your interactions with our website. This may include the use of cookies or similar technologies to help improve your experience, tailor content, and understand how our site is used.</p><p>We may work with carefully selected third-party partners, such as analytics or advertising providers, to deliver relevant content and to measure the effectiveness of our website and marketing. Any data shared with these partners is handled in accordance with UK GDPR and the Privacy and Electronic Communications Regulations (PECR).</p><p>If you would like to manage or disable cookies, you can do so at any time through our cookie settings or your browser controls. These tools allow you to choose which types of cookies you consent to, including those used for personalised advertising or performance analysis.</p><p>Because Pawcredible operates in the UK, the opt-out rights referenced in certain U.S. state privacy laws do not apply. All data handling is governed by UK GDPR, and you retain the standard UK rights to access, correct, delete, or restrict the use of your personal data.”</p>"
+      },
+      "blocks": {}
+    }
+  }
+}

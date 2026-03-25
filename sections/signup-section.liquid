@@ -1,0 +1,117 @@
+{% schema %}
+{
+  "name": "Sign Up Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success Message",
+      "default": "Thank you for subscribing!"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Text",
+      "default": "Subscribe"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sign Up Section"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="signup-section" id="subscribe_save">
+  <div class="page-width">
+    {% if section.settings.sub_heading != blank %}
+      <p class="sub-heading">{{ section.settings.sub_heading }}</p>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="h2">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.paragraph != blank %}
+      <p class="description">{{ section.settings.paragraph }}</p>
+    {% endif %}
+  
+    {% comment %} <form method="post" action="/contact#signup" accept-charset="UTF-8" class="signup-form" id="signup-form">
+      <input type="hidden" name="form_type" value="customer">
+      <input type="hidden" name="utf8" value="✓">
+    
+      <input
+        type="email"
+        name="contact[email]"
+        placeholder="Enter your email"
+        required
+        class="signup-input"
+      />
+      <button type="submit" class="signup-button">
+        Subscribe
+      </button>
+    </form>
+
+    {% if form.posted_successfully? %}
+      <p id="signup" class="signup-success">Thank you for subscribing!</p>
+    {% endif %} {% endcomment %}
+
+ {% for block in section.blocks %}
+    {% render block %}
+  {% endfor %} 
+  </div>
+</section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("signup-form");
+  const successMsg = document.getElementById("signupSuccess");
+  const errorMsg = document.getElementById("signupError");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault(); // stop page reload
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/contact", {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.redirected) {
+        form.style.display = "none";
+        successMsg.style.display = "block";
+      } else {
+        errorMsg.style.display = "block";
+      }
+
+    } catch (err) {
+      errorMsg.style.display = "block";
+    }
+  });
+});
+</script>
+

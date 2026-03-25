@@ -1,0 +1,74 @@
+{% schema %}
+{
+  "name": "Three Column Content",
+  "tag": "section",
+  "class": "three-column-content",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading (h2)",
+      "default": "Our Features"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading (h4)"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Three Column Content",
+      "blocks": [
+        { "type": "column" },
+        { "type": "column" },
+        { "type": "column" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="home-content2-container">
+  <div class="page-width">
+    {% if section.settings.main_heading != blank %}
+      <h2>{{ section.settings.main_heading }}</h2>
+    {% endif %}
+    <div class="home-content2-wrap">
+      {% for block in section.blocks %}
+        <div class="home-content2-column"> 
+          {% if block.settings.image %}
+            <div class="home-content2-img">
+              <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.heading | escape }}" />
+            </div>
+          {% endif %}
+          {% if block.settings.heading %}
+            <h4>{{ block.settings.heading }}</h4>
+          {% endif %}
+          {% if block.settings.text %}
+            <p>{{ block.settings.text }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,158 @@
+{% schema %}
+{
+  "name": "Blog Single Custom",
+  "settings": [
+    {
+    "type": "text",
+    "id": "popular_heading",
+    "label": "Popular Topics Heading",
+    "default": "Popular Topics"
+  },
+  {
+    "type": "textarea",
+    "id": "popular_text",
+    "label": "Popular Topics Description",
+    "default": "Lorem ipsum dolor sit amet, consectetur"
+  },
+  {
+    "type": "text",
+    "id": "signup_heading",
+    "label": "Signup Form Heading",
+    "default": "Nemo enim ipsam voluptatem quia voluptas sit"
+  },
+  {
+    "type": "textarea",
+    "id": "signup_text",
+    "label": "Signup Form Description",
+    "default": "Get the latest blog posts directly in your inbox."
+  }
+  ],
+  "blocks": [
+  {
+    "type": "popular_blog",
+    "name": "Popular Blog",
+    "settings": [
+      {
+        "type": "blog",
+        "id": "blog_link",
+        "label": "Select Blog"
+      }
+    ]
+  }
+],
+  "presets": [
+    {
+      "name": "Blog Single Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="blog-single-section">
+  <div class="page-width">
+    <div class="blog-single-grid">
+      
+      <!-- Left Column -->
+      <div class="left-column">
+        <!-- Title -->
+        <h1 class="blog-title">{{ article.title }}</h1>
+
+        <!-- Featured Image -->
+        {% if article.image %}
+          <div class="blog-featured-image">
+            <img src="{{ article.image | image_url: width: 1000 }}" alt="{{ article.title }}">
+          </div>
+        {% endif %}
+
+        <!-- Post Info Row -->
+        <div class="blog-meta-row">
+          <div class="post-date">
+            <span>{{ article.published_at | date: "%B %d, %Y" }}</span>
+          </div>
+          <div class="post-share">
+            <b>Share:</b>
+            <!-- Replace with real share links -->
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ article.url | absolute_url }}" target="_blank">
+  <i class="fa-brands fa-facebook-f"></i>
+</a>
+
+<a href="https://twitter.com/intent/tweet?url={{ article.url }}" target="_blank">
+  <i class="fa-brands fa-x-twitter"></i>
+</a>
+
+<a href="mailto:?subject={{ article.title | url_encode }}&body={{ shop.url }}{{ article.url | url_encode }}">
+  <i class="fa-solid fa-envelope"></i>
+</a>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="blog-content">
+          {{ article.content }}
+        </div>
+
+        <!-- Comment Form -->
+        {% if blog.comments_enabled? %}
+        <div class="blog-comments">
+          <h3>Leave a comment</h3>
+          {% form 'new_comment', article %}
+            {% if form.posted_successfully? %}
+              <p class="comment-success">Thank you! Your comment has been submitted and is pending approval.</p>
+            {% else %}
+              {{ form.errors | default_errors }}
+      
+              <!-- Hidden Required Fields -->
+              <input type="hidden" name="comment[author]" value="Anonymous">
+              <input type="hidden" name="comment[email]" value="anonymous@example.com">
+              <textarea name="comment[body]" placeholder="Your Comment" required></textarea>
+              <div class="blog-comments-btn">
+                <button type="submit">Submit</button>
+              </div>
+            {% endif %}
+          {% endform %}
+        </div>
+      {% endif %}
+      {% if article.comments.size > 0 %}
+        <div class="approved-comments">
+          <h3>Comments</h3>
+          <ul>
+            {% for comment in article.comments %}
+              <li>
+                <p>{{ comment.content }}</p>
+                <small>{{ comment.created_at | date: "%B %d, %Y" }}</small>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      </div>
+
+      <!-- Right Column -->
+      <aside class="blog-sidebar">
+        <!-- Popular Topics -->
+        <div class="sidebar-box sidebar-box1">
+          <h4>{{ section.settings.popular_heading }}</h4>
+          <p>{{ section.settings.popular_text }}</p>
+          <ul class="blog-categories">
+            {% for block in section.blocks %}
+              {% if block.type == 'popular_blog' %}
+                {% assign blog = blogs[block.settings.blog_link] %}
+                <li><a href="{{ blog.url }}">{{ blog.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+  
+        <!-- Signup -->
+        <div class="sidebar-box sidebar-box1 sidebar-box-signup">
+          <h4>{{ section.settings.signup_heading }}</h4>
+          <p>{{ section.settings.signup_text }}</p>
+          {% form 'customer' %}
+            <input type="email" name="contact[email]" required placeholder="Enter Your Email Address">
+            <button type="submit">Subscribe</button>
+          {% endform %}
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

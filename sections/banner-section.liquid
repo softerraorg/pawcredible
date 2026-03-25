@@ -1,0 +1,80 @@
+{% schema %}
+{
+  "name": "Custom Banner Section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to Our Store"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Paragraph Text",
+      "default": "Explore our exclusive collection today."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Banner",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
+
+
+<div class="custom-banner-section">
+  <div class="page-width">
+    <div class="custom-banner-wrap">
+      <div class="custom-banner-text">
+        <h1>{{ section.settings.heading }}</h1>
+        <p>{{ section.settings.subtext }}</p>
+        <a href="{{ section.settings.button_link }}" class="button">{{ section.settings.button_text }}</a>
+      </div>
+      <div class="custom-banner-image">
+        {% if section.settings.banner_image != blank %}
+            <img
+    srcset="
+      {{ section.settings.banner_image | image_url: width: 400 }} 400w,
+      {{ section.settings.banner_image | image_url: width: 800 }} 800w,
+      {{ section.settings.banner_image | image_url: width: 1200 }} 1200w,
+      {{ section.settings.banner_image | image_url: width: 1600 }} 1600w
+    "
+    sizes="(max-width: 480px) 400px, (max-width: 768px) 800px, (max-width: 1200px) 1200px, 1600px"
+    width="{{ section.settings.banner_image.width }}"
+    height="auto"
+    alt="{{ section.settings.banner_image.alt | default: 'Banner Image' | escape }}"
+    fetchpriority="high"
+    loading="eager"
+  >
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

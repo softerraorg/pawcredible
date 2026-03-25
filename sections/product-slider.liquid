@@ -1,0 +1,113 @@
+{% schema %}
+{
+  "name": "Product Slider",
+  "blocks": [
+    {
+      "type": "product_block",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Product Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="product-tabs-slider product-slider-container">
+  <div class="page-width">
+
+    <!-- Swiper -->
+    <div class="swiper-container" id="productSwiper-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% assign product = all_products[block.settings.product] %}
+          {% if product %}
+          <div class="swiper-slide">
+            <div class="slide-content">
+              <!-- Column 1: Product Image -->
+              <div class="slide-image">
+                {% if product.featured_image %}
+                  <img src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.title }}">
+                {% endif %}
+              </div>
+              <!-- Column 2: Product Info -->
+              <div class="slide-info">
+                <a href="{{ product.url }}">
+                  <h3>{{ product.title }}</h3>
+                </a>
+
+                {% render 'star-rating', product: product %}
+
+                <p class="rating-summary">
+                  {{ product.metafields.reviews.rating.value | default: '4.99' }}/5 from {{ product.metafields.reviews.count | default: '15' }} reviews
+                </p>
+
+                <p class="price">
+                  <span class="current-price">{{ product.price | money }}</span>
+                  {% if product.compare_at_price > product.price %}
+                    <span class="compare-price">{{ product.compare_at_price | money }}</span>
+                  {% endif %}
+                </p>
+
+                <p class="description">{{ product.description | strip_html | truncate: 160 }}</p>
+
+                <div class="product-variants">
+                  {% assign first_variant = product.variants.first %}
+                  {% for option in product.options_with_values %}
+                    <p><strong>{{ option.name }}:</strong> {{ first_variant.options[forloop.index0] }}</p>
+                  {% endfor %}
+                </div>
+
+                <a href="{{ product.url }}" class="tabs-learn-more button">Learn More</a>
+
+                {% comment %} <form method="post" action="/cart/add" class="custom-product-form" enctype="multipart/form-data">
+                  <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                  <button type="submit" class="button">
+                    Add to cart
+                  </button>
+                </form> {% endcomment %}
+
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Arrows -->
+      <div class="review-arrows">
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sectionId = "{{ section.id }}";
+    const swiperEl = document.querySelector(`#productSwiper-${sectionId}`);
+
+    const swiper = new Swiper(swiperEl, {
+      loop: false,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: `#productSwiper-${sectionId} .swiper-button-next`,
+        prevEl: `#productSwiper-${sectionId} .swiper-button-prev`,
+      }
+    });
+
+  });
+</script>

@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "cartMode": "bundle",
+  "meta": {
+    "notes": "PDF: Relaxed=low range, Active=mid, Very Active=high. Weight bands: Mini <10kg, Medium 10–29.99kg, Large 30kg+. Monthly need uses daysPerMonth (30 = calendar-style month)."
+  },
+  "kgPerBag": 6,
+  "daysPerMonth": 30,
+  "productLabels": {
+    "food": "BioBowl Fusion",
+    "topper": "Raw Fusion Topper",
+    "treat": "Raw Fusion Treat",
+    "foodUnit": "bags",
+    "topperUnit": "tubes",
+    "treatUnit": "pouches"
+  },
+  "shortfallKgThreshold": 1,
+  "subscribeDiscountPercent": 10,
+  "currency": "GBP",
+  "fallbackPrices": {
+    "mini": { "cents": 8024 },
+    "adventurer": { "cents": 14990 },
+    "alpha": { "cents": 19990 }
+  },
+  "productHandles": {
+    "mini": "",
+    "adventurer": "",
+    "alpha": ""
+  },
+  "componentHandles": {
+    "food": "",
+    "topper": "",
+    "treat": ""
+  },
+  "sellingPlanId": null,
+  "packs": [
+    {
+      "id": "mini",
+      "name": "Mini Paw Pack",
+      "bags": 1,
+      "toppers": 1,
+      "treats": 1,
+      "badge": null
+    },
+    {
+      "id": "adventurer",
+      "name": "Adventurer Pack",
+      "bags": 2,
+      "toppers": 2,
+      "treats": 2,
+      "badge": "Most Popular"
+    },
+    {
+      "id": "alpha",
+      "name": "Alpha Pack",
+      "bags": 3,
+      "toppers": 2,
+      "treats": 3,
+      "badge": "Best Value",
+      "minBags": 3
+    }
+  ],
+  "popularBreeds": [
+    "Mixed Breed", "Labrador Retriever", "Golden Retriever", "German Shepherd",
+    "French Bulldog", "Bulldog", "Poodle", "Beagle", "Rottweiler",
+    "Cocker Spaniel", "Dachshund", "Boxer", "Husky", "Border Collie",
+    "Staffordshire Bull Terrier", "Cavalier King Charles", "Springer Spaniel",
+    "Shih Tzu", "Chihuahua", "Jack Russell Terrier", "Whippet",
+    "Yorkshire Terrier", "Pug", "Dalmatian", "Great Dane"
+  ],
+  "activityLevels": [
+    {
+      "id": "relaxed",
+      "label": "Relaxed",
+      "icon": "🛋️",
+      "description": "Short walks and mostly relaxing at home.",
+      "longDescription": "For dogs with a calm lifestyle who enjoy short walks and spend most of the day resting at home.",
+      "position": "low"
+    },
+    {
+      "id": "active",
+      "label": "Active",
+      "icon": "🚶",
+      "description": "Regular walks, playtime, and outdoor activity.",
+      "longDescription": "For dogs that get regular daily exercise and enjoy walks, playtime, and outdoor activity.",
+      "position": "mid"
+    },
+    {
+      "id": "very_active",
+      "label": "Very Active",
+      "icon": "🏃",
+      "description": "High-energy dogs that run, train, or exercise frequently.",
+      "longDescription": "For high-energy dogs that run, train, or exercise frequently — hikes, working or sporting breeds, agility, field, or working dogs.",
+      "position": "high"
+    }
+  ],
+  "feedingMini": [
+    { "from": 1, "to": 2, "low": 33, "high": 51 },
+    { "from": 2, "to": 3, "low": 51, "high": 68 },
+    { "from": 3, "to": 4, "low": 68, "high": 85 },
+    { "from": 4, "to": 5, "low": 85, "high": 100 },
+    { "from": 5, "to": 6, "low": 100, "high": 118 },
+    { "from": 6, "to": 8, "low": 118, "high": 143 },
+    { "from": 8, "to": 10, "low": 143, "high": 169 }
+  ],
+  "feedingMedium": [
+    { "from": 8, "to": 10, "low": 143, "high": 169 },
+    { "from": 10, "to": 15, "low": 169, "high": 229 },
+    { "from": 15, "to": 20, "low": 229, "high": 284 },
+    { "from": 20, "to": 25, "low": 284, "high": 336 },
+    { "from": 25, "to": 30, "low": 336, "high": 385 },
+    { "from": 30, "to": 40, "low": 385, "high": 478 },
+    { "from": 40, "to": 50, "low": 478, "high": 565 }
+  ],
+  "feedingLarge": [
+    { "from": 30, "to": 35, "low": 385, "high": 432 },
+    { "from": 35, "to": 40, "low": 432, "high": 478 },
+    { "from": 40, "to": 50, "low": 478, "high": 565 },
+    { "from": 50, "to": 60, "low": 565, "high": 648 },
+    { "from": 60, "to": 70, "low": 648, "high": 727 },
+    { "from": 70, "to": 80, "low": 727, "high": 804 },
+    { "from": 80, "to": 90, "low": 804, "high": 878 }
+  ]
+}

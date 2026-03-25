@@ -1,0 +1,31 @@
+<section class="join-reward-cta">
+  <div class="page-width">
+    <div class="cta-grid">
+      <div class="cta-text">
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.description }}</p>
+      </div>
+      <div class="cta-btn">
+        <a href="{{ section.settings.button_link }}" class="btn">{{ section.settings.button_label }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Join Reward - CTA",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "description", "label": "Description" },
+    { "type": "text", "id": "button_label", "label": "Button Label" },
+    { "type": "url", "id": "button_link", "label": "Button Link" }
+  ],
+  "presets": [
+    { 
+      "name": "Join Reward CTA",
+      "category": "Join Reward"
+    }
+  ]
+}
+{% endschema %}

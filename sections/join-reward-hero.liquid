@@ -1,0 +1,40 @@
+<section class="join-reward-hero">
+  <div class="page-width">
+    <div class="join-hero-grid">
+      <div class="join-hero-content">
+        <h1>{{ section.settings.heading }}</h1>
+        <h4>{{ section.settings.subheading }}</h4>
+        <p>{{ section.settings.description }}</p>
+        <div class="hero-buttons">
+          <a href="{{ section.settings.button_1_link }}" class="btn">{{ section.settings.button_1_label }}</a>
+          <a href="{{ section.settings.button_2_link }}" class="btn secondary">{{ section.settings.button_2_label }}</a>
+        </div>
+      </div>
+      <div class="join-hero-image">
+        <img src="{{ section.settings.image | img_url: 'master' }}" alt="Hero Image">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Join Reward - Hero",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "subheading", "label": "Subheading" },
+    { "type": "textarea", "id": "description", "label": "Description" },
+    { "type": "text", "id": "button_1_label", "label": "Button 1 Label" },
+    { "type": "url", "id": "button_1_link", "label": "Button 1 Link" },
+    { "type": "text", "id": "button_2_label", "label": "Button 2 Label" },
+    { "type": "url", "id": "button_2_link", "label": "Button 2 Link" },
+    { "type": "image_picker", "id": "image", "label": "Right Side Image" }
+  ],
+  "presets": [
+    { 
+      "name": "Join Reward Hero",
+      "category": "Join Reward"
+    }
+  ]
+}
+{% endschema %}

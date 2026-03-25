@@ -1,0 +1,294 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "our_story_banner_cEnGDa": {
+      "type": "our-story-banner",
+      "name": "Our Story Banner",
+      "settings": {
+        "banner_image": "shopify://shop_images/Picture4.jpg",
+        "heading": "Our Story: “It’s Care”",
+        "content": "<h4>Raising the Standard in Pet Nutrition, Wellness & Happiness</h4><p>At Pawcredible, pets aren’t just animals, they’re family. They bring joy, comfort, and unconditional love every single day, and we believe they deserve the same in return.</p><p> That’s why we set out on a mission: to create the cleanest, safest, and most nutritious food possible. Food that supports your pet’s health, energy, and happiness, so they can thrive, not just survive.</p><p> Every meal we craft is made with care, using only wholesome, responsibly sourced ingredients, designed to fuel wagging tails, playful energy, and long, happy lives. Because when it comes to our pets, nothing less will do.<br/><br/></p>"
+      }
+    },
+    "story_section1_HVRyRK": {
+      "type": "story-section1",
+      "name": "Story Section1",
+      "settings": {
+        "heading": "We believe your pets deserve the highest quality food, made with ingredients they love, sourced responsibly, supporting ethical farmers, and protecting the planet."
+      }
+    },
+    "story_section2_LhG44Y": {
+      "type": "story-section2",
+      "name": "Story Section2",
+      "settings": {
+        "banner_image": "shopify://shop_images/Picture5_90a8166b-7d88-4cbc-b694-ede7c58f96af.jpg",
+        "heading": "health, happiness, and longevity",
+        "content": "<p>Hi, I’m Rob Ellery, CEO and Founder of Pawcredible.</p><p>As a lifelong dog owner, having Labradors from puppies, to rescue dogs, senior large dogs as well as chihuahuas and other small breeds, we wanted our food to encompass, all dog breeds, all sizes to ensure their health, wellness and vitality for years to come. I have spent years researching animal nutrition because I’ve always believed one simple truth: what you feed your dog shapes their health, happiness, and how long they’re by your side. Great nutrition builds strong, healthy cells - and healthy cells build a vibrant, happy pet.</p><p>That’s why at Pawcredible, we’re on a mission to make pet food as pure, safe, and nutritious as it should be. Our unique process is how we hold ourselves accountable - a step-by-step commitment to quality, taste, and integrity in every single bite.</p><p> Here’s what makes Pawcredible different:</p><ul><li><strong>Ethically sourced ingredients</strong> from trusted farms across the UK, always free from contamination.</li><li><strong>Freeze-dried to lock in real nutrition and flavor</strong> your dog craves.</li><li><strong>Zero fillers or nasties</strong> - Only essential vitamins, minerals, and natural extracts, nothing unnecessary.</li><li><strong>Every batch tested</strong> for purity, safety, and nutritional value.</li></ul><p>The result? Carefully crafted, species-appropriate recipes that support your dog’s health, fuel their energy, and help them thrive every day.</p>"
+      }
+    },
+    "story_section3_PRU9jy": {
+      "type": "story-section3",
+      "blocks": {
+        "box_ib98qx": {
+          "type": "box",
+          "settings": {
+            "image": "shopify://shop_images/story-icon1.png",
+            "title": "Step 1: Sourcing",
+            "text": "We carefully select high-quality, ethically sourced ingredients from trusted farms to ensure your pets get the best nutrition."
+          }
+        },
+        "box_aJAUae": {
+          "type": "box",
+          "settings": {
+            "image": "shopify://shop_images/story-icon2.png",
+            "title": "Step 2: Preparation",
+            "text": "Our recipes are crafted using freeze-drying raw fusion techniques to lock in maximum nutrition & taste your pets will love."
+          }
+        },
+        "box_hNDW7r": {
+          "type": "box",
+          "settings": {
+            "image": "shopify://shop_images/story-icon3.png",
+            "title": "Step 3: Quality Testing",
+            "text": "Every batch is tested for purity and safety free from harmful preservatives, fillers, or artificial ingredients."
+          }
+        },
+        "box_qUhPUJ": {
+          "type": "box",
+          "settings": {
+            "image": "shopify://shop_images/story-icon4.png",
+            "title": "Step 4: Delivered Fresh",
+            "text": "Shipped directly to your door, our products arrive safe & ready to serve, because your dog deserves the best everyday."
+          }
+        }
+      },
+      "block_order": [
+        "box_ib98qx",
+        "box_aJAUae",
+        "box_hNDW7r",
+        "box_qUhPUJ"
+      ],
+      "name": "Story Section3 Boxes",
+      "settings": {
+        "main_heading": "From Nature to Your Pet’s Bowl"
+      }
+    },
+    "our_story_section4_hYVXMc": {
+      "type": "our-story-section4",
+      "name": "Story Section4",
+      "settings": {
+        "banner_image": "shopify://shop_images/Picture1_f520e2df-dbab-4abf-9e75-d4c880236758.jpg",
+        "heading": "Our Pawcredible Promise",
+        "content": "<p><strong>1. CLEAN:</strong> Your dog deserves food that’s as real as the bond you share. That’s why up to 80% of their nutrition should come from clean, natural, species-appropriate ingredients, just like those in our freeze-dried, raw, and kibble meals. We focus on wholesome daily nutrition that fuels lifelong health, not artificial fillers or gimmicks.</p><p><strong>2. CAUSE:</strong> We care about more than what’s in the bowl. Starting with sustainable ingredients, every step of our process reflects purpose. We’re proud to support animal welfare, environmental sustainability, and initiatives that give back to the pet community</p><p><strong>3. CONNECTION:</strong> Every meal is a moment of love. Feeding time is how we connect, showing care, trust, and joy with every bite. Our mission is to make that moment special, every single day, through food your dog truly loves.</p><p><strong>4. KINDNESS:</strong> At Pawcredible, kindness guides everything we do, to pets, people, and the planet. We stand for integrity, transparency, and compassion in every bowl we make, because doing good should always taste this great.</p>",
+        "button_link": "#",
+        "button_text": "Learn More"
+      }
+    },
+    "our_story_section5_6zfhH7": {
+      "type": "our-story-section5",
+      "name": "Story Section5",
+      "settings": {
+        "banner_image": "shopify://shop_images/Picture122_f5d29a06-4413-4c5d-9127-c7090d4d4a66.jpg",
+        "heading": "Join the Pawcredible Family",
+        "content": "<p>Give your pets the healthiest, most delicious meals delivered right to your door. Just pure nutrition, your pets will love.</p>",
+        "button_link": "https://pawcredible.org/#subscribe_save",
+        "button_text": "Join Now"
+      }
+    },
+    "our_story_process_wY46wq": {
+      "type": "our-story-process",
+      "blocks": {
+        "process_maAKdJ": {
+          "type": "process",
+          "settings": {
+            "image": "shopify://shop_images/story-icon5.png",
+            "title": "Wholesome <br>Ingredients"
+          }
+        },
+        "process_nVj9Wz": {
+          "type": "process",
+          "settings": {
+            "image": "shopify://shop_images/story-icon6.png",
+            "title": "Freeze-Dried <br>Freshness"
+          }
+        },
+        "process_imGxBm": {
+          "type": "process",
+          "settings": {
+            "image": "shopify://shop_images/story-icon7.png",
+            "title": "Purity <br>Tested"
+          }
+        },
+        "process_9E3Rad": {
+          "type": "process",
+          "settings": {
+            "image": "shopify://shop_images/story-icon8.png",
+            "title": "Loved By <br>Pets"
+          }
+        }
+      },
+      "block_order": [
+        "process_maAKdJ",
+        "process_nVj9Wz",
+        "process_imGxBm",
+        "process_9E3Rad"
+      ],
+      "name": "Our Story Process",
+      "settings": {
+        "heading": "Clean, Nutrient-Rich Food For Your Pet’s Health",
+        "extra_heading": "",
+        "extra_text": ""
+      }
+    },
+    "instagram_post_EtqgbC": {
+      "type": "instagram-post",
+      "custom_css": [
+        "section.instagram-post {padding: 40px 0px;}"
+      ],
+      "name": "Instagram Post Secton",
+      "settings": {
+        "heading": "Instagram Post"
+      }
+    },
+    "signup_section_b3hbkL": {
+      "type": "signup-section",
+      "blocks": {
+        "forms_inline_dAPX73": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "787962",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_dAPX73"
+      ],
+      "name": "Sign Up Section",
+      "settings": {
+        "sub_heading": "Join The Pawcredible Pack",
+        "heading": "Get 10% Off & Unleash Exclusive Perks!",
+        "paragraph": "Be First To Fetch Fresh Deals, Limited Edition Treats, Surprise Drops, & Dog-Parent Tips Straight To Your Inbox. Every Email = Treats For You (And Your Furry Friend)!",
+        "success_message": "Thank you for subscribing!",
+        "button_label": "Subscribe"
+      }
+    },
+    "faqs_section_KNAacb": {
+      "type": "faqs-section",
+      "blocks": {
+        "faq_item_LBxJym": {
+          "type": "faq_item",
+          "settings": {
+            "question": "1. What makes Pawcredible different?",
+            "answer": "<p>For our Paws in the UK and EU, all Pawcredible products are proudly made in the United Kingdom, meeting strict quality and safety standards.</p><p>For our Paws in North America, Pawcredible products are produced right in the US, ensuring freshness and compliance with local regulations.</p><p>Wherever your dog calls home, you can trust that every Pawcredible product is made with care, premium ingredients, and your dog’s health in mind!</p>"
+          }
+        },
+        "faq_item_RBUVwr": {
+          "type": "faq_item",
+          "settings": {
+            "question": "2. What is BioBowl Fusion?",
+            "answer": "<p>BioBowl Fusion is our complete premium meal, blending our high-quality kibble with our freeze-dried raw coating. It delivers the taste and nutrition of raw feeding with the<br/>convenience of dry food, no freezer, no mess, just open, pour, and serve.</p>"
+          }
+        },
+        "faq_item_PreMX4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "3. What is Raw Fusion?",
+            "answer": "<p>Raw Fusion is our freeze-dried raw topper and treat range; also, our premium kibble is<br/>coated with our Raw Fusion topper. Packed with protein and nutrients from 100%<br/>natural ingredients, adding a burst of flavour and nourishment to every meal.</p>"
+          }
+        },
+        "faq_item_PkfXen": {
+          "type": "faq_item",
+          "settings": {
+            "question": "4. What is Bioavailability?",
+            "answer": "<p>Bioavailability is how well your dog’s body can absorb and use the nutrients in their<br/>food. It’s not just about what’s in the bowl - it’s about what actually gets digested and<br/>turned into energy, strength, and health.<br/></p><p>At Pawcredible, every ingredient is chosen for maximum bioavailability - from fresh<br/>meats and superfoods to natural oils and vitamins, so your dog gets real nutritional<br/>benefits from every bite, not wasted fillers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_LBxJym",
+        "faq_item_RBUVwr",
+        "faq_item_PreMX4",
+        "faq_item_PkfXen"
+      ],
+      "name": "FAQs Section",
+      "settings": {
+        "section_heading": "Frequently Asked Questions"
+      }
+    },
+    "popup_signup_4bqAPE": {
+      "type": "popup-signup",
+      "blocks": {
+        "forms_inline_LygpbQ": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "787962",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_LygpbQ"
+      ],
+      "custom_css": [
+        "._formFieldContainer_1mxsl_5 ._inputFilled_1mxsl_74 {transform: translate(-1px, -15px) !important;}"
+      ],
+      "name": "Signup Popup",
+      "settings": {
+        "heading": "Welcome to the Pack! Claim 10% Off Your First Order",
+        "image": "shopify://shop_images/popup-img.jpg",
+        "delay": 5000
+      }
+    }
+  },
+  "order": [
+    "main",
+    "our_story_banner_cEnGDa",
+    "story_section1_HVRyRK",
+    "story_section2_LhG44Y",
+    "story_section3_PRU9jy",
+    "our_story_section4_hYVXMc",
+    "our_story_section5_6zfhH7",
+    "our_story_process_wY46wq",
+    "instagram_post_EtqgbC",
+    "signup_section_b3hbkL",
+    "faqs_section_KNAacb",
+    "popup_signup_4bqAPE"
+  ]
+}

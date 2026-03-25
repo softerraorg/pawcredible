@@ -1,0 +1,94 @@
+<section class="story-section3-boxes">
+  <div class="page-width">
+    {% if section.settings.main_heading != blank %}
+      <h2>{{ section.settings.main_heading }}</h2>
+    {% endif %}
+    <div class="story-section3-container">
+    <span class="story-section3-border1"></span>
+      <span class="story-section3-border2"></span>
+      <span class="story-section3-border3"></span>
+    {% assign blocks_per_row = 2 %}
+    {% assign end_index = blocks_per_row | minus: 1 %}
+
+    {% for block in section.blocks %}
+      {% assign loop_index = forloop.index0 %}
+      {% assign row_start = loop_index | modulo: blocks_per_row %}
+      {% assign row_end = loop_index | modulo: blocks_per_row %}
+
+      {% if row_start == 0 %}
+        <div class="story-section3-wrapper">
+      {% endif %}
+
+      <div class="story-section2-box">
+        {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | image_url: width: 300 }}" alt="{{ block.settings.title }}">
+        {% endif %}
+
+        {% if block.settings.title != blank %}
+          <h4>{{ block.settings.title }}</h4>
+        {% endif %}
+
+        {% if block.settings.text != blank %}
+          <p>{{ block.settings.text }}</p>
+        {% endif %}
+      </div>
+
+      {% if row_end == end_index or forloop.last %}
+        </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Story Section3",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "Our Features"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "box",
+      "name": "Box",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading (h4)",
+          "default": "Box Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Paragraph Text",
+          "default": "This is a short description for the box."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Story Section3 Boxes",
+      "category": "Our Story",
+      "blocks": [
+        { "type": "box" },
+        { "type": "box" },
+        { "type": "box" },
+        { "type": "box" }
+      ]
+    }
+  ]
+}
+{% endschema %}

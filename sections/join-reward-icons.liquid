@@ -1,0 +1,39 @@
+<section class="join-reward-icons">
+  <div class="page-width">
+    <h2 class="rich-text-heading">{{ section.settings.heading }}</h2>
+    <div class="icon-grid">
+      {% for block in section.blocks %}
+        <div class="icon-card">
+          <img src="{{ block.settings.icon | img_url: 'master' }}" alt="">
+          <h4>{{ block.settings.title }}</h4>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Join Reward - Icon Grid",
+  "settings": [
+    { "type": "html", "id": "heading", "label": "Heading" }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Icon Column",
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    { 
+      "name": "Join Reward Icon Grid",
+      "category": "Join Reward"
+    }
+  ]
+}
+{% endschema %}

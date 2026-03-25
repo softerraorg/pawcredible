@@ -1,0 +1,27 @@
+{% schema %}
+{
+  "name": "Story Section1",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Story"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Story Section1",
+      "category": "Our Story"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="story-section1">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <h4>{{ section.settings.heading }}</h4>
+    {% endif %}
+  </div>
+</section>

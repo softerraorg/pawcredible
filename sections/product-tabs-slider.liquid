@@ -1,0 +1,205 @@
+{% schema %}
+{
+  "name": "Product Tabs Slider",
+  "blocks": [
+    {
+      "type": "product_block",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "text",
+          "id": "tab_name",
+          "label": "Tab Name",
+          "default": "Product Tab"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Product Tabs Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+
+<div class="product-tabs-slider" id="product_tabs_slider">
+  <div class="page-width">
+    <!-- Tabs -->
+    <div class="slider-tabs">
+      {% for block in section.blocks %}
+        <div class="tab-item {% if forloop.first %}active{% endif %}" data-tab-index="{{ forloop.index0 }}">
+          {{ block.settings.tab_name }}
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper-container" id="productSwiper-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% assign product = all_products[block.settings.product] %}
+          {% if product %}
+          <div class="swiper-slide">
+            <div class="slide-content">
+              <!-- Column 1: Product Image -->
+              <div class="slide-image">
+                {% if product.featured_image %}
+                  <img src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.title }}">
+                {% endif %}
+              </div>
+              <!-- Column 2: Product Info -->
+              <div class="slide-info">
+                <a href="{{ product.url }}">
+                  <h3>{{ product.title }}</h3>
+                </a>
+  
+                {% render 'star-rating', product: product %}
+  
+                <p class="rating-summary">
+                  {{ product.metafields.custom.reviews_count | default: '4.99' }}/5 from {{ product.metafields.custom.reviews_rating | default: '32' }} reviews
+                </p>
+  
+                <p class="price">
+                  <span class="current-price">{{ product.price | money }}</span>
+                  {% if product.compare_at_price > product.price %}
+                    <span class="compare-price">{{ product.compare_at_price | money }}</span>
+                  {% endif %}
+                </p>
+  
+                <p class="description">{{ product.description | strip_html | truncate: 160 }}</p>
+
+                {% comment %} <div class="product-variants">
+                  {% assign first_variant = product.variants.first %}
+                
+                  {% for option in product.options_with_values %}
+                    {% assign option_name = option.name %}
+                    {% assign option_value = first_variant.options[forloop.index0] %}
+                    <p><strong>{{ option_name }}:</strong> {{ option_value }}</p>
+                  {% endfor %}
+                </div> {% endcomment %}
+
+                <a href="{{ product.url }}" class="tabs-learn-more button">Learn More</a>
+
+                {% comment %} <form method="post" action="/cart/add" class="custom-product-form" enctype="multipart/form-data">
+                  <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                  <button type="submit" class="button">
+                    Add to cart
+                  </button>
+                </form> {% endcomment %}
+
+                
+            
+              </div>
+
+              
+              
+            </div>
+          </div>
+          {% endif %}
+        
+        {% endfor %}
+      </div>
+  
+      <!-- Arrows -->
+      <div class="review-arrows">
+        <div class="swiper-button-prev">
+        </div>
+        <div class="swiper-button-next">
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sectionId = "{{ section.id }}";
+    const swiperEl = document.querySelector(`#productSwiper-${sectionId}`);
+    const tabs = document.querySelectorAll(`#shopify-section-${sectionId} .tab-item`);
+
+    const swiper = new Swiper(swiperEl, {
+      loop: false,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: `#productSwiper-${sectionId} .swiper-button-next`,
+        prevEl: `#productSwiper-${sectionId} .swiper-button-prev`,
+      },
+      on: {
+        slideChange: function () {
+          tabs.forEach(t => t.classList.remove("active"));
+          const activeTab = tabs[swiper.activeIndex];
+          if (activeTab) activeTab.classList.add("active");
+        }
+      }
+    });
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        swiper.slideTo(index);
+      });
+    });
+
+    document.querySelectorAll(`#shopify-section-${sectionId} .custom-product-form`).forEach(form => {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+  
+        // Step 1: Add to cart
+        fetch('/cart/add.js', {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => response.json())
+        .then(addedItem => {
+          const cartDrawer = document.querySelector('cart-drawer');
+  
+          // Step 2: Start polling until product appears in cart
+          const waitForCart = () => {
+            fetch('/cart.js')
+              .then(res => res.json())
+              .then(cart => {
+                const itemFound = cart.items.find(i => i.id === addedItem.id);
+                if (itemFound) {
+                  // Step 3: Open drawer and inject updated content
+                  if (cartDrawer?.open) cartDrawer.open();
+  
+                  fetch('/?sections=cart-drawer')
+                    .then(res => res.json())
+                    .then(data => {
+                      const html = data['cart-drawer'];
+                      const parser = new DOMParser();
+                      const doc = parser.parseFromString(html, 'text/html');
+                      const updatedDrawer = doc.querySelector('cart-drawer');
+                      if (updatedDrawer) {
+                        cartDrawer.innerHTML = updatedDrawer.innerHTML;
+                      }
+                    });
+                } else {
+                  // Retry after 200ms if item not found yet
+                  setTimeout(waitForCart, 200);
+                }
+              });
+          };
+  
+          waitForCart(); // Start polling
+        })
+        .catch(err => {
+          console.error('Add to cart failed:', err);
+        });
+      });
+    });
+
+    
+  });
+</script>

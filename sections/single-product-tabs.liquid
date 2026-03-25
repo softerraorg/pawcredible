@@ -1,0 +1,441 @@
+{% assign product = product %} <!-- Redundant but helps with context -->
+
+<section class="product-tabs-section">
+  <div class="page-width">
+    <ul class="tab-nav">
+      <li class="active" onclick="openTab('benefits')">Benefits</li>
+      <li onclick="openTab('ingredients')">Ingredients</li>
+      <li onclick="openTab('nutrition')">Nutrition</li>
+      <li onclick="openTab('feeding')">Feeding Guidelines</li>
+    </ul>
+
+    <div class="tab-content">
+
+      <!-- Benefits Tab -->
+      <div id="benefits" class="tab-panel active">
+        <div class="product-tabs-wrap">
+          <div class="product-tabs-left">
+            {% if product.metafields.tabs.benefits_image %}
+              <img src="{{ product.metafields.tabs.benefits_image | img_url: 'master' }}">
+            {% endif %}
+          </div>
+          <div class="product-tabs-right">
+            <h2>{{ product.metafields.tabs.benefits_heading }}</h2>
+
+            <!-- Static Cards or block-based loop -->
+            <div class="benefit-cards">
+              {% for block in section.blocks %}
+                {% if block.type == 'benefit_card' %}
+                  <div class="benefit-card">
+                    <img src="{{ block.settings.icon | img_url: 'small' }}" />
+                    <h4>{{ block.settings.card_title }}</h4>
+                    <p>{{ block.settings.card_text }}</p>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ingredients Tab -->
+      <div id="ingredients" class="tab-panel">
+        <div class="product-tabs-wrap">
+          <div class="product-tabs-left">
+            {% if product.metafields.tabs.ingredients_image %}
+              <img src="{{ product.metafields.tabs.ingredients_image | img_url: 'master' }}">
+            {% endif %}
+          </div>
+          <div class="product-tabs-right">
+            <h2>{{ product.metafields.tabs.ingredients_heading }}</h2>
+            {{ product.metafields.tabs.ingredients_text | metafield_tag }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Nutrition Tab -->
+      <div id="nutrition" class="tab-panel">
+        <div class="product-tabs-wrap">
+          {% comment %} <div class="product-tabs-left">
+            {% if product.metafields.tabs.nutrition_image %}
+              <img src="{{ product.metafields.tabs.nutrition_image | img_url: 'master' }}">
+            {% endif %}
+          </div> {% endcomment %}
+          <div class="product-tabs-right">
+            <h2>{{ product.metafields.tabs.nutrition_heading }}</h2>
+            {{ product.metafields.tabs.nutrition_text | metafield_tag }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Feeding Guidelines Tab -->
+      <div id="feeding" class="tab-panel">
+        <div class="product-tabs-wrap">
+          <div class="product-tabs-left">
+            {% if product.metafields.tabs.feeding_image %}
+              <img src="{{ product.metafields.tabs.feeding_image | img_url: 'master' }}">
+            {% endif %}
+          </div>
+          <div class="product-tabs-right">
+            <h2>{{ product.metafields.tabs.feeding_heading }}</h2>
+            {{ product.metafields.tabs.feeding_text | metafield_tag }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-tabs-section .tab-nav {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+    padding: 0;
+    justify-content: space-around;
+    border-bottom: 1px solid #BEBEBE;
+    margin-top: 0;
+  }
+
+  .product-tabs-section {
+      background: #F7F0E3;
+      padding: 40px 0;
+      margin-top: 60px;
+  }
+  
+  .product-tabs-section ul li {
+      color: #828282;
+      font-family: 'Outfit';
+      font-size: 20px;
+      font-weight: 700;
+      padding: 12px 20px;
+      transition: .3s all ease-in-out;
+      position: relative;
+      z-index: 1;
+  }
+  
+  .product-tabs-section ul li::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 8px;
+      background: transparent;
+      transition: .3s all ease-in-out;
+  }
+  
+  .product-tabs-section ul li.active::after {
+      background: #FDBE2E;
+  }
+
+  .product-tabs-section ul li.active {
+      color: #000;
+  }
+
+  .product-tabs-section .tab-content {
+      padding-top: 30px;
+  }
+
+  .product-tabs-section .tab-panel {
+    display: none;
+  }
+
+  .product-tabs-section .tab-panel.active {
+    display: block;
+  }
+
+  .product-tabs-section .benefit-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px;
+    column-gap: 100px;
+    row-gap: 50px;
+  }
+
+  .product-tabs-section .product-tabs-wrap {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+  }
+  
+  .product-tabs-section .product-tabs-wrap h2 {
+      margin: 0 0 20px;
+      font-size: 30px;
+  }
+  
+  .product-tabs-section .benefit-cards h4 {
+      font-size: 20px;
+      margin: 10px 0 0;
+  }
+  
+  .product-tabs-section .benefit-cards p {
+      margin: 10px 0 0;
+      color: #000;
+      font-size: 15px;
+  }
+
+  .product-tabs-section .product-tabs-wrap .product-tabs-left, .product-tabs-section .product-tabs-wrap .product-tabs-right {
+      flex: 1;
+  }
+
+  .product-tabs-section .product-tabs-wrap .product-tabs-left img {
+      margin: auto;
+      display: block;
+  }
+
+  .product-tabs-section #ingredients .product-tabs-wrap h2 {
+      border-bottom: 1px solid #BEBEBE;
+      padding-bottom: 14px;
+  }
+  
+  .product-tabs-section #ingredients .product-tabs-wrap h4 {
+      margin: 0;
+      font-size: 20px;
+  }
+  
+  .product-tabs-section #ingredients .product-tabs-wrap p {
+      margin: 10px 0 0;
+  }
+
+  .product-tabs-section #nutrition .product-tabs-wrap ul {
+      padding: 0;
+      margin: 0 0 30px;
+      list-style: none;
+  }
+  
+  .product-tabs-section #nutrition .product-tabs-wrap ul li {
+      padding: 20px 0;
+      color: #1E1E1E;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #BEBEBE;
+  }
+  
+  .product-tabs-section #nutrition .product-tabs-wrap ul li strong:last-of-type {
+      font-weight: 400;
+  }
+  
+  .product-tabs-section #nutrition .product-tabs-wrap ul li:last-of-type {
+      border-bottom: 1px solid #BEBEBE;
+  }
+
+  .product-tabs-section #nutrition .product-tabs-wrap ul li:last-of-type strong:last-of-type {
+      max-width: 30%;
+      text-align: right;
+  }
+
+  .product-tabs-section #feeding .product-tabs-wrap p {
+      margin: 0;
+      padding: 14px 0;
+      border-top: 1px solid #BEBEBE;
+  }
+  
+  .product-tabs-section #feeding .product-tabs-wrap p:last-of-type {
+      border-bottom: 1px solid #BEBEBE;
+  }
+
+  .product .grid__item {
+    width: 100% !important;
+    max-width: 50% !important;
+}
+
+.product .grid__item media-gallery {
+    background: #F8F8F8;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.product .grid__item media-gallery .slider {
+    justify-content: center;
+}
+
+.product .grid__item .product__info-container .product__title h1 {
+    font-size: 30px;
+    color: #4B882E;
+}
+
+.product .grid__item .product__info-container .price {
+    color: #4B882E;
+    font-weight: 700;
+    font-family: 'Outfit';
+    letter-spacing: 0;
+    font-size: 30px;
+}
+
+.product .grid__item .product__info-container variant-selects {
+    display: flex;
+    border-top: 1px solid #F2F2F2;
+    padding-top: 20px;
+    gap: 20px;
+}
+
+.product .grid__item .product__info-container variant-selects .product-form__input {
+    max-width: max-content;
+}
+
+.product .grid__item .product__info-container variant-selects .product-form__input .form__label {
+    font-family: 'Outfit';
+    font-size: 15px;
+    letter-spacing: 0;
+    font-weight: 700;
+    color: #1E1E1E;
+}
+
+.product .grid__item .product__info-container variant-selects .product-form__input label {
+    background: transparent;
+    letter-spacing: 0;
+    border-radius: 10px;
+    color: #1E1E1E;
+    font-weight: 700;
+    font-family: 'Outfit';
+    font-size: 15px;
+    margin: 4px 0 0;
+    border: 1px solid #E6E6E6;
+    width: 118px;
+    display: inline-block;
+}
+
+.product .grid__item .product__info-container .product-form .product-form__buttons button {
+    width: 100%;
+    border-radius: 100px;
+    background: #FDBE2E;
+    letter-spacing: 0;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: capitalize;
+    transition: .3s all ease-in-out;
+}
+
+.product .grid__item .product__info-container .product-form .product-form__buttons button::before,.product .grid__item .product__info-container .product-form .product-form__buttons button::after {
+    display: none;
+}
+
+.product .grid__item .product__info-container .product-form .product-form__buttons button:hover {
+    background: #000;
+    color: #fff;
+}
+
+.product .grid__item .product__info-container .product__description {
+    font-family: 'Outfit';
+    font-size: 15px;
+}
+
+@media (max-width:1024px)
+{
+
+.product-tabs-section .product-tabs-wrap {
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.product-tabs-section .product-tabs-wrap .product-tabs-left, .product-tabs-section .product-tabs-wrap .product-tabs-right {
+  flex: auto;
+}
+  
+}
+
+@media (max-width:1024px)
+{
+
+.product .grid__item {
+    max-width: 100% !important;
+}
+
+.product .grid__item .product__info-container .product__title h1 {
+    font-size: 24px;
+}
+
+.product .grid__item .product__info-container .price {
+    font-size: 24px;
+}
+
+.product-tabs-section .tab-nav {flex-wrap: wrap;border: 0;gap: 0;}
+
+.product-tabs-section ul li {
+    max-width: 100%;
+    width: 100%;
+    font-size: 18px;
+    padding: 14px 0;
+    text-align: center;
+    border-bottom: 1px solid #BEBEBE;
+}
+
+.product-tabs-section ul li::after {
+    height: 4px;
+}
+
+.product-tabs-section .product-tabs-wrap h2 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.product-tabs-section .benefit-cards {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+}
+
+.product-tabs-section ul li {
+    font-size: 16px;
+}
+
+.product-tabs-section #nutrition .product-tabs-wrap ul li:last-of-type strong:last-of-type {
+    max-width: 40%;
+}
+  
+}
+
+
+</style>
+
+<script>
+  function openTab(tabId) {
+    document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+    document.querySelectorAll('.tab-nav li').forEach(tab => tab.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    document.querySelector(`.tab-nav li[onclick="openTab('${tabId}')"]`).classList.add('active');
+  }
+</script>
+
+{% schema %}
+
+{
+  "name": "Product Tabs",
+  "blocks": [
+    {
+      "type": "benefit_card",
+      "name": "Benefit Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "card_text",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Product Tab Section"
+    }
+  ]
+}
+  
+{% endschema %}

@@ -1,0 +1,140 @@
+{% schema %}
+{
+  "name": "Home Benefits Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "At Vero Eos Et Accusamus Et Iusto Odio Dignissimos"
+    },
+    {
+      "type": "image_picker",
+      "id": "center_image",
+      "label": "Center Product Image"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Top Left Box"
+    },
+    {
+      "type": "text",
+      "id": "top_left_title",
+      "label": "Title",
+      "default": "Never Run Out"
+    },
+    {
+      "type": "text",
+      "id": "top_left_text",
+      "label": "Text",
+      "default": "Get Your Bestie's Favorites Right At Your Doorstep"
+    },
+    {
+      "type": "header",
+      "content": "Top Right Box"
+    },
+    {
+      "type": "text",
+      "id": "top_right_title",
+      "label": "Title",
+      "default": "Save On Every Order"
+    },
+    {
+      "type": "text",
+      "id": "top_right_text",
+      "label": "Text",
+      "default": "Save 50% On Your First Order & 10% Off All Recurring Orders"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Left Box"
+    },
+    {
+      "type": "text",
+      "id": "bottom_left_title",
+      "label": "Title",
+      "default": "Easy To Customize"
+    },
+    {
+      "type": "text",
+      "id": "bottom_left_text",
+      "label": "Text",
+      "default": "Swap Products In Your Subscription With Just A Few Clicks"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Right Box"
+    },
+    {
+      "type": "text",
+      "id": "bottom_right_title",
+      "label": "Title",
+      "default": "Complete Control"
+    },
+    {
+      "type": "text",
+      "id": "bottom_right_text",
+      "label": "Text",
+      "default": "Pause, Cancel, Or Change Autoship Frequency Anytime"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Raw Life Benefits",
+      "category": "Home Benefits Section"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="home-benefits-section">
+  <div class="page-width">
+    <h2>{{ section.settings.section_heading }}</h2>
+    <div class="home-benefits-wrap">
+        <div class="home-benefits-box-wrap home-benefits-box-left">
+            <div class="home-benefits-content home-benefits-content1">
+              <h4>{{ section.settings.top_left_title }}</h4>
+              <p>{{ section.settings.top_left_text }}</p>
+            </div>
+            <div class="home-benefits-content home-benefits-content2">
+              <h4>{{ section.settings.bottom_left_title }}</h4>
+              <p>{{ section.settings.bottom_left_text }}</p>
+            </div>
+        </div>
+        <div class="home-benefits-box">
+          <div class="home-benefits-img">
+            {% if section.settings.center_image != blank %}
+              <img src="{{ section.settings.center_image | image_url: width: 300 }}" alt="Benefits Image" />
+            {% endif %}
+          </div>
+        </div>
+        <div class="home-benefits-box-wrap home-benefits-box-right">
+            <div class="home-benefits-content home-benefits-content3">
+              <h4>{{ section.settings.top_right_title }}</h4>
+              <p>{{ section.settings.top_right_text }}</p>
+            </div>
+            <div class="home-benefits-content home-benefits-content4">
+              <h4>{{ section.settings.bottom_right_title }}</h4>
+              <p>{{ section.settings.bottom_right_text }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="benefits-box-btn">
+      <a href="{{ section.settings.button_link }}">
+      {{ section.settings.button_label }}
+      </a>
+    </div>
+  </div>
+</div>
+

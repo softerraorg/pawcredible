@@ -1,0 +1,827 @@
+{{ 'feeding-calculator.css' | asset_url | stylesheet_tag }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{{ '//fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap' | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign handle_mini = ''
+  assign handle_adv = ''
+  assign handle_alpha = ''
+  assign handle_food = ''
+  assign handle_topper = ''
+  assign handle_treat = ''
+  assign url_food = ''
+  if section.settings.product_mini != blank
+    assign handle_mini = section.settings.product_mini.handle
+  endif
+  if section.settings.product_adventurer != blank
+    assign handle_adv = section.settings.product_adventurer.handle
+  endif
+  if section.settings.product_alpha != blank
+    assign handle_alpha = section.settings.product_alpha.handle
+  endif
+  if section.settings.product_food != blank
+    assign handle_food = section.settings.product_food.handle
+    assign url_food = section.settings.product_food.url
+  endif
+  if section.settings.product_topper != blank
+    assign handle_topper = section.settings.product_topper.handle
+  endif
+  if section.settings.product_treat != blank
+    assign handle_treat = section.settings.product_treat.handle
+  endif
+-%}
+
+<div
+  class="feeding-calculator-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding"
+  id="feeding-calculator-{{ section.id }}"
+>
+  <div class="page-width">
+    <div
+      class="feeding-calculator"
+      data-feeding-calculator
+      id="fc-root-{{ section.id }}"
+      data-config-url="{{ 'feeding-calculator-config.json' | asset_url }}"
+      data-money-format="{{ shop.money_format | escape }}"
+      data-layout="{{ section.settings.layout }}"
+      data-handle-mini="{{ handle_mini | escape }}"
+      data-handle-adventurer="{{ handle_adv | escape }}"
+      data-handle-alpha="{{ handle_alpha | escape }}"
+      data-handle-food="{{ handle_food | escape }}"
+      data-handle-topper="{{ handle_topper | escape }}"
+      data-handle-treat="{{ handle_treat | escape }}"
+      data-view-url="{{ url_food | escape }}"
+      data-selling-plan-id="{{ section.settings.selling_plan_id | escape }}"
+      data-label-view="{{ section.settings.label_view | escape }}"
+      data-label-add-cart="{{ section.settings.label_add_cart | escape }}"
+      data-label-add-subscribe="{{ section.settings.label_add_subscribe | escape }}"
+      data-hint-subscribe-plan="{{ section.settings.hint_subscribe_plan | escape }}"
+      data-cart-mode="{{ section.settings.cart_mode | escape }}"
+      data-msg-bundle-incomplete="{{ section.settings.msg_bundle_incomplete | escape }}"
+      data-msg-cart-incomplete="{{ section.settings.msg_cart_incomplete | escape }}"
+      data-msg-cart-error="{{ section.settings.msg_cart_error | escape }}"
+      data-label-weight="{{ section.settings.label_weight | escape }}"
+      data-hint-weight="{{ section.settings.hint_weight | escape }}"
+      data-label-activity="{{ section.settings.label_activity | escape }}"
+      data-hint-activity="{{ section.settings.hint_activity | escape }}"
+      data-label-continue="{{ section.settings.label_continue | escape }}"
+      data-label-see="{{ section.settings.label_see | escape }}"
+      data-label-back="{{ section.settings.label_back | escape }}"
+      data-label-daily-grams="{{ section.settings.label_daily_grams | escape }}"
+      data-label-monthly="{{ section.settings.label_monthly | escape }}"
+      data-label-purchase="{{ section.settings.label_purchase | escape }}"
+      data-label-subscribe="{{ section.settings.label_subscribe | escape }}"
+      data-label-onetime="{{ section.settings.label_onetime | escape }}"
+      data-label-off="{{ section.settings.label_off | escape }}"
+      data-label-daily-sub="{{ section.settings.label_daily_sub | escape }}"
+      data-label-daily-once="{{ section.settings.label_daily_once | escape }}"
+      data-label-day="{{ section.settings.label_day | escape }}"
+      data-label-one-time-compare="{{ section.settings.label_one_time_compare | escape }}"
+      data-label-sub-compare="{{ section.settings.label_sub_compare | escape }}"
+      data-label-recalc="{{ section.settings.label_recalc | escape }}"
+      data-label-close="{{ section.settings.label_close | escape }}"
+      data-msg-extra-bag="{{ section.settings.msg_extra_bag | escape }}"
+      data-msg-bumped="{{ section.settings.msg_bumped | escape }}"
+      data-label-step1-title="{{ section.settings.label_step1_title | escape }}"
+      data-hint-build="{{ section.settings.hint_build | escape }}"
+      data-label-dog-name="{{ section.settings.label_dog_name | escape }}"
+      data-label-dog-breed="{{ section.settings.label_dog_breed | escape }}"
+      data-placeholder-dog-name="{{ section.settings.placeholder_dog_name | escape }}"
+      data-placeholder-dog-breed="{{ section.settings.placeholder_dog_breed | escape }}"
+      data-label-activity-heading="{{ section.settings.label_activity_heading | escape }}"
+      data-label-plan-possessive="{{ section.settings.label_plan_possessive | escape }}"
+      data-label-plan-no-name="{{ section.settings.label_plan_no_name | escape }}"
+      data-default-breed-word="{{ section.settings.default_breed_word | escape }}"
+      data-msg-based-on="{{ section.settings.msg_based_on | escape }}"
+      data-msg-ideal-plan="{{ section.settings.msg_ideal_plan | escape }}"
+      data-label-feeding-guide="{{ section.settings.label_feeding_guide | escape }}"
+      data-label-benefits="{{ section.settings.label_benefits | escape }}"
+      data-subscribe-benefits="{{ section.settings.subscribe_benefits | escape }}"
+      data-subscribe-benefits-pills="{{ section.settings.subscribe_benefits_pills | escape }}"
+      data-label-recommended-bundle="{{ section.settings.label_recommended_bundle | escape }}"
+      data-label-loading-plan="{{ section.settings.label_loading_plan | escape }}"
+      data-label-intro-title="{{ section.settings.label_intro_title | escape }}"
+      data-label-intro-copy="{{ section.settings.label_intro_copy | escape }}"
+      data-label-start-calc="{{ section.settings.label_start_calc | escape }}"
+      data-label-step-counter="{{ section.settings.label_step_counter | escape }}"
+      data-label-q-name="{{ section.settings.label_q_name | escape }}"
+      data-hint-q-name="{{ section.settings.hint_q_name | escape }}"
+      data-label-q-breed="{{ section.settings.label_q_breed | escape }}"
+      data-hint-q-breed="{{ section.settings.hint_q_breed | escape }}"
+      data-placeholder-breed-search="{{ section.settings.placeholder_breed_search | escape }}"
+      data-label-use-breed="{{ section.settings.label_use_breed | escape }}"
+      data-label-q-weight="{{ section.settings.label_q_weight | escape }}"
+      data-label-q-activity="{{ section.settings.label_q_activity | escape }}"
+      data-hint-q-activity="{{ section.settings.hint_q_activity | escape }}"
+      data-label-see-plan-name="{{ section.settings.label_see_plan_name | escape }}"
+      data-msg-based-on-being="{{ section.settings.msg_based_on_being | escape }}"
+      data-label-feeding-plan-for="{{ section.settings.label_feeding_plan_for | escape }}"
+      data-label-feed-from="{{ section.settings.label_feed_from | escape }}"
+      data-label-choose-pack="{{ section.settings.label_choose_pack | escape }}"
+      data-label-subscribe-sub="{{ section.settings.label_subscribe_sub | escape }}"
+      data-label-best-value="{{ section.settings.label_best_value | escape }}"
+      data-label-cta-sub="{{ section.settings.label_cta_sub | escape }}"
+      data-label-cta-once="{{ section.settings.label_cta_once | escape }}"
+      data-label-cta-foot-sub="{{ section.settings.label_cta_foot_sub | escape }}"
+      data-label-cta-foot-once="{{ section.settings.label_cta_foot_once | escape }}"
+      data-label-results-header="{{ section.settings.label_results_header | escape }}"
+      data-badge-recommended="{{ section.settings.badge_recommended | escape }}"
+      data-default-dog-call="{{ section.settings.default_dog_call | escape }}"
+      data-loading-sub-1="{{ section.settings.loading_sub_1 | escape }}"
+      data-loading-sub-2="{{ section.settings.loading_sub_2 | escape }}"
+      data-loading-sub-3="{{ section.settings.loading_sub_3 | escape }}"
+      data-loading-sub-4="{{ section.settings.loading_sub_4 | escape }}"
+    >
+      {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+        <div class="feeding-calculator__intro">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.subheading != blank -%}
+            <p>{{ section.settings.subheading | escape }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.layout == 'modal' -%}
+        <div style="text-align: center;">
+          <button
+            type="button"
+            class="button feeding-calculator__open"
+            data-feeding-open
+          >
+            {{ section.settings.open_button_label | escape }}
+          </button>
+        </div>
+        <div class="feeding-calculator__backdrop" data-feeding-modal hidden>
+          <div class="feeding-calculator__sheet" role="dialog" aria-modal="true" aria-labelledby="fc-title-{{ section.id }}">
+            <div class="feeding-calculator__sheet-header">
+              <span id="fc-title-{{ section.id }}" class="visually-hidden">{{ section.settings.heading | default: 'Feeding calculator' | escape }}</span>
+              <span></span>
+              <button type="button" class="feeding-calculator__close" data-feeding-close aria-label="{{ 'accessibility.close' | t | escape }}">×</button>
+            </div>
+            <div class="feeding-calculator__panel" data-feeding-panel>
+              <p class="feeding-calculator__muted" style="margin:0;">{{ 'accessibility.loading' | t }}</p>
+            </div>
+          </div>
+        </div>
+      {%- else -%}
+        <div class="feeding-calculator__panel" data-feeding-panel>
+          <p class="feeding-calculator__muted" style="margin:0;">{{ section.settings.loading_text | escape }}</p>
+        </div>
+      {%- endif -%}
+
+      <div class="feeding-calculator__error" data-feeding-error hidden>
+        {{ section.settings.error_text | escape }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'feeding-calculator.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Feeding calculator",
+  "tag": "section",
+  "class": "section-feeding-calculator",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Build Your Dog's Personal Feeding Plan"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Tell us about your dog — we’ll tailor bags, toppers, treats, and daily grams."
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "inline", "label": "Inline (on page)" },
+        { "value": "modal", "label": "Button opens modal" }
+      ],
+      "default": "inline"
+    },
+    {
+      "type": "text",
+      "id": "open_button_label",
+      "label": "Open button (modal layout)",
+      "default": "Start feeding calculator"
+    },
+    {
+      "type": "text",
+      "id": "loading_text",
+      "label": "Loading text (inline)",
+      "default": "Loading calculator…"
+    },
+    {
+      "type": "text",
+      "id": "error_text",
+      "label": "Error message",
+      "default": "Could not load calculator config. Please refresh the page."
+    },
+    {
+      "type": "header",
+      "content": "Products (optional)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Line items mode: calculator prices match the cart — they sum food + topper + treat (quantities per tier). Assign those three under Pack parts. Mini / Adventurer / Alpha products above are for bundle mode, or optional View links; they are not used for line-items price totals."
+    },
+    {
+      "type": "select",
+      "id": "cart_mode",
+      "label": "How packs are sold",
+      "options": [
+        {
+          "value": "bundle",
+          "label": "Bundle: one product per tier"
+        },
+        {
+          "value": "line_items",
+          "label": "Line items: food, topper, treat"
+        }
+      ],
+      "default": "bundle",
+      "info": "Bundle: Mini / Adventurer / Alpha each map to one product. Line items: matches PDF (3 products per add)."
+    },
+    {
+      "type": "product",
+      "id": "product_mini",
+      "label": "Mini Paw Pack product"
+    },
+    {
+      "type": "product",
+      "id": "product_adventurer",
+      "label": "Adventurer Pack product"
+    },
+    {
+      "type": "product",
+      "id": "product_alpha",
+      "label": "Alpha Pack product"
+    },
+    {
+      "type": "header",
+      "content": "Pack parts (line-items mode only)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Adds three products: BioBowl bags, toppers, treats with quantities from the calculator. Use bundle mode if you sell one product per pack instead."
+    },
+    {
+      "type": "product",
+      "id": "product_food",
+      "label": "BioBowl / main food product"
+    },
+    {
+      "type": "product",
+      "id": "product_topper",
+      "label": "Raw Fusion Topper product"
+    },
+    {
+      "type": "product",
+      "id": "product_treat",
+      "label": "Raw Fusion Treat product"
+    },
+    {
+      "type": "text",
+      "id": "selling_plan_id",
+      "label": "Selling plan ID (optional)",
+      "info": "Shopify Admin → product → Purchase options → open the plan → ID in URL or app. Line-items mode: each component line can use this subscription plan when Subscribe is selected. Bundle mode: plan applies to the single pack product line."
+    },
+    {
+      "type": "header",
+      "content": "Cart button labels"
+    },
+    {
+      "type": "text",
+      "id": "label_view",
+      "label": "View product link",
+      "default": "View product"
+    },
+    {
+      "type": "text",
+      "id": "label_add_cart",
+      "label": "Add pack (one-time)",
+      "default": "Add pack to cart"
+    },
+    {
+      "type": "text",
+      "id": "label_add_subscribe",
+      "label": "Add pack (subscribe)",
+      "default": "Subscribe & add pack"
+    },
+    {
+      "type": "text",
+      "id": "hint_subscribe_plan",
+      "label": "Hint if Subscribe but no plan ID",
+      "default": "Add a subscription selling plan ID in theme settings to check out with Subscribe & Save from here."
+    },
+    {
+      "type": "text",
+      "id": "msg_bundle_incomplete",
+      "label": "Incomplete message (bundle mode)",
+      "default": "Connect Mini, Adventurer, and Alpha pack products in this section to enable Add to cart."
+    },
+    {
+      "type": "text",
+      "id": "msg_cart_incomplete",
+      "label": "Incomplete message (line-items mode)",
+      "default": "Connect BioBowl, topper, and treat products above to add this pack to cart."
+    },
+    {
+      "type": "text",
+      "id": "msg_cart_error",
+      "label": "Cart error alert",
+      "default": "Could not add items to cart. Check products and subscription plan."
+    },
+    {
+      "type": "header",
+      "content": "Plan copy (calculator)"
+    },
+    {
+      "type": "text",
+      "id": "label_step1_title",
+      "label": "Step 1 title",
+      "default": "Build Your Dog's Personal Feeding Plan"
+    },
+    {
+      "type": "textarea",
+      "id": "hint_build",
+      "label": "Step 1 intro (optional)",
+      "default": "Dog's name and breed are optional — they personalise your plan. Weight and activity set the numbers."
+    },
+    {
+      "type": "text",
+      "id": "label_dog_name",
+      "label": "Dog name label",
+      "default": "Dog's name"
+    },
+    {
+      "type": "text",
+      "id": "label_dog_breed",
+      "label": "Breed label",
+      "default": "Breed"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_dog_name",
+      "label": "Dog name placeholder",
+      "default": "e.g. Bella"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_dog_breed",
+      "label": "Breed placeholder",
+      "default": "e.g. Labrador"
+    },
+    {
+      "type": "text",
+      "id": "label_activity_heading",
+      "label": "Activity block title",
+      "default": "How active is your dog?"
+    },
+    {
+      "type": "text",
+      "id": "label_plan_possessive",
+      "label": "Title after name",
+      "default": "'s Pawcredible Plan",
+      "info": "Appended to dog's name. Example: Bella + this = Bella's Pawcredible Plan."
+    },
+    {
+      "type": "text",
+      "id": "label_plan_no_name",
+      "label": "Title if no name",
+      "default": "Your Pawcredible Plan"
+    },
+    {
+      "type": "text",
+      "id": "default_breed_word",
+      "label": "Breed fallback word",
+      "default": "dog",
+      "info": "Used in “Based on a 12kg dog…” if breed is empty."
+    },
+    {
+      "type": "textarea",
+      "id": "msg_based_on",
+      "label": "Intro line on results",
+      "default": "Based on a __WEIGHT__kg __BREED__, we recommend:"
+    },
+    {
+      "type": "textarea",
+      "id": "msg_ideal_plan",
+      "label": "Reassuring bags line",
+      "default": "Your dog's ideal plan is __BAGS__ × __KG__ kg bags per month so you never run short."
+    },
+    {
+      "type": "text",
+      "id": "label_feeding_guide",
+      "label": "Feeding guide heading",
+      "default": "Feeding guide"
+    },
+    {
+      "type": "text",
+      "id": "label_recommended_bundle",
+      "label": "Bundle label",
+      "default": "Recommended bundle"
+    },
+    {
+      "type": "text",
+      "id": "label_benefits",
+      "label": "Subscribe benefits heading",
+      "default": "Best value — Subscribe & Save"
+    },
+    {
+      "type": "textarea",
+      "id": "subscribe_benefits",
+      "label": "Subscribe benefits (pipe-separated)",
+      "default": "Save 10%|Never run out|Flexible delivery|Priority offers",
+      "info": "Separate with |"
+    },
+    {
+      "type": "text",
+      "id": "label_loading_plan",
+      "label": "Loading message",
+      "default": "Creating your plan…"
+    },
+    {
+      "type": "header",
+      "content": "Wizard UI"
+    },
+    {
+      "type": "text",
+      "id": "label_intro_title",
+      "label": "Landing title (inline)",
+      "default": "Build Your Dog's Perfect Meal Plan"
+    },
+    {
+      "type": "textarea",
+      "id": "label_intro_copy",
+      "label": "Landing copy (inline)",
+      "default": "Tell us about your dog and we will create a personalised feeding plan with the right pack, portion size, and daily cost."
+    },
+    {
+      "type": "text",
+      "id": "label_start_calc",
+      "label": "Landing button",
+      "default": "Start Calculator →"
+    },
+    {
+      "type": "text",
+      "id": "label_step_counter",
+      "label": "Step counter",
+      "default": "Step __N__ of 4"
+    },
+    {
+      "type": "text",
+      "id": "label_q_name",
+      "label": "Q: dog name",
+      "default": "What's your dog's name?"
+    },
+    {
+      "type": "text",
+      "id": "hint_q_name",
+      "label": "Hint: name",
+      "default": "We will personalise the feeding plan for them."
+    },
+    {
+      "type": "text",
+      "id": "label_q_breed",
+      "label": "Q: breed",
+      "default": "What breed is __NAME__?"
+    },
+    {
+      "type": "text",
+      "id": "hint_q_breed",
+      "label": "Hint: breed",
+      "default": "Helps us personalise the experience."
+    },
+    {
+      "type": "text",
+      "id": "placeholder_breed_search",
+      "label": "Breed search placeholder",
+      "default": "Search breed..."
+    },
+    {
+      "type": "text",
+      "id": "label_use_breed",
+      "label": "Custom breed line",
+      "default": "Use \"__B__\""
+    },
+    {
+      "type": "text",
+      "id": "label_q_weight",
+      "label": "Q: weight",
+      "default": "How much does __NAME__ weigh?"
+    },
+    {
+      "type": "text",
+      "id": "label_q_activity",
+      "label": "Q: activity",
+      "default": "How active is __NAME__?"
+    },
+    {
+      "type": "text",
+      "id": "hint_q_activity",
+      "label": "Hint: activity",
+      "default": "This determines daily food amount."
+    },
+    {
+      "type": "text",
+      "id": "label_see_plan_name",
+      "label": "See plan button",
+      "default": "See __NAME__'s Plan"
+    },
+    {
+      "type": "textarea",
+      "id": "msg_based_on_being",
+      "label": "Results intro (green box)",
+      "default": "Based on __NAME__ being a __W__kg __B__, we recommend:"
+    },
+    {
+      "type": "text",
+      "id": "label_feeding_plan_for",
+      "label": "Green box kicker",
+      "default": "Feeding plan for"
+    },
+    {
+      "type": "text",
+      "id": "label_feed_from",
+      "label": "Daily cost line",
+      "default": "Feed __NAME__ from just"
+    },
+    {
+      "type": "text",
+      "id": "label_choose_pack",
+      "label": "Choose pack heading",
+      "default": "Choose Your Pack"
+    },
+    {
+      "type": "text",
+      "id": "label_subscribe_sub",
+      "label": "Subscribe subline",
+      "default": "Save 10% + Free delivery"
+    },
+    {
+      "type": "text",
+      "id": "label_best_value",
+      "label": "Best value badge",
+      "default": "Best Value"
+    },
+    {
+      "type": "text",
+      "id": "label_cta_sub",
+      "label": "CTA subscribe",
+      "default": "Subscribe & Save – __PRICE__"
+    },
+    {
+      "type": "text",
+      "id": "label_cta_once",
+      "label": "CTA one-time",
+      "default": "Buy Once – __PRICE__"
+    },
+    {
+      "type": "text",
+      "id": "label_cta_foot_sub",
+      "label": "Footnote subscribe",
+      "default": "Delivered every 4 weeks. Cancel anytime."
+    },
+    {
+      "type": "text",
+      "id": "label_cta_foot_once",
+      "label": "Footnote one-time",
+      "default": "One-time delivery. No commitment."
+    },
+    {
+      "type": "text",
+      "id": "label_results_header",
+      "label": "Results header",
+      "default": "__NAME__'s Plan"
+    },
+    {
+      "type": "text",
+      "id": "badge_recommended",
+      "label": "Recommended badge",
+      "default": "Recommended for __NAME__"
+    },
+    {
+      "type": "text",
+      "id": "default_dog_call",
+      "label": "Name fallback",
+      "default": "your dog"
+    },
+    {
+      "type": "textarea",
+      "id": "subscribe_benefits_pills",
+      "label": "Subscribe pills (pipe)",
+      "default": "Save 10%|Free delivery|Never run out|Pause anytime|Priority offers"
+    },
+    {
+      "type": "header",
+      "content": "Labels (optional overrides)"
+    },
+    {
+      "type": "text",
+      "id": "label_weight",
+      "label": "Weight field label",
+      "default": "Weight (kg)"
+    },
+    {
+      "type": "text",
+      "id": "hint_weight",
+      "label": "Weight hint",
+      "default": "Approximate weight is fine."
+    },
+    {
+      "type": "text",
+      "id": "label_activity",
+      "label": "Activity step title",
+      "default": "Activity level"
+    },
+    {
+      "type": "text",
+      "id": "hint_activity",
+      "label": "Activity hint",
+      "default": "Relaxed uses the lower end of the guideline range; Very Active uses the upper end."
+    },
+    {
+      "type": "text",
+      "id": "label_continue",
+      "label": "Continue button",
+      "default": "Continue"
+    },
+    {
+      "type": "text",
+      "id": "label_see",
+      "label": "See plan button",
+      "default": "See my plan"
+    },
+    {
+      "type": "text",
+      "id": "label_back",
+      "label": "Back button",
+      "default": "Back"
+    },
+    {
+      "type": "text",
+      "id": "label_daily_grams",
+      "label": "Daily serving label",
+      "default": "Daily serving"
+    },
+    {
+      "type": "text",
+      "id": "label_monthly",
+      "label": "Monthly label",
+      "default": "Monthly requirement"
+    },
+    {
+      "type": "text",
+      "id": "label_purchase",
+      "label": "Purchase section title",
+      "default": "Choose how you want to buy"
+    },
+    {
+      "type": "text",
+      "id": "label_subscribe",
+      "label": "Subscribe label",
+      "default": "Subscribe & Save"
+    },
+    {
+      "type": "text",
+      "id": "label_onetime",
+      "label": "One-time label",
+      "default": "One-time purchase"
+    },
+    {
+      "type": "text",
+      "id": "label_off",
+      "label": "“Off” word (after %)",
+      "default": "off"
+    },
+    {
+      "type": "text",
+      "id": "label_daily_sub",
+      "label": "Daily cost (subscribe selected)",
+      "default": "Daily cost (Subscribe & Save)"
+    },
+    {
+      "type": "text",
+      "id": "label_daily_once",
+      "label": "Daily cost (one-time selected)",
+      "default": "Daily cost"
+    },
+    {
+      "type": "text",
+      "id": "label_day",
+      "label": "“Day” word",
+      "default": "day"
+    },
+    {
+      "type": "text",
+      "id": "label_one_time_compare",
+      "label": "Compare line under subscribe",
+      "default": "One-time equivalent:"
+    },
+    {
+      "type": "text",
+      "id": "label_sub_compare",
+      "label": "Compare line under one-time",
+      "default": "Subscribe & Save:"
+    },
+    {
+      "type": "text",
+      "id": "label_recalc",
+      "label": "Recalculate button",
+      "default": "Recalculate"
+    },
+    {
+      "type": "text",
+      "id": "label_close",
+      "label": "Close button (modal)",
+      "default": "Close"
+    },
+    {
+      "type": "text",
+      "id": "msg_extra_bag",
+      "label": "Optional extra bag message",
+      "default": "You're within 1kg of filling the next bag — an extra bag this month is optional."
+    },
+    {
+      "type": "text",
+      "id": "msg_bumped",
+      "label": "Extra bags message",
+      "default": "Recommended coverage uses __BAGS__ × __KG__ kg bags to match monthly need."
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feeding calculator",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

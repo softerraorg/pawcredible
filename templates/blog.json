@@ -1,0 +1,95 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "disabled": true,
+      "settings": {
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "adapt",
+        "show_date": true,
+        "show_author": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_blog_feature_3b3Mxc": {
+      "type": "custom-blog-feature",
+      "name": "Blog Feature Section",
+      "settings": {
+        "left_blog": "pawcredible",
+        "right_blog": "health-wellness",
+        "heading": "Blog"
+      }
+    },
+    "custom_blog_main_tFxEtb": {
+      "type": "custom-blog-main",
+      "blocks": {
+        "blog_block_fMHnbq": {
+          "type": "blog_block",
+          "settings": {
+            "blog_handle": "pawcredible"
+          }
+        },
+        "blog_block_eGRwf8": {
+          "type": "blog_block",
+          "settings": {
+            "blog_handle": "health-wellness"
+          }
+        },
+        "popular_blog_wPn3Dn": {
+          "type": "popular_blog",
+          "settings": {
+            "blog_link": "pawcredible"
+          }
+        },
+        "popular_blog_k3kTg8": {
+          "type": "popular_blog",
+          "settings": {
+            "blog_link": "health-wellness"
+          }
+        }
+      },
+      "block_order": [
+        "blog_block_fMHnbq",
+        "blog_block_eGRwf8",
+        "popular_blog_wPn3Dn",
+        "popular_blog_k3kTg8"
+      ],
+      "name": "Blog Main Section",
+      "settings": {
+        "heading": "Recent Articles",
+        "popular_heading": "Popular Topics",
+        "popular_text": "",
+        "signup_heading": "Join The Pawcredible Pack",
+        "signup_text": "Be First To Fetch Fresh Deals, Limited Edition Treats, Surprise Drops, & Dog-Parent Tips Straight To Your Inbox. Every Email = Treats For You (And Your Furry Friend)!"
+      }
+    },
+    "signup_section_7VLtxr": {
+      "type": "signup-section",
+      "name": "Sign Up Section",
+      "settings": {
+        "sub_heading": "Join The Pawcredible Pack",
+        "heading": "Get 10% Off & Unleash Exclusive Perks!",
+        "paragraph": "Be First To Fetch Fresh Deals, Limited Edition Treats, Surprise Drops, & Dog-Parent Tips Straight To Your Inbox. Every Email = Treats For You (And Your Furry Friend)!",
+        "success_message": "Thank you for subscribing!",
+        "button_label": "Subscribe"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_blog_feature_3b3Mxc",
+    "custom_blog_main_tFxEtb",
+    "signup_section_7VLtxr"
+  ]
+}

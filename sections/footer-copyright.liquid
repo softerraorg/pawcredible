@@ -1,0 +1,71 @@
+{% schema %}
+{
+  "name": "Footer Copyright",
+  "tag": "section",
+  "class": "footer-copyright",
+  "settings": [
+    {
+      "type": "text",
+      "id": "company_name",
+      "label": "Company Name",
+      "default": "Zesty Paws®"
+    },
+    {
+      "type": "url",
+      "id": "privacy_url",
+      "label": "Privacy Policy URL"
+    },
+    {
+      "type": "url",
+      "id": "refunds_url",
+      "label": "Return And Refunds URL"
+    },
+    {
+      "type": "url",
+      "id": "terms_url",
+      "label": "Terms and Conditions URL"
+    },
+    {
+      "type": "url",
+      "id": "shipping_us",
+      "label": "Shipping URL US"
+    },
+    {
+      "type": "url",
+      "id": "shipping_uk",
+      "label": "Shipping URL UK"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer Copyright",
+      "category": "Footer"
+    }
+  ]
+}
+{% endschema %}
+
+
+<div class="custom-footer-copyright">
+  <div class="page-width">
+    <p>
+    &copy; {{ 'now' | date: '%Y' }} {{ section.settings.company_name }}
+    {% if section.settings.privacy_url %}
+    <a href="{{ section.settings.privacy_url }}">Privacy Policy</a>
+    {% endif %}
+    {% if section.settings.terms_url %}
+    <a href="{{ section.settings.terms_url }}">Terms and Conditions</a>
+    {% endif %}
+    {% if section.settings.terms_url %}
+    <a href="{{ section.settings.refunds_url }}">Returns And Refunds</a>
+    {% endif %}
+    {% if localization.country.iso_code == "US" and section.settings.shipping_us != blank %}
+      <a href="{{ section.settings.shipping_us }}">Shipping US</a>
+    {% else %}
+      {% if section.settings.shipping_uk != blank %}
+        <a href="{{ section.settings.shipping_uk }}">Shipping UK</a>
+      {% endif %}
+    {% endif %}
+  </p>
+  </div>
+</div>

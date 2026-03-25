@@ -1,0 +1,172 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "join_reward_hero_3h3JcC": {
+      "type": "join-reward-hero",
+      "name": "Join Reward Hero",
+      "settings": {
+        "heading": "The Best Pawcredible Loyalty Program On The Planet!",
+        "subheading": "Earn Free Healthy Dog Food and More Starting Today!",
+        "description": "Become A VIP and Get $15 off <br>Plus, sooooo much more! Scroll down.",
+        "button_1_label": "Sign Up For Free",
+        "button_1_link": "/#subscribe_save",
+        "button_2_label": "Sign In",
+        "button_2_link": "https://shopify.com/94484824390/account?locale=en&region_country=GB&consent=p1a1m1&consent_id=39526e07-23c9-417e-ae81-9bb961da9ef2",
+        "image": "shopify://shop_images/join-banner.png"
+      }
+    },
+    "join_reward_icons_7BWBhY": {
+      "type": "join-reward-icons",
+      "blocks": {
+        "icon_8ety3B": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/1.jpg",
+            "title": "5% back in rewards for <br>every $100 spent"
+          }
+        },
+        "icon_DFpdxn": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/2.jpg",
+            "title": "Annual <br>Birthday Gift"
+          }
+        },
+        "icon_LhyeMk": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/3.jpg",
+            "title": "Donate to a cause & <br>get perks"
+          }
+        },
+        "icon_nAMG73": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/4.jpg",
+            "title": "Every 100 perks <br>earned = $5 Reward"
+          }
+        }
+      },
+      "block_order": [
+        "icon_8ety3B",
+        "icon_DFpdxn",
+        "icon_LhyeMk",
+        "icon_nAMG73"
+      ],
+      "name": "Join Reward Icon Grid",
+      "settings": {
+        "heading": "It Feels <span>GOOD</span> To Be <span>A VIP</span>"
+      }
+    },
+    "custom_liquid_MTrKjC": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<section class=\"paw-program\">\n\t<div class=\"page-width\">\n\t\t<div class=\"paw-program-wrap\">\n\t\t\t<div class=\"paw-program-card paw-program-card1\">\n\t\t\t\t<div class=\"paw-program-card-header\">\n\t\t\t\t\t<h2>Pawcredible Loyalty <br>Program</h2>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"paw-program-card-txt\">\n\t\t\t\t\t<p>Perks For Shopping</p>\n\t\t\t\t\t<p>Rewards</p>\n\t\t\t\t\t<p>Birthday Bucks</p>\n\t\t\t\t\t<p>Just For You Offers</p>\n\t\t\t\t\t<p>Reward Bucks</p>\n\t\t\t\t\t<p>Exclusive Events</p>\n\t\t\t\t\t<p>Pawcredible Day</p>\n\t\t\t\t\t<p>Meet & Greet</p>\n\t\t\t\t\t<p>Access to App Exclusives</p>\n\t\t\t\t\t<p>More Ways to Get Perks</p>\n\t\t\t\t\t<p>Donate To a Cause and Get Perks</p>\n\t\t\t\t\t<p>Perks For Samples</p>\n\t\t\t\t\t<p>Free Samples with Designated Purchases</p>\n\t\t\t\t\t<p>Perk Multiplier Events</p>\n\t\t\t\t\t<p>Seasonal Saving Events</p>\n\t\t\t\t\t<p>Epic Monthly Giveaway</p>\n\t\t\t\t\t<p>Gifts For Your Friends</p>\n\t\t\t\t\t<p>Annual Exclusive Gift</p>\n\t\t\t\t\t<p>Exclusive Early Access to Products</p>\n\t\t\t\t\t<p>Annual Subscription Anniversary Gift</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"paw-program-card paw-program-card2\">\n\t\t\t\t<div class=\"paw-program-card-header\">\n\t\t\t\t\t<h4>Pawcredible VIP</h4>\n\t\t\t\t\t<p>Free to Join</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"paw-program-card-txt\">\n\t\t\t\t\t<p>$1 = 1 perk</p>\n\t\t\t\t\t<p>500 perks = $5 Reward</p>\n\t\t\t\t\t<p>$5</p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"paw-program-card paw-program-card3\">\n\t\t\t\t<div class=\"paw-program-card-header\">\n\t\t\t\t\t<h4>Pawcredible VIP GOLD</h4>\n\t\t\t\t\t<p>$300 Annual Spend</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"paw-program-card-txt\">\n\t\t\t\t\t<p>$1 = 2 perk</p>\n\t\t\t\t\t<p>500 perks = $5 Reward</p>\n\t\t\t\t\t<p>$5</p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p>2x the Perks</p>\n\t\t\t\t\t<p>25% Coupon Savings</p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"paw-program-card paw-program-card4\">\n\t\t\t\t<div class=\"paw-program-card-header\">\n\t\t\t\t\t<h4>Pawcredible VIP BLACK</h4>\n\t\t\t\t\t<p>$750 Annual Spend</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"paw-program-card-txt\">\n\t\t\t\t\t<p>$1 = 3 perk</p>\n\t\t\t\t\t<p>500 perks = $5 Reward</p>\n\t\t\t\t\t<p>$5</p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p>3x the Perks</p>\n\t\t\t\t\t<p>35% Coupon Savings</p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t</div>\n\t</div>\n</section>\n\n\n<section class=\"mob-paw-program\">\n\t<div class=\"page-width\">\n\t\t<div class=\"mob-paw-program-wrap\">\n\t\t\t<div class=\"mob-paw-program-card mob-paw-program-card1\">\n\t\t\t\t<div class=\"mob-paw-program-card-header\">\n\t\t\t\t\t<h4>Pawcredible VIP</h4>\n\t\t\t\t\t<p>Free to Join</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mob-paw-program-card-txt\">\n\t\t\t\t\t<p>Perks For Shopping</p>\n\t\t\t\t\t<p>Rewards</p>\n\t\t\t\t\t<p>Birthday Bucks</p>\n\t\t\t\t\t<p>Just For You Offers</p>\n\t\t\t\t\t<p>Reward Bucks</p>\n\t\t\t\t\t<p>Exclusive Events</p>\n\t\t\t\t\t<p>Pawcredible Day</p>\n\t\t\t\t\t<p>Meet & Greet</p>\n\t\t\t\t\t<p>Access to App Exclusives</p>\n\t\t\t\t\t<p>More Ways to Get Perks</p>\n\t\t\t\t\t<p>Donate To a Cause and Get Perks</p>\n\t\t\t\t\t<p>Perks For Samples</p>\n\t\t\t\t\t<p>Free Samples with Designated Purchases</p>\n\t\t\t\t\t<p>Perk Multiplier Events</p>\n\t\t\t\t\t<p>Seasonal Saving Events</p>\n\t\t\t\t\t<p>Epic Monthly Giveaway</p>\n\t\t\t\t\t<p>Gifts For Your Friends</p>\n\t\t\t\t\t<p>Annual Exclusive Gift</p>\n\t\t\t\t\t<p>Exclusive Early Access to Products</p>\n\t\t\t\t\t<p>Annual Subscription Anniversary Gift</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mob-paw-program-card-txt\">\n\t\t\t\t\t<p>$1 = 1 perk</p>\n\t\t\t\t\t<p>500 perks = $5 Reward</p>\n\t\t\t\t\t<p>$5</p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"mob-paw-program-card mob-paw-program-card2\">\n\t\t\t\t<div class=\"mob-paw-program-card-header\">\n\t\t\t\t\t<h4>Pawcredible VIP GOLD</h4>\n\t\t\t\t\t<p>$300 Annual Spend</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mob-paw-program-card-txt\">\n\t\t\t\t\t<p>Perks For Shopping</p>\n\t\t\t\t\t<p>Rewards</p>\n\t\t\t\t\t<p>Birthday Bucks</p>\n\t\t\t\t\t<p>Just For You Offers</p>\n\t\t\t\t\t<p>Reward Bucks</p>\n\t\t\t\t\t<p>Exclusive Events</p>\n\t\t\t\t\t<p>Pawcredible Day</p>\n\t\t\t\t\t<p>Meet & Greet</p>\n\t\t\t\t\t<p>Access to App Exclusives</p>\n\t\t\t\t\t<p>More Ways to Get Perks</p>\n\t\t\t\t\t<p>Donate To a Cause and Get Perks</p>\n\t\t\t\t\t<p>Perks For Samples</p>\n\t\t\t\t\t<p>Free Samples with Designated Purchases</p>\n\t\t\t\t\t<p>Perk Multiplier Events</p>\n\t\t\t\t\t<p>Seasonal Saving Events</p>\n\t\t\t\t\t<p>Epic Monthly Giveaway</p>\n\t\t\t\t\t<p>Gifts For Your Friends</p>\n\t\t\t\t\t<p>Annual Exclusive Gift</p>\n\t\t\t\t\t<p>Exclusive Early Access to Products</p>\n\t\t\t\t\t<p>Annual Subscription Anniversary Gift</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mob-paw-program-card-txt\">\n\t\t\t\t\t<p>$1 = 2 perk</p>\n\t\t\t\t\t<p>500 perks = $5 Reward</p>\n\t\t\t\t\t<p>$5</p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p>2x the Perks</p>\n\t\t\t\t\t<p>25% Coupon Savings</p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"mob-paw-program-card mob-paw-program-card3\">\n\t\t\t\t<div class=\"mob-paw-program-card-header\">\n\t\t\t\t\t<h4>Pawcredible VIP BLACK</h4>\n\t\t\t\t\t<p>$750 Annual Spend</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mob-paw-program-card-txt\">\n\t\t\t\t\t<p>Perks For Shopping</p>\n\t\t\t\t\t<p>Rewards</p>\n\t\t\t\t\t<p>Birthday Bucks</p>\n\t\t\t\t\t<p>Just For You Offers</p>\n\t\t\t\t\t<p>Reward Bucks</p>\n\t\t\t\t\t<p>Exclusive Events</p>\n\t\t\t\t\t<p>Pawcredible Day</p>\n\t\t\t\t\t<p>Meet & Greet</p>\n\t\t\t\t\t<p>Access to App Exclusives</p>\n\t\t\t\t\t<p>More Ways to Get Perks</p>\n\t\t\t\t\t<p>Donate To a Cause and Get Perks</p>\n\t\t\t\t\t<p>Perks For Samples</p>\n\t\t\t\t\t<p>Free Samples with Designated Purchases</p>\n\t\t\t\t\t<p>Perk Multiplier Events</p>\n\t\t\t\t\t<p>Seasonal Saving Events</p>\n\t\t\t\t\t<p>Epic Monthly Giveaway</p>\n\t\t\t\t\t<p>Gifts For Your Friends</p>\n\t\t\t\t\t<p>Annual Exclusive Gift</p>\n\t\t\t\t\t<p>Exclusive Early Access to Products</p>\n\t\t\t\t\t<p>Annual Subscription Anniversary Gift</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mob-paw-program-card-txt\">\n\t\t\t\t\t<p>$1 = 3 perk</p>\n\t\t\t\t\t<p>500 perks = $5 Reward</p>\n\t\t\t\t\t<p>$5</p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p>3x the Perks</p>\n\t\t\t\t\t<p>35% Coupon Savings</p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t\t<p><img src=\"https://cdn.shopify.com/s/files/1/0944/8482/4390/files/program-icon.png\" /></p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "join_reward_benefits_p3rcg3": {
+      "type": "join-reward-benefits",
+      "blocks": {
+        "benefit_FptwB9": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify://shop_images/icon1.png",
+            "title": "+10 Perks & Birthday Gift",
+            "description": "Tell us your birthday"
+          }
+        },
+        "benefit_yeRUHP": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify://shop_images/icon2.png",
+            "title": "+30 Perks",
+            "description": "Download Pawcredible App"
+          }
+        },
+        "benefit_AYgHfR": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify://shop_images/icon3.png",
+            "title": "+30 Perks",
+            "description": "Activating notifications"
+          }
+        },
+        "benefit_X6JNKN": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify://shop_images/icon4.png",
+            "title": "+30 Perks",
+            "description": "Writing a product review"
+          }
+        },
+        "benefit_QJHwEA": {
+          "type": "benefit",
+          "settings": {
+            "image": "shopify://shop_images/icon5.png",
+            "title": "+50 Perks",
+            "description": "Donating to a cause"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_FptwB9",
+        "benefit_yeRUHP",
+        "benefit_AYgHfR",
+        "benefit_X6JNKN",
+        "benefit_QJHwEA"
+      ],
+      "name": "Join Reward Benefits",
+      "settings": {
+        "heading": "Get The Extra Perks!"
+      }
+    },
+    "join_reward_video_UzzVmy": {
+      "type": "join-reward-video",
+      "name": "Join Reward Video",
+      "settings": {
+        "heading": "How to use your VIP Rewards!",
+        "video_url": "",
+        "poster": "shopify://shop_images/join-video-img.png"
+      }
+    },
+    "join_reward_cta_K6XNCL": {
+      "type": "join-reward-cta",
+      "name": "Join Reward CTA",
+      "settings": {
+        "heading": "The Pawcredible Loyalty Program On The Planet!",
+        "description": "Become A VIP and Get $15 Off Plus, sooooo much more!",
+        "button_label": "Sign Up For Free",
+        "button_link": "/#subscribe_save"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "join_reward_hero_3h3JcC",
+    "join_reward_icons_7BWBhY",
+    "custom_liquid_MTrKjC",
+    "join_reward_benefits_p3rcg3",
+    "join_reward_video_UzzVmy",
+    "join_reward_cta_K6XNCL"
+  ]
+}

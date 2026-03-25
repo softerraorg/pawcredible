@@ -1,0 +1,26 @@
+{% schema %}
+{
+  "name": "Custom Global Heading",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Global Heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Global Heading",
+      "category": "Global Heading"
+    }
+  ]
+}
+{% endschema %}
+
+
+<section class="custom-global-heading">
+  <div class="page-width">
+    <h1>{{ section.settings.heading }}</h1>
+  </div>
+</section>

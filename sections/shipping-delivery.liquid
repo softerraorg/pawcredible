@@ -1,0 +1,180 @@
+<section class="shipping-heading">
+  <!-- 1st Section -->
+  <div class="page-width">
+    <h1>{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.paragraph }}</p>
+  </div>
+</section>
+
+<section class="shipping-section1">
+  <!-- 2nd Section -->
+  <div class="page-width">
+    <div class="shipping-section1-wrap">
+      <div class="shipping-section1-col">
+        {% if section.settings.second_image != blank %}
+          <img src="{{ section.settings.second_image | image_url: width: 800 }}" alt="Shipping Image" />
+        {% endif %}
+      </div>
+      <div class="shipping-section1-col">
+        {{ section.settings.second_richtext }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shipping-section2">
+  <!-- 3rd Section -->
+  <div class="page-width">
+    <h2>{{ section.settings.third_heading }}</h2>
+    <div class="third-section-cards">
+      {% for block in section.blocks %}
+        {% if block.type == 'third_column' %}
+          <div class="card">
+            {% if block.settings.image != blank %}
+              <div class="card-img">
+                <img src="{{ block.settings.image | image_url: width: 400 }}" alt="Image" />
+              </div>
+            {% endif %}
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.content }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="third-section-bottom">
+      <h2>{{ section.settings.third__bottom_heading }}</h2>
+      <p>{{ section.settings.third__bottom_paragraph }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="shipping-section3">
+  <!-- 4th Section -->
+  <div class="page-width">
+    <h2>{{ section.settings.fourth_heading }}</h2>
+    <p>{{ section.settings.fourth_paragraph }}</p>
+    <div class="fourth-section-cards">
+      {% for block in section.blocks %}
+        {% if block.type == 'fourth_column' %}
+          <div class="card">
+            {% if block.settings.image != blank %}
+              <div class="card-img">
+                <img src="{{ block.settings.image | image_url: width: 400 }}" />
+              </div>
+            {% endif %}
+            <h4>{{ block.settings.title }}</h4>
+            {{ block.settings.richtext }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shipping & Delivery Page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading (H1)",
+      "default": "Shipping & Delivery"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph Text",
+      "default": "We deliver our products with care and commitment to all locations."
+    },
+    {
+      "type": "image_picker",
+      "id": "second_image",
+      "label": "2nd Section Image"
+    },
+    {
+      "type": "richtext",
+      "id": "second_richtext",
+      "label": "2nd Section Rich Text"
+    },
+    {
+      "type": "text",
+      "id": "third_heading",
+      "label": "3rd Section Heading (H2)",
+      "default": "Our Shipping Services"
+    },
+    {
+      "type": "text",
+      "id": "fourth_heading",
+      "label": "4th Section Heading (H2)",
+      "default": "Delivery Commitment"
+    },
+    {
+      "type": "textarea",
+      "id": "fourth_paragraph",
+      "label": "4th Section Paragraph",
+      "default": "Fast, secure, and tracked delivery services for all regions."
+    },
+    {
+      "type": "text",
+      "id": "third__bottom_heading",
+      "label": "3rd Section Bottom Heading (H2)"
+    },
+    {
+      "type": "textarea",
+      "id": "third__bottom_paragraph",
+      "label": "3rd Section Bottom Paragraph"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "third_column",
+      "name": "3rd Section Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Column Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Column Title (H4)"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "fourth_column",
+      "name": "4th Section Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Column Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Column Title (H4)"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Column Rich Text"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Shipping & Delivery Page"
+    }
+  ]
+}
+{% endschema %}

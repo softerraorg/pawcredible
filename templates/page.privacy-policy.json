@@ -1,0 +1,33 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "privacy_policy_GNXhRY": {
+      "type": "privacy-policy",
+      "name": "Privacy Policy",
+      "settings": {
+        "heading": "Privacy Policy",
+        "content": "<p>At Pawcredible, we take your privacy seriously. As described in our full Privacy Policy, we collect limited personal information through your interactions with our website. This may include the use of cookies or similar technologies to help us improve your experience, tailor content, and better understand how our site is used.</p><p>In some cases, we may work with carefully selected third-party partners (including advertising providers) to show you content or offers that are more relevant to your interests. Some privacy laws in certain U.S. states classify this type of activity as “sharing,” “sales,” or “targeted advertising.” Depending on where you live, you may have the right to opt out of these activities.</p><p>If you would like to exercise your opt-out rights, you can follow the instructions provided below. Additionally, if you visit our website with the Global Privacy Control opt-out preference signal enabled, we will treat this as a request to opt out of any activity that may be considered a “sale,” “sharing,” or targeted advertising for the device and browser you are using.</p><p>To opt out of the collection of data through cookies and other device identifiers, please note that you must be browsing from one of the applicable U.S. states that provide these rights.</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "privacy_policy_GNXhRY"
+  ]
+}

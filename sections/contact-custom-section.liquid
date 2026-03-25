@@ -1,0 +1,309 @@
+{% schema %}
+{
+  "name": "Custom Contact Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Side Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "card_heading",
+          "label": "Card Heading",
+          "default": "Card Title"
+        },
+        {
+          "type": "richtext",
+          "id": "card_text",
+          "label": "Card Text"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 2,
+  "presets": [
+    {
+      "name": "Custom Contact Section",
+      "category": "Custom Contact Section"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="custom-contact-section">
+  <div class="contact-section-wrap">
+      <!-- Left Column Image -->
+      <div class="contact-section-col">
+        {% if section.settings.left_image %}
+          <img src="{{ section.settings.left_image | image_url: width: 600 }}" alt="Left Image" />
+        {% endif %}
+      </div>
+
+      <!-- Right Column Cards -->
+      <div class="contact-section-col contact-section-right">
+        {% for block in section.blocks %}
+          <div class="contact-card">
+            
+            <!-- Card Image -->
+            <div class="contact-card-image">
+              {% if block.settings.card_image %}
+                <img src="{{ block.settings.card_image | image_url: width: 100 }}" alt="Card Image" />
+              {% endif %}
+            </div>
+
+            <!-- Card Content -->
+            <div class="contact-card-content">
+              <h4>{{ block.settings.card_heading }}</h4>
+              <div class="contact-card-text">
+                {{ block.settings.card_text }}
+              </div>
+            </div>
+
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+</section>
+
+{% style %}
+
+.custom-global-heading {
+    background: #1E1E1E;
+    color: #fff;
+    padding: 50px 0;
+}
+
+.custom-global-heading h1 {
+    margin: 0;
+    text-align: center;
+    color: #fff;
+}
+
+.isolate .rich-text {background: #F7F0E3;}
+
+.isolate .rich-text h2 {
+    font-size: 20px;
+}
+
+.isolate .rich-text .rich-text__text h2 a {
+    font-size: 30px !important;
+    color: #4B882E !important;
+    transition: .3s all ease-in-out;
+}
+
+.isolate .rich-text .rich-text__text p {
+    font-size: 20px;
+    color: #000;
+}
+
+.isolate .rich-text .rich-text__text h2 a:hover {
+    color: #fdbe2e!important;
+}
+
+.contact {
+    background: #F7F0E3;
+    max-width: 100%;
+}
+
+.contact form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact form .field::before, .contact form .field::after {
+    display: none;
+}
+
+.contact form .field .field__input {
+    border: 1px solid #E9E9E9;
+    border-radius: 10px;
+    height: 60px;
+    letter-spacing: 0;
+    color: #000;
+}
+
+.contact form .field .field__label {
+    color: rgb(0 0 0 / 40%);
+    letter-spacing: 0;
+    font-family: 'Outfit';
+    line-height: 2.2;
+}
+
+.contact form .field .field__input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.contact__button {
+    margin: 0;
+    text-align: center;
+}
+
+.contact__button .button::before, .contact__button .button::after {
+    display: none;
+}
+
+.contact__button .button {
+    letter-spacing: 0;
+    background: #FDBE2E;
+    border-radius: 100px;
+    padding: 14px 40px;
+    min-height: auto;
+    color: #1E1E1E;
+    font-family: 'Outfit';
+    font-weight: 700;
+    transition: .3s all ease-in-out;
+}
+
+.contact__button .button:hover {
+    background: #000;
+    color: #fff;
+}
+
+.custom-contact-section {
+    background: #F6F6F6;
+}
+
+.contact-section-wrap {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.contact-section-wrap .contact-section-col {
+    flex: 1.7;
+    font-family: 'Outfit';
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.contact-section-wrap .contact-section-col.contact-section-right {
+    flex: 1;
+    margin-left: 40px;
+}
+
+.contact-section-wrap .contact-section-col img:not(.contact-section-wrap .contact-section-col.contact-section-right img) {
+    width: 100%;
+    height: 413px;
+    object-fit: cover;
+}
+
+.contact-section-wrap .contact-section-col .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.contact-section-wrap .contact-section-col .contact-card .contact-card-image {
+    height: 90px;
+    width: 90px;
+    background: #FDBE2E;
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-section-wrap .contact-section-col .contact-card h4 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.contact-section-wrap .contact-section-col .contact-card p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.contact .form__message h2 {
+    margin: 0;
+}
+
+.contact .form__message {
+    margin: 0;
+    font-size: 12px;
+}
+
+.form-status-list {
+    margin: 10px 0 20px;
+}
+
+.contact__field-error {
+    margin-top: 6px;
+}
+
+.contact__field-error .form__message .svg-wrapper {
+    height: 12px;
+    width: 20px;
+}
+
+@media (max-width:1024px)
+{
+
+.contact-section-wrap .contact-section-col {
+    flex: 1;
+}
+
+.contact-section-wrap .contact-section-col.contact-section-right {
+    margin: 0;
+}
+  
+}
+
+@media (max-width:767px)
+{
+
+.contact-section-wrap {
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.contact-section-wrap .contact-section-col {
+    flex: auto !important;
+}
+
+.custom-contact-section {
+    padding-bottom: 30px;
+}
+
+.contact-section-wrap .contact-section-col.contact-section-right {
+    padding: 0 30px;
+}
+
+.contact-section-wrap .contact-section-col .contact-card h4 {
+    font-size: 16px;
+}
+
+.isolate .rich-text h2 {
+    font-size: 16px;
+}
+
+.isolate .rich-text .rich-text__text p {
+    font-size: 16px;
+}
+
+.contact form .field .field__input {
+    height: 50px;
+}
+
+.contact form .field .field__label {
+    line-height: 1.8;
+}
+
+}
+
+
+{% endstyle %}

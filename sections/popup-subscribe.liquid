@@ -1,0 +1,220 @@
+{% comment %}
+  Popup Section: HTML + CSS only
+  JS will be added in theme.liquid by user
+{% endcomment %}
+
+<style>
+/* Popup base */
+.signupPopuphead {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.signupPopuphead.active {
+  display: block;
+}
+
+.signup-popup-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+/* Popup box */
+.signup-popup-container {
+  position: relative;
+  width: 90%;
+  max-width: 750px;
+  background: #fff;
+  margin: 50px auto;
+  border-radius: 12px;
+  padding: 20px 25px;
+  z-index: 10;
+  animation: popupFade .25s ease;
+}
+
+/* Close button */
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Content layout */
+.signup-popup-content {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.popup-left {
+  flex: 1;
+  text-align: center;
+}
+
+.popup-left h2 {
+  margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.popup-left p {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.popup-right {
+  flex: 1;
+}
+
+.popup-right img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.button-pop {
+background: #4b882e;
+color: white !important;
+border-radius: 200px;
+border: none !important;
+padding: 1.5rem 3rem;
+margin-bottom: 20px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .signup-popup-container {
+    margin: 20px auto;
+    padding: 18px;
+  }
+
+  .signup-popup-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .popup-right img {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+}
+
+/* Animation */
+@keyframes popupFade {
+  from { opacity: 0; transform: scale(.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Body lock when popup is open */
+.no-scroll {
+  overflow: hidden;
+}
+</style>
+
+<div class="signupPopuphead" id="signupPopuphead">
+  <div class="signup-popup-overlay"></div>
+
+  <div class="signup-popup-container">
+    <button class="popup-close" id="popupClosehead">&times;</button>
+
+    <div class="signup-popup-content">
+
+      <!-- LEFT TEXT -->
+      <div class="popup-left">
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.text_1 }}</p>
+        <a href="{{ section.settings.button-url }}" class="button-pop" id="button-pop">{{ section.settings.button-text }}</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // Open popup when menu link is clicked
+  document.querySelectorAll('[data-popup="subscriber"]').forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const popup = document.getElementById("signupPopuphead");
+      if (popup) {
+        popup.classList.add("active");
+        document.body.classList.add("no-scroll");
+      }
+    });
+  });
+
+  // Close popup
+  const closeBtn = document.getElementById("popupClosehead");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      document.getElementById("signupPopuphead").classList.remove("active");
+      document.body.classList.remove("no-scroll");
+    });
+  }
+
+  const closeBtn2 = document.getElementById("button-pop");
+  if (closeBtn2) {
+    closeBtn2.addEventListener("click", () => {
+      document.getElementById("signupPopuphead").classList.remove("active");
+      document.body.classList.remove("no-scroll");
+    });
+  }
+
+  // Close when clicking outside
+  document.querySelector(".signup-popup-overlay")?.addEventListener("click", () => {
+    document.getElementById("signupPopuphead").classList.remove("active");
+    document.body.classList.remove("no-scroll");
+  });
+
+});
+</script>
+
+{% schema %}
+{
+  "name": "Subscribe Popup",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Subscribe & Save"
+    },
+    {
+      "type": "text",
+      "id": "button-text",
+      "label": "button text",
+      "default": "Subscribe Now"
+    },
+    {
+      "type": "url",
+      "id": "button-url",
+      "label": "button url"
+    },
+    {
+      "type": "richtext",
+      "id": "text_1",
+      "label": "Line 1",
+      "default": "<p>Get effortless nutrition delivered on your schedule.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Subscribe Popup"
+    }
+  ]
+}
+{% endschema %}
