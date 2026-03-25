@@ -14,10 +14,10 @@
   --fc-muted: #4a4540;
   --fc-text: #1a1a1a;
   --fc-radius: 12px;
-  --fc-font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --fc-font-display: var(--font-body-family);
   --fc-font-ui: 'DM Sans', var(--font-body-family), system-ui, sans-serif;
   /* Typography scale (accessibility): body ≥16px; section page titles 30px; wizard / modal titles 24px */
-  --fc-font-min: 16px;
+  --fc-font-min: 14px;
   --fc-font-heading-page: 30px;
   --fc-font-heading-step: 24px;
   --fc-sheet-max: 500px;
@@ -63,7 +63,9 @@
   margin-left: auto;
   margin-right: auto;
 }
-
+.feeding-calculator__open:after {
+  content: none !important;
+}
 .feeding-calculator__open {
   width: 100%;
   max-width: 320px;
@@ -334,8 +336,8 @@
 
 .feeding-calculator__suffix {
   position: absolute;
-  right: 1rem;
-  top: 50%;
+  right: 3rem;
+  top: 36%;
   transform: translateY(-50%);
   font-weight: 600;
   font-size: var(--fc-font-min);
@@ -522,7 +524,7 @@
 
 .feeding-calculator__stat span {
   display: block;
-  font-size: var(--fc-font-min);
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--fc-muted);
@@ -805,7 +807,7 @@
   margin-bottom: 1.25rem;
   border-radius: 10px;
   border: 1.5px solid var(--fc-border);
-  font-size: 1rem;
+  font-size: 16px;
   font-family: var(--fc-font-ui);
 }
 
@@ -943,7 +945,7 @@
   border-radius: 50%;
   background: var(--fc-green);
   color: #fff;
-  font-size: var(--fc-font-min);
+  font-size: 11px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -1272,11 +1274,27 @@
 /* Subscribe row: same absolute badge placement as pack tier (Alpha “Best value”) */
 .feeding-calculator__purchase-card--subscribe {
   position: relative;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.55rem;
 }
 
 .feeding-calculator__purchase-card--subscribe .feeding-calculator__purchase-card-inner {
   padding-right: 0.25rem;
   max-width: calc(100% - 5.5rem);
+  width: 100%;
+}
+
+.feeding-calculator__pill-row--in-subscribe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.65rem 0 0;
+  border-top: 1px solid var(--fc-border);
+  align-self: stretch;
+  box-sizing: border-box;
 }
 
 .feeding-calculator .feeding-calculator__purchase-card:hover,
@@ -1409,6 +1427,7 @@
   background: #1a1a1a !important;
   background-image: none !important;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18) !important;
+  color: #FFFFFF !important;
 }
 
 .feeding-calculator__wiz-body .feeding-calculator__btn--cta:disabled {

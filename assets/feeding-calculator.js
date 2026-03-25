@@ -1349,10 +1349,10 @@
         '</strong>' +
         '<span class="feeding-calculator__purchase-sub">' +
         escapeHtml(el.getAttribute('data-label-subscribe-sub') || 'Save 10% + Free delivery') +
-        '</span></span></span></button>' +
-        (state.purchase === 'subscribe'
-          ? '<div class="feeding-calculator__pill-row">' + pillsHtml + '</div>'
-          : '') +
+        '</span></span></span>' +
+        '<span class="feeding-calculator__pill-row feeding-calculator__pill-row--in-subscribe">' +
+        pillsHtml +
+        '</span></button>' +
         '</div>' +
         '<button type="button" class="feeding-calculator__purchase-card feeding-calculator__purchase-card--dark' +
         (state.purchase === 'onetime' ? ' feeding-calculator__purchase-card--selected-dark' : '') +
