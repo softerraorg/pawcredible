@@ -1394,6 +1394,75 @@
   box-shadow: inset 0 0 0 4px #1a1a1a;
 }
 
+/* One-time: plain underlined text below subscribe — no card chrome */
+.feeding-calculator__purchase-onetime-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.35rem;
+  padding: 0 0.15rem;
+  width: 100%;
+}
+
+.feeding-calculator__purchase-onetime {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.45rem 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none !important;
+  cursor: pointer;
+  font-family: var(--fc-font-ui);
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(26, 26, 26, 0.52);
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  min-height: 0;
+  line-height: 1.35;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.feeding-calculator__purchase-onetime:hover,
+.feeding-calculator__purchase-onetime:focus-visible {
+  color: rgba(26, 26, 26, 0.72);
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.feeding-calculator__purchase-onetime:focus-visible {
+  outline: 2px solid var(--fc-green);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.feeding-calculator__purchase-onetime-label {
+  flex: 0 1 auto;
+  text-align: left;
+}
+
+.feeding-calculator__p-radio--onetime {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--fc-green);
+  flex-shrink: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.feeding-calculator__p-radio--onetime.feeding-calculator__p-radio--on {
+  border-color: var(--fc-green);
+  box-shadow: inset 0 0 0 2.5px var(--fc-green);
+}
+
 .feeding-calculator__pill-row {
   display: flex;
   flex-wrap: wrap;

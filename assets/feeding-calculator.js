@@ -106,6 +106,25 @@
     };
   }
 
+  /** Digits + at most one decimal point (for weight kg field). */
+  function filterWeightInputRaw(s) {
+    var out = '';
+    var dot = false;
+    var i;
+    for (i = 0; i < String(s || '').length; i++) {
+      var c = String(s)[i];
+      if (c >= '0' && c <= '9') {
+        out += c;
+        continue;
+      }
+      if (c === '.' && !dot) {
+        out += '.';
+        dot = true;
+      }
+    }
+    return out;
+  }
+
   function mergeConfig(base, handles, componentHandles, sellingPlanIdAttr, cartModeAttr) {
     var out = JSON.parse(JSON.stringify(base));
     if (handles.mini) out.productHandles.mini = handles.mini;
@@ -939,6 +958,11 @@
           escapeHtml(el.getAttribute('data-label-back') || 'Back') +
           '</button>';
       } else if (step === 3) {
+        var wMin = parseFloat(el.getAttribute('data-weight-min'));
+        var wMax = parseFloat(el.getAttribute('data-weight-max'));
+        if (isNaN(wMin)) wMin = 0;
+        if (isNaN(wMax)) wMax = 100;
+        if (wMax < wMin) wMax = wMin;
         body =
           '<div class="feeding-calculator__step-icon" aria-hidden="true">⚖️</div>' +
           '<h2 class="feeding-calculator__title-serif">' +
@@ -950,12 +974,28 @@
           escapeHtml(el.getAttribute('data-hint-weight') || 'An approximate weight is fine.') +
           '</p>' +
           '<div class="feeding-calculator__field-inner">' +
-          '<input type="number" class="feeding-calculator__input feeding-calculator__input--wiz" min="0.5" max="100" step="0.1" data-fc-weight value="' +
+          '<input type="text" inputmode="decimal" class="feeding-calculator__input feeding-calculator__input--wiz" autocomplete="off" spellcheck="false" minlength="0" maxlength="6" data-fc-weight data-weight-min="' +
+          wMin +
+          '" data-weight-max="' +
+          wMax +
+          '" value="' +
           escapeHtml(state.weight) +
-          '" placeholder="e.g. 25" />' +
+          '" placeholder="e.g. 25" aria-describedby="fc-weight-hint-' +
+          (el.id || 'fc') +
+          '" />' +
           '<span class="feeding-calculator__suffix">kg</span></div>' +
+          '<p class="visually-hidden" id="fc-weight-hint-' +
+          (el.id || 'fc') +
+          '">Enter a number between ' +
+          wMin +
+          ' and ' +
+          wMax +
+          ' kilograms.</p>' +
           '<button type="button" class="feeding-calculator__btn feeding-calculator__btn--primary feeding-calculator__btn--wiz" data-fc-next ' +
-          (!parseFloat(state.weight) || parseFloat(state.weight) <= 0 ? 'disabled' : '') +
+          (function () {
+            var _w = parseFloat(filterWeightInputRaw(state.weight));
+            return !_w || _w <= 0 || _w > wMax ? 'disabled' : '';
+          })() +
           '>' +
           escapeHtml(el.getAttribute('data-label-continue') || 'Continue') +
           '</button>' +
@@ -1086,25 +1126,65 @@
       if (step === 3) {
         var wIn = panel.querySelector('[data-fc-weight]');
         var nx3 = panel.querySelector('[data-fc-next]');
+        function weightBoundsFromInput(inp) {
+          var mn = parseFloat(inp.getAttribute('data-weight-min'));
+          var mx = parseFloat(inp.getAttribute('data-weight-max'));
+          return {
+            min: isNaN(mn) ? 0 : mn,
+            max: isNaN(mx) ? 100 : mx,
+          };
+        }
+        function syncWeightFromField() {
+          if (!wIn || !nx3) return;
+          var b = weightBoundsFromInput(wIn);
+          var raw = filterWeightInputRaw(wIn.value);
+          var n = parseFloat(raw);
+          if (!isNaN(n) && n > b.max) {
+            raw = String(b.max);
+            n = b.max;
+          }
+          wIn.value = raw;
+          state.weight = raw;
+          nx3.disabled = !n || n <= 0 || n > b.max;
+        }
         if (wIn) {
           wIn.focus();
-          wIn.addEventListener('input', function () {
-            state.weight = wIn.value;
-            var wf = parseFloat(state.weight);
-            nx3.disabled = !wf || wf <= 0;
+          syncWeightFromField();
+          wIn.addEventListener('input', syncWeightFromField);
+          wIn.addEventListener('blur', function () {
+            if (!wIn || !nx3) return;
+            var b = weightBoundsFromInput(wIn);
+            var raw = filterWeightInputRaw(wIn.value);
+            var n = parseFloat(raw);
+            if (isNaN(n) || raw === '') {
+              state.weight = raw;
+              nx3.disabled = true;
+              return;
+            }
+            if (n < b.min) n = b.min;
+            if (n > b.max) n = b.max;
+            var out = String(n);
+            wIn.value = out;
+            state.weight = out;
+            nx3.disabled = !n || n <= 0 || n > b.max;
           });
           wIn.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' && parseFloat(state.weight) > 0) {
-              e.preventDefault();
-              state.wizard = 4;
-              render();
-            }
+            if (e.key !== 'Enter') return;
+            var b = weightBoundsFromInput(wIn);
+            var wf = parseFloat(filterWeightInputRaw(wIn.value));
+            if (!wf || wf <= 0 || wf > b.max) return;
+            e.preventDefault();
+            state.weight = String(wf);
+            state.wizard = 4;
+            render();
           });
         }
         if (nx3) {
           nx3.addEventListener('click', function () {
-            var wf = parseFloat(state.weight);
-            if (!wf || wf <= 0) return;
+            if (!wIn) return;
+            var b = weightBoundsFromInput(wIn);
+            var wf = parseFloat(filterWeightInputRaw(wIn.value));
+            if (!wf || wf <= 0 || wf > b.max) return;
             state.weight = String(wf);
             state.wizard = 4;
             render();
@@ -1308,11 +1388,13 @@
       var ctaPrice = state.purchase === 'subscribe' ? selPackRow.subCents : selPackRow.totalCents;
       var ctaLabel =
         state.purchase === 'subscribe'
-          ? tplReplace(el.getAttribute('data-label-cta-sub') || 'Subscribe & Save – __PRICE__', {
+          ? tplReplace(el.getAttribute('data-label-cta-sub') || 'Start My Monthly Treat Plan – __PRICE__', {
               __PRICE__: formatMoney(ctaPrice, moneyFormat),
+              __PACK__: selPackRow.name || '',
             })
           : tplReplace(el.getAttribute('data-label-cta-once') || 'Buy Once – __PRICE__', {
               __PRICE__: formatMoney(ctaPrice, moneyFormat),
+              __PACK__: selPackRow.name || '',
             });
 
       var cartMode = cfg.cartMode || 'bundle';
@@ -1336,7 +1418,9 @@
         '<div class="feeding-calculator__purchase-row" data-fc-subscribe-wrap>' +
         '<button type="button" class="feeding-calculator__purchase-card feeding-calculator__purchase-card--subscribe' +
         (state.purchase === 'subscribe' ? ' feeding-calculator__purchase-card--selected' : '') +
-        '" data-purchase="subscribe">' +
+        '" data-purchase="subscribe" aria-pressed="' +
+        (state.purchase === 'subscribe' ? 'true' : 'false') +
+        '">' +
         '<span class="feeding-calculator__pack-badge feeding-calculator__pack-badge--tier">' +
         escapeHtml(el.getAttribute('data-label-best-value') || 'Best Value') +
         '</span>' +
@@ -1354,15 +1438,16 @@
         pillsHtml +
         '</span></button>' +
         '</div>' +
-        '<button type="button" class="feeding-calculator__purchase-card feeding-calculator__purchase-card--dark' +
-        (state.purchase === 'onetime' ? ' feeding-calculator__purchase-card--selected-dark' : '') +
-        '" data-purchase="onetime">' +
-        '<span class="feeding-calculator__p-radio feeding-calculator__p-radio--dark' +
-        (state.purchase === 'onetime' ? ' feeding-calculator__p-radio--on-dark' : '') +
-        '"></span>' +
-        '<span>' +
-        escapeHtml(el.getAttribute('data-label-onetime') || 'One-Time Purchase') +
-        '</span></button></div>';
+        '<div class="feeding-calculator__purchase-onetime-wrap">' +
+        '<button type="button" class="feeding-calculator__purchase-onetime" data-purchase="onetime" aria-pressed="' +
+        (state.purchase === 'onetime' ? 'true' : 'false') +
+        '">' +
+        '<span class="feeding-calculator__p-radio feeding-calculator__p-radio--onetime' +
+        (state.purchase === 'onetime' ? ' feeding-calculator__p-radio--on' : '') +
+        '" aria-hidden="true"></span>' +
+        '<span class="feeding-calculator__purchase-onetime-label">' +
+        escapeHtml(el.getAttribute('data-label-onetime') || 'One-time purchase') +
+        '</span></button></div></div>';
 
       panel.innerHTML =
         '<div class="feeding-calculator__wizard feeding-calculator__wizard--results">' +

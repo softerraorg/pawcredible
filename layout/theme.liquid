@@ -640,11 +640,11 @@ const waitForBundler = setInterval(() => {
     }
 
     function updateButtonText() {
-      var subOption = widget.querySelector('.sls-option-container[data-selling-plan-group="0"].sls-active');
-      if (subOption) {
-        var priceEl = subOption.querySelector('.sls-price .money');
+      var activeSub = widget.querySelector('.sls-option-container[data-selling-plan-group].sls-active');
+      if (activeSub) {
+        var priceEl = activeSub.querySelector('.sls-price .money');
         var priceText = priceEl ? priceEl.textContent.trim() : '';
-        btn.textContent = 'Subscribe & Save' + (priceText ? ' \u2013 ' + priceText : '');
+        btn.textContent = 'Start My Monthly Treat Plan' + (priceText ? ' \u2013 ' + priceText : '');
       } else {
         var otpEl = widget.querySelector('.sls-one-time-price .money');
         var otpText = otpEl ? otpEl.textContent.trim() : '';

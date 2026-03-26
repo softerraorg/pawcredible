@@ -113,6 +113,7 @@
         "label_day": "day",
         "label_one_time_compare": "One-time equivalent:",
         "label_sub_compare": "Subscribe & Save:",
+        "label_cta_sub": "Start My Monthly Treat Plan – __PRICE__",
         "label_recalc": "Recalculate",
         "label_close": "Close",
         "msg_extra_bag": "You're within 1kg of filling the next bag — an extra bag this month is optional.",

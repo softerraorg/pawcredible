@@ -75,6 +75,8 @@
       data-msg-cart-error="{{ section.settings.msg_cart_error | escape }}"
       data-label-weight="{{ section.settings.label_weight | escape }}"
       data-hint-weight="{{ section.settings.hint_weight | escape }}"
+      data-weight-min="0"
+      data-weight-max="100"
       data-label-activity="{{ section.settings.label_activity | escape }}"
       data-hint-activity="{{ section.settings.hint_activity | escape }}"
       data-label-continue="{{ section.settings.label_continue | escape }}"
@@ -606,13 +608,15 @@
       "type": "text",
       "id": "label_cta_sub",
       "label": "CTA subscribe",
-      "default": "Subscribe & Save – __PRICE__"
+      "default": "Start My Monthly Treat Plan – __PRICE__",
+      "info": "Updates when the pack tier changes. Placeholders: __PRICE__, __PACK__ (pack name)."
     },
     {
       "type": "text",
       "id": "label_cta_once",
       "label": "CTA one-time",
-      "default": "Buy Once – __PRICE__"
+      "default": "Buy Once – __PRICE__",
+      "info": "Placeholders: __PRICE__, __PACK__ (selected pack name)."
     },
     {
       "type": "text",
