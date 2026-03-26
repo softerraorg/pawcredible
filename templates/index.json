@@ -118,8 +118,7 @@
         "label_close": "Close",
         "msg_extra_bag": "You're within 1kg of filling the next bag — an extra bag this month is optional.",
         "msg_bumped": "Recommended coverage uses __BAGS__ × __KG__ kg bags to match monthly need.",
-        "cart_mode": "bundle",
-        "msg_bundle_incomplete": "Connect Mini, Adventurer, and Alpha pack products in this section to enable Add to cart.",
+        "msg_cart_incomplete": "Connect BioBowl, topper, and treat products in this section to add this pack to cart.",
         "color_scheme": "scheme-1",
         "padding_top": 36,
         "padding_bottom": 36

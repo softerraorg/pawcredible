@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "cartMode": "bundle",
+  "cartMode": "line_items",
   "meta": {
     "notes": "PDF: Relaxed=low range, Active=mid, Very Active=high. Weight bands: Mini <10kg, Medium 10–29.99kg, Large 30kg+. Monthly need uses daysPerMonth (30 = calendar-style month)."
   },

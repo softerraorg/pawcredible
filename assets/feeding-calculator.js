@@ -125,11 +125,8 @@
     return out;
   }
 
-  function mergeConfig(base, handles, componentHandles, sellingPlanIdAttr, cartModeAttr) {
+  function mergeConfig(base, componentHandles, sellingPlanIdAttr) {
     var out = JSON.parse(JSON.stringify(base));
-    if (handles.mini) out.productHandles.mini = handles.mini;
-    if (handles.adventurer) out.productHandles.adventurer = handles.adventurer;
-    if (handles.alpha) out.productHandles.alpha = handles.alpha;
     if (!out.componentHandles) out.componentHandles = { food: '', topper: '', treat: '' };
     if (componentHandles.food) out.componentHandles.food = componentHandles.food;
     if (componentHandles.topper) out.componentHandles.topper = componentHandles.topper;
@@ -138,10 +135,6 @@
       var sp = parseInt(String(sellingPlanIdAttr).trim(), 10);
       if (!isNaN(sp)) out.sellingPlanId = sp;
     }
-    if (cartModeAttr === 'bundle' || cartModeAttr === 'line_items') {
-      out.cartMode = cartModeAttr;
-    }
-    if (!out.cartMode) out.cartMode = 'bundle';
     return out;
   }
 
@@ -188,25 +181,12 @@
   /**
    * Theme setting may hold a plan ID from another SKU; Ajax /cart/add.js expects a plan
    * that exists on this variant. Prefer the configured ID when present; otherwise first allocation.
-   * If this variant has no selling_plan_allocations, falls back to the theme ID (bundle / legacy).
+   * If this variant has no selling_plan_allocations, falls back to the theme ID.
    */
   function resolveSellingPlanForVariant(product, variantId, preferredRaw) {
     var fromAlloc = resolveSellingPlanForVariantOrNull(product, variantId, preferredRaw);
     if (fromAlloc != null) return fromAlloc;
     return parseSellingPlanId(preferredRaw);
-  }
-
-  /** One line item: the pack product for this tier (Mini / Adventurer / Alpha SKU). */
-  function buildBundleCartItems(packId, productMap, sellingPlanId, subscribe) {
-    var prod = productMap[packId];
-    var vid = firstVariantId(prod);
-    if (!vid) return null;
-    var item = { id: vid, quantity: 1 };
-    if (subscribe) {
-      var sid = resolveSellingPlanForVariant(prod, vid, sellingPlanId);
-      if (sid != null) item.selling_plan = sid;
-    }
-    return [item];
   }
 
   /** Three line items: food + topper + treat (quantities from calculator). */
@@ -336,7 +316,7 @@
     }
   }
 
-  /** Single request (bundle or one-time). */
+  /** Single /cart/add.js request (e.g. one-time three lines). */
   function addItemsToCart(items, el, buttonEl, onDone) {
     if (!items || !items.length) return;
     if (buttonEl) {
@@ -496,19 +476,13 @@
   }
 
   /**
-   * @returns {{ cents: number, source: 'pack_product'|'components'|'fallback' }}
-   * Line-items mode: always prefer food + topper + treat (matches /cart/add.js). Pack-tier
-   * products in the theme are optional display links; their prices are not used for totals.
+   * @returns {{ cents: number, source: 'components'|'fallback' }}
+   * Food + topper + treat × quantities (matches /cart/add.js). Falls back to config prices.
    */
-  function resolveBasePackPriceCents(rec, packId, cfg, productMap, componentMap) {
-    if (cfg.cartMode === 'line_items' && rec && rec.packDef) {
+  function resolveBasePackPriceCents(rec, packId, cfg, componentMap) {
+    if (rec && rec.packDef) {
       var comp = computedLineItemsPackCents(rec, rec.packDef, componentMap);
       if (comp != null) return { cents: comp, source: 'components' };
-    }
-    var prod = productMap[packId];
-    if (prod) {
-      var c = variantPriceCents(prod);
-      if (c != null) return { cents: c, source: 'pack_product' };
     }
     var fb = cfg.fallbackPrices && cfg.fallbackPrices[packId];
     if (fb && fb.cents != null) return { cents: fb.cents, source: 'fallback' };
@@ -534,7 +508,7 @@
     };
   }
 
-  function computeAllPackOptions(cfg, productMap, componentMap, monthlyKg, recommendedPackId) {
+  function computeAllPackOptions(cfg, componentMap, monthlyKg, recommendedPackId) {
     var packs = cfg.packs || [];
     var out = [];
     var days = cfg.daysPerMonth || 30;
@@ -542,20 +516,10 @@
     for (var i = 0; i < packs.length; i++) {
       var p = packs[i];
       var rec = makeRecForPackTier(p, monthlyKg, cfg);
-      var r = resolveBasePackPriceCents(rec, p.id, cfg, productMap, componentMap);
+      var r = resolveBasePackPriceCents(rec, p.id, cfg, componentMap);
       var cents = r.cents;
-      if (
-        rec.bumpedBags &&
-        p.id === 'alpha' &&
-        rec.bags > rec.packDef.bags &&
-        r.source === 'pack_product'
-      ) {
-        var perBag = cents / rec.packDef.bags;
-        cents = Math.round(perBag * rec.bags);
-      }
       var subLine = computedLineItemsSubscribePackCents(rec, p, componentMap, cfg.sellingPlanId);
-      var subCents =
-        cfg.cartMode === 'line_items' && subLine != null ? subLine : applySubscribeDiscount(cents, disc);
+      var subCents = subLine != null ? subLine : applySubscribeDiscount(cents, disc);
       out.push({
         id: p.id,
         name: p.name,
@@ -674,18 +638,12 @@
     if (!configUrl) return;
 
     var moneyFormat = el.getAttribute('data-money-format') || '{{amount}}';
-    var handles = {
-      mini: el.getAttribute('data-handle-mini') || '',
-      adventurer: el.getAttribute('data-handle-adventurer') || '',
-      alpha: el.getAttribute('data-handle-alpha') || '',
-    };
     var componentHandleAttrs = {
       food: el.getAttribute('data-handle-food') || '',
       topper: el.getAttribute('data-handle-topper') || '',
       treat: el.getAttribute('data-handle-treat') || '',
     };
     var sellingPlanAttr = el.getAttribute('data-selling-plan-id') || '';
-    var cartModeAttr = el.getAttribute('data-cart-mode') || '';
 
     var layout = el.getAttribute('data-layout') || 'inline';
     var openBtn = el.querySelector('[data-feeding-open]');
@@ -722,13 +680,10 @@
         return r.json();
       })
       .then(function (cfg) {
-        cfg = mergeConfig(cfg, handles, componentHandleAttrs, sellingPlanAttr, cartModeAttr);
+        cfg = mergeConfig(cfg, componentHandleAttrs, sellingPlanAttr);
         var ch = cfg.componentHandles || {};
         return Promise.all([
           cfg,
-          fetchProductJson(cfg.productHandles.mini),
-          fetchProductJson(cfg.productHandles.adventurer),
-          fetchProductJson(cfg.productHandles.alpha),
           fetchProductJson(ch.food),
           fetchProductJson(ch.topper),
           fetchProductJson(ch.treat),
@@ -736,17 +691,12 @@
       })
       .then(function (results) {
         var cfg = results[0];
-        var productMap = {
-          mini: results[1],
-          adventurer: results[2],
-          alpha: results[3],
-        };
         var componentMap = {
-          food: results[4],
-          topper: results[5],
-          treat: results[6],
+          food: results[1],
+          topper: results[2],
+          treat: results[3],
         };
-        mount(el, cfg, productMap, componentMap, moneyFormat);
+        mount(el, cfg, componentMap, moneyFormat);
       })
       .catch(function () {
         var err = el.querySelector('[data-feeding-error]');
@@ -754,7 +704,7 @@
       });
   }
 
-  function mount(el, cfg, productMap, componentMap, moneyFormat) {
+  function mount(el, cfg, componentMap, moneyFormat) {
     var panel = el.querySelector('[data-feeding-panel]');
     if (!panel) return;
 
@@ -1254,13 +1204,7 @@
         var rec = recommendPack(monthlyKg, cfg);
         var recommendedPackId = rec.packDef.id;
         state.selectedPackId = recommendedPackId;
-        var allPacks = computeAllPackOptions(
-          cfg,
-          productMap,
-          componentMap,
-          monthlyKg,
-          recommendedPackId
-        );
+        var allPacks = computeAllPackOptions(cfg, componentMap, monthlyKg, recommendedPackId);
         state.resultCtx = {
           w: w,
           grams: grams,
@@ -1397,18 +1341,11 @@
               __PACK__: selPackRow.name || '',
             });
 
-      var cartMode = cfg.cartMode || 'bundle';
       var viewUrl = el.getAttribute('data-view-url') || '';
-      if (cartMode === 'bundle') {
-        var pp = productMap[packId];
-        if (pp && pp.url) viewUrl = pp.url;
-      } else if (!viewUrl && componentMap.food && componentMap.food.url) {
+      if (!viewUrl && componentMap.food && componentMap.food.url) {
         viewUrl = componentMap.food.url;
       }
-      var componentsReady =
-        cartMode === 'bundle'
-          ? !!(productMap[packId] && firstVariantId(productMap[packId]))
-          : !!(componentMap.food && componentMap.topper && componentMap.treat);
+      var componentsReady = !!(componentMap.food && componentMap.topper && componentMap.treat);
 
       var purchaseBlock =
         '<div class="feeding-calculator__purchase feeding-calculator__purchase--cards">' +
@@ -1533,11 +1470,8 @@
           ? ''
           : '<p class="feeding-calculator__hint">' +
             escapeHtml(
-              cartMode === 'bundle'
-                ? el.getAttribute('data-msg-bundle-incomplete') ||
-                    'Connect pack products in the theme editor to enable checkout.'
-                : el.getAttribute('data-msg-cart-incomplete') ||
-                    'Connect BioBowl, topper, and treat products to add to cart.'
+              el.getAttribute('data-msg-cart-incomplete') ||
+                'Connect BioBowl, topper, and treat products to add to cart.'
             ) +
             '</p>') +
         (viewUrl
@@ -1587,12 +1521,9 @@
             return p.id === pid;
           })[0];
           var recCart = makeRecForPackTier(pdef, monthlyKg, cfg);
-          var items =
-            cartMode === 'bundle'
-              ? buildBundleCartItems(pid, productMap, cfg.sellingPlanId, sub)
-              : buildPackCartItems(recCart, recCart.packDef, componentMap, cfg.sellingPlanId, sub);
+          var items = buildPackCartItems(recCart, recCart.packDef, componentMap, cfg.sellingPlanId, sub);
           if (!items) return;
-          if (cartMode === 'line_items' && sub) {
+          if (sub) {
             addLineItemsSubscribeThenRest(items, cfg.sellingPlanId, el, primary, componentMap);
           } else {
             addItemsToCart(items, el, primary, null);

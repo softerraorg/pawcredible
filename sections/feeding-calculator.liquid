@@ -17,22 +17,10 @@
 {%- endstyle -%}
 
 {%- liquid
-  assign handle_mini = ''
-  assign handle_adv = ''
-  assign handle_alpha = ''
   assign handle_food = ''
   assign handle_topper = ''
   assign handle_treat = ''
   assign url_food = ''
-  if section.settings.product_mini != blank
-    assign handle_mini = section.settings.product_mini.handle
-  endif
-  if section.settings.product_adventurer != blank
-    assign handle_adv = section.settings.product_adventurer.handle
-  endif
-  if section.settings.product_alpha != blank
-    assign handle_alpha = section.settings.product_alpha.handle
-  endif
   if section.settings.product_food != blank
     assign handle_food = section.settings.product_food.handle
     assign url_food = section.settings.product_food.url
@@ -57,9 +45,6 @@
       data-config-url="{{ 'feeding-calculator-config.json' | asset_url }}"
       data-money-format="{{ shop.money_format | escape }}"
       data-layout="{{ section.settings.layout }}"
-      data-handle-mini="{{ handle_mini | escape }}"
-      data-handle-adventurer="{{ handle_adv | escape }}"
-      data-handle-alpha="{{ handle_alpha | escape }}"
       data-handle-food="{{ handle_food | escape }}"
       data-handle-topper="{{ handle_topper | escape }}"
       data-handle-treat="{{ handle_treat | escape }}"
@@ -69,8 +54,6 @@
       data-label-add-cart="{{ section.settings.label_add_cart | escape }}"
       data-label-add-subscribe="{{ section.settings.label_add_subscribe | escape }}"
       data-hint-subscribe-plan="{{ section.settings.hint_subscribe_plan | escape }}"
-      data-cart-mode="{{ section.settings.cart_mode | escape }}"
-      data-msg-bundle-incomplete="{{ section.settings.msg_bundle_incomplete | escape }}"
       data-msg-cart-incomplete="{{ section.settings.msg_cart_incomplete | escape }}"
       data-msg-cart-error="{{ section.settings.msg_cart_error | escape }}"
       data-label-weight="{{ section.settings.label_weight | escape }}"
@@ -258,51 +241,11 @@
     },
     {
       "type": "header",
-      "content": "Products (optional)"
+      "content": "Pack products"
     },
     {
       "type": "paragraph",
-      "content": "Line items mode: calculator prices match the cart — they sum food + topper + treat (quantities per tier). Assign those three under Pack parts. Mini / Adventurer / Alpha products above are for bundle mode, or optional View links; they are not used for line-items price totals."
-    },
-    {
-      "type": "select",
-      "id": "cart_mode",
-      "label": "How packs are sold",
-      "options": [
-        {
-          "value": "bundle",
-          "label": "Bundle: one product per tier"
-        },
-        {
-          "value": "line_items",
-          "label": "Line items: food, topper, treat"
-        }
-      ],
-      "default": "bundle",
-      "info": "Bundle: Mini / Adventurer / Alpha each map to one product. Line items: matches PDF (3 products per add)."
-    },
-    {
-      "type": "product",
-      "id": "product_mini",
-      "label": "Mini Paw Pack product"
-    },
-    {
-      "type": "product",
-      "id": "product_adventurer",
-      "label": "Adventurer Pack product"
-    },
-    {
-      "type": "product",
-      "id": "product_alpha",
-      "label": "Alpha Pack product"
-    },
-    {
-      "type": "header",
-      "content": "Pack parts (line-items mode only)"
-    },
-    {
-      "type": "paragraph",
-      "content": "Adds three products: BioBowl bags, toppers, treats with quantities from the calculator. Use bundle mode if you sell one product per pack instead."
+      "content": "Prices and Add to cart use these three products: food bags, topper tubes, and treat pouches, with quantities from the selected pack tier."
     },
     {
       "type": "product",
@@ -323,7 +266,7 @@
       "type": "text",
       "id": "selling_plan_id",
       "label": "Selling plan ID (optional)",
-      "info": "Shopify Admin → product → Purchase options → open the plan → ID in URL or app. Line-items mode: each component line can use this subscription plan when Subscribe is selected. Bundle mode: plan applies to the single pack product line."
+      "info": "Shopify Admin → product → Purchase options → open the plan → ID in URL or app. Each component (food, topper, treat) should include this plan when Subscribe is selected."
     },
     {
       "type": "header",
@@ -355,14 +298,8 @@
     },
     {
       "type": "text",
-      "id": "msg_bundle_incomplete",
-      "label": "Incomplete message (bundle mode)",
-      "default": "Connect Mini, Adventurer, and Alpha pack products in this section to enable Add to cart."
-    },
-    {
-      "type": "text",
       "id": "msg_cart_incomplete",
-      "label": "Incomplete message (line-items mode)",
+      "label": "Incomplete products message",
       "default": "Connect BioBowl, topper, and treat products above to add this pack to cart."
     },
     {

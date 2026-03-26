@@ -1510,3 +1510,6 @@
   color: #6b6560;
   margin: 0 0 0.75rem;
 }
+a.feeding-calculator__btn.feeding-calculator__btn--outline.feeding-calculator__btn--view {
+  display: none;
+}
